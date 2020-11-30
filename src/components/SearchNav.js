@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
@@ -15,7 +14,7 @@ class SearchNav extends Component {
         this.state = {
             searchUserInput: '',
             locationUserInput: '',
-            categoryUserChoice: 'Category'
+            categoryUserChoice: ''
         }
     }
 
@@ -29,7 +28,7 @@ class SearchNav extends Component {
     }
 
     getJobsFromApiAndPassArrayToParentFunc = () => {
-        Axios.get('https://remotive.io/api/remote-jobs?limit=10&search=' + this.state.searchUserInput)
+        Axios.get('https://remotive.io/api/remote-jobs?search=' + this.state.searchUserInput)
             .then(response => response.data.jobs)
             .then(jobs => this.filterByLocation(jobs))
             .then(jobs => this.filterByCategory(jobs))
