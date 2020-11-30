@@ -22,3 +22,13 @@
     background-color: beige;
     color: black;
 }
+
+.my-board-container p {
+    background-color: beige;
+    color: black;
+}
+
+.my-board-container img {
+    height: 300px;
+    width: 300px;
+}
