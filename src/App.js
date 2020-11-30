@@ -16,7 +16,7 @@ class App extends React.Component {
         <h1>Welcome to Chuks job portal!</h1> 
              
         <JobList /> 
-        <SocialMediaLinks />       
+        <SocialMediaLinks />      
     </div>);
   }
 }

@@ -27,8 +27,10 @@ class SearchNav extends Component {
         return jobs.filter(job => job.category.includes(this.state.categoryUserChoice));
     }
 
+   
+
     getJobsFromApiAndPassArrayToParentFunc = () => {
-        Axios.get('https://remotive.io/api/remote-jobs?search=' + this.state.searchUserInput)
+        Axios.get('https://remotive.io/api/remote-jobs?&search=' + this.state.searchUserInput)
             .then(response => response.data.jobs)
             .then(jobs => this.filterByLocation(jobs))
             .then(jobs => this.filterByCategory(jobs))
@@ -57,9 +59,6 @@ class SearchNav extends Component {
             <input className="joblist--input" type="text" placeholder="e.g USA" onChange={this.getLocationUserInputOnChange}></input>
   
             <Button variant="success" onClick={this.getJobsFromApiAndPassArrayToParentFunc}>Search</Button>
-
-  
-
 
             <Dropdown onSelect={this.getCategoryUserChoice}>
                 <Dropdown.Toggle variant="success" id="dropdown-basic" >

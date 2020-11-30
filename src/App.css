@@ -1,12 +1,13 @@
 /* =============
    Global styles
    ============= */
-* {
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
-
 
 /* =============
    Landing page styles
@@ -16,15 +17,15 @@
   /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* margin: auto; */
+  /* justify-content: center;  */
+  margin: auto; 
   text-align: center;
-  color: #fff;
+  color: #fff; 
 }
 
 h1 {
@@ -40,12 +41,12 @@ h1 {
 } */
 
 
-/* Default styling starts here */
+Default styling starts here */
 .App {
   text-align: center;
   height: 100vh;
   width: 100vw;
-}
+ }
 
 .App-logo {
   height: 40vmin;
@@ -80,4 +81,82 @@ h1 {
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* =============
+   Job Card
+   ============= */
+.job-container {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 5px;
+  /* margin: 5px; */
+  margin-left: 100px;
+  margin-bottom: 10px;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  width: 500px;
+}
+ 
+.job-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; 
+}
+
+.job-title {
+  font-size: 20px;
+  padding-bottom: 5px;
+}  
+
+.job-description {
+  position: absolute;
+  border: 1px solid black;
+  width: 500px;
+  height: auto;
+  margin-left: 37%;
+  margin-top: 250px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.job-description p{
+   font-size: 0.6em;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  padding-bottom: 5px;
+  margin-top: -8px;
+}
+
+.job-company {
+  font-size: 18px;
+}
+
+.job-logo {
+  width: 100px;
+}
+
+.job-type {
+  font-size: 14px;
+}
+
+.job-date {
+  font-size: 12px;
+}
+
+.seeFullJob {
+  font-size: 15px;
+}
+
+.seeFullJob:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: blue;
 }
