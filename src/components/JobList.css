@@ -1,0 +1,29 @@
+/* //JobList */
+.list-container {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .scrollList {
+    border: 1px solid black;
+    width: 700px;
+    height: 700px;
+    overflow: scroll;
+    background-color: white;
+    border: 0.0625rem solid #d4d2d0;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    padding-top: 5px;
+  }
+  
+  .result-number-hide {
+    display: none;
+  }
+  
+  .result-number-show {
+    display: block;
+    
+  }
+  
+  
