@@ -6,7 +6,13 @@ export default class SavedJobs extends Component {
             <div>
                 <h1>Saved jobs</h1>
                 {this.props.savedJobsArray.map((job) => {
-                    return <p>{job}</p>;
+                    return (
+                        <>
+                            <p>{job}</p>
+                            <button>Apply</button>
+                            <button>Remove</button>
+                        </>
+                    );
                 })}
             </div>
         );

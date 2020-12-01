@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import JobsStatistic from './JobsStatistic';
-import Calendar from './Calendar';
+import MyCalendar from './MyCalendar';
 import MyCvs from './MyCvs';
 import SavedJobs from './SavedJobs';
 import './MyBoard.css';
+import JobList from './JobList';
 
 const savedJobs = ['job1', 'job2', 'job3', 'job4'];
 
@@ -19,7 +20,7 @@ export default class MyBoard extends Component {
                 </div>
                 <div className="my-board-container">
                     <JobsStatistic />
-                    <Calendar />
+                    <MyCalendar />
                     <MyCvs />
                     <SavedJobs savedJobsArray={savedJobs} />
                 </div>
