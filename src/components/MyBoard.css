@@ -1,20 +1,6 @@
-.dashboard-container {
-    margin-top: 200px;
-    display: flex;
-    justify-content: space-around;
-}
-
 .my-board-container {
     width: 40%;
     border: 3px solid gray;
-}
-
-.job-list-container {
-    width: 40%;
-    border: 3px solid gray;
-    font-size: 100px;
-    background-color: blanchedalmond;
-    color: black;
 }
 
 .my-board-container h1 {
