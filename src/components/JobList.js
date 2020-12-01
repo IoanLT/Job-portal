@@ -1,7 +1,9 @@
 import React from 'react';
 import Axios from 'axios';
-import Job from './Job';
+import JobCard from './JobCard';
 import SearchNav from './SearchNav';
+import './JobList.css'
+
 
 //function to remove html from job description
 const removeHtml = (text) =>{
@@ -26,26 +28,35 @@ class JobList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            jobsArray: []
+            jobsArray: [],
+            jobStatus: false
+            
         }
     }
 
     getFilteredJobsListFromSearchNav = (filteredJobsArray) => {
         this.setState({
-            jobsArray: filteredJobsArray
+            jobsArray: filteredJobsArray,
+            jobStatus: true
         })
     }
 
+
+
     render() {
+        
         return (
             <div>
                {/* Parent JobsList passes the function to SearchNav child: 
                "hey SearchNav" call api and filter and give me the result by calling this function */}
                 <SearchNav functionToCallForFilteredJobs={this.getFilteredJobsListFromSearchNav} />
+                <div className='list-container'>
+                <p className={this.state.jobStatus?'result-number-show': 'result-number-hide'}>results:{this.state.jobsArray.length}</p>
+                <div className={this.state.jobStatus? 'scrollList': ''}>
                 {
                     this.state.jobsArray.map((jobObject) => {
                         return (
-                            <Job
+                            <JobCard
                             logo={jobObject.company_logo_url}
                             title={jobObject.title}
                             salary={jobObject.salary}
@@ -54,12 +65,15 @@ class JobList extends React.Component {
                             company={jobObject.company_name}
                             date={jobObject.publication_date.slice(0,10)}
                             description={removeHtml(jobObject.description)}
-                            // key={index}
                             key={jobObject.id}
+                            url={jobObject.url}
                             />
                         );
                     })
                 }
+                </div>
+                </div>
+            
             </div>
         );
     }
