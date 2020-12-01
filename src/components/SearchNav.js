@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
-
-
+import Form from 'react-bootstrap/Form';
 
 
 
@@ -15,8 +12,17 @@ class SearchNav extends Component {
         this.state = {
             searchUserInput: '',
             locationUserInput: '',
-            categoryUserChoice: ''
+            categoryUserChoice: '',
+            categories: [],
+            jobTypeCheckBoxFullChecked: false,
+            jobTypeCheckBoxPartChecked: false
+
+
         }
+    }
+
+    componentDidMount() {
+        this.getCategories();
     }
 
 
@@ -25,16 +31,35 @@ class SearchNav extends Component {
     }
 
     filterByCategory = (jobs) => {
+        if (this.state.categoryUserChoice === "-") {
+            return jobs;
+        }
         return jobs.filter(job => job.category.includes(this.state.categoryUserChoice));
     }
 
-   
+    filterByJobType = (jobs) => {
+        if (this.state.jobTypeCheckBoxFullChecked === false && this.state.jobTypeCheckBoxPartChecked === false) {
+            return jobs;
+        }
+        else if (this.state.jobTypeCheckBoxFullChecked && this.state.jobTypeCheckBoxPartChecked) {
+            return jobs;
+        }
+        else if (this.state.jobTypeCheckBoxFullChecked) {
+            return jobs.filter(job => job.job_type.includes("full_time"));
+        }
+        else {
+            return jobs.filter(job => job.job_type.includes("part_time"));
+        }
+    }
+
 
     getJobsFromApiAndPassArrayToParentFunc = () => {
         Axios.get('https://remotive.io/api/remote-jobs?&search=' + this.state.searchUserInput)
             .then(response => response.data.jobs)
             .then(jobs => this.filterByLocation(jobs))
             .then(jobs => this.filterByCategory(jobs))
+            .then(jobs => this.filterByJobType(jobs))
+
             .then(jobs => {
                 //here SearchNav is calling the JobsList's 
                 //function with the joblist array returned from the api and filtered
@@ -51,27 +76,53 @@ class SearchNav extends Component {
     }
 
     getCategoryUserChoice = (ev) => {
-        this.setState ({ categoryUserChoice: ev })
+        this.setState({ categoryUserChoice: ev })
+    }
+
+    getCheckedFullTime = (ev) => {
+        this.setState({ jobTypeCheckBoxFullChecked: !this.state.jobTypeCheckBoxFullChecked })
+    }
+
+    getCheckedPartTime = (ev) => {
+        this.setState({ jobTypeCheckBoxPartChecked: !this.state.jobTypeCheckBoxPartChecked })
+    }
+
+
+
+
+    getCategories = () => {
+        Axios.get('https://remotive.io/api/remote-jobs/categories')
+            .then(response => response.data.jobs)
+            .then(categoriesFromApi => this.setState({ categories: categoriesFromApi }))
     }
 
     render() {
         return (<div>
             <input className="joblist--input" type="text" placeholder="e.g Front-end development" onChange={this.getSearchUserInputOnChange}></input>
             <input className="joblist--input" type="text" placeholder="e.g USA" onChange={this.getLocationUserInputOnChange}></input>
-  
+
             <Button variant="success" onClick={this.getJobsFromApiAndPassArrayToParentFunc}>Search</Button>
 
             <Dropdown onSelect={this.getCategoryUserChoice}>
-                <Dropdown.Toggle variant="success" id="dropdown-basic" >
-                    {this.state.categoryUserChoice}
-  </Dropdown.Toggle>
-
+                <Dropdown.Toggle variant="secondary" id="dropdown-basic" >
+                    {this.state.categoryUserChoice === "" || this.state.categoryUserChoice === "-" ? "Categories" : this.state.categoryUserChoice}
+                </Dropdown.Toggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item eventKey="Software Development">Software Development</Dropdown.Item>
-                    <Dropdown.Item eventKey="Design">Design</Dropdown.Item>
-                    <Dropdown.Item eventKey="Human Resources">Human Resources</Dropdown.Item>
+                    <Dropdown.Item eventKey="-">-</Dropdown.Item>
+                    {this.state.categories.map((category, i) => <Dropdown.Item eventKey={category.name} key={i}>{category.name}</Dropdown.Item>)}
                 </Dropdown.Menu>
             </Dropdown>
+
+            <Form>
+                <div key="inline-checkbox" className="mb-3">
+                    <Form.Check inline label="Full time" type="checkbox" id="inline-checkbox-full" onChange={this.getCheckedFullTime} />
+                    <Form.Check inline label="Part time" type="checkbox" id="inline-checkbox-part" onChange={this.getCheckedPartTime}/>
+                </div>
+            </Form>
+
+
+
+
         </div>);
     }
 }
