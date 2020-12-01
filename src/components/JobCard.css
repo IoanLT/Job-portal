@@ -1,0 +1,157 @@
+/* =============
+   Job Card
+   ============= */
+   .job-container {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    /* margin: 5px; */
+    margin-left: 100px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    width: 500px;
+  }
+   
+  .job-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; 
+  }
+  
+  .job-title {
+    font-size: 0.9em;
+    padding-bottom: 5px;
+    font-weight: 800;
+  }  
+  
+  .job-description {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-top: 29%;
+    border: 0.0625rem solid #d4d2d0;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    width: 700px;
+    height: 700px;
+    top: 0;
+    padding: 10px;
+  }
+  
+  .job-description p{
+     font-size: 0.6em;
+  }
+  
+  .description-text{
+    padding: 10px;
+    overflow-y: scroll;
+  }
+  
+  .details{
+    display: flex;
+    
+  }
+  
+  .details p {
+    padding-left: 5px;
+  }
+  
+  .fixed-title {
+    position: sticky;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .close-btn {
+   display: flex;
+   justify-content: flex-end;
+   margin-top: -5px;
+  }
+  .heart-apply-container{
+    display: flex;
+    
+  }
+  
+  .heart-apply-container a {
+    padding-right: 10px;
+  }
+  
+  .logo-details {
+    display: flex;
+    padding-bottom: 5px;
+    
+  }
+  
+  .logo-details img{
+    padding-right: 5px;
+  }
+  
+  .job-company {
+    font-size: 17px;
+  }
+  
+  .job-logo {
+    width: 100px;
+    padding-right: 5px;
+  }
+  
+  .job-location {
+    font-size: 0.6em;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .job-type {
+    font-size: 14px;
+  }
+  
+  .job-date {
+    font-size: 12px;
+  }
+  
+  .seeFullJob {
+    font-size: 15px;
+  }
+  
+  .seeFullJob:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+  }
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    
+  }
+
+  /* little heart */
+  
+  .not-favorite {
+    width: 40px;
+    height: 40px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg");
+    background-size: 100%;
+    
+  }
+  
+  .favorite {
+    width: 40px;
+    height: 40px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg ");
+    background-size: 100%;
+    
+  
+  }
+  
