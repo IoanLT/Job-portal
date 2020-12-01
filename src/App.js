@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import JobList from './components/JobList';
 import SocialMediaLinks from './components/SocialMediaLinks';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 
 
 class App extends React.Component {
