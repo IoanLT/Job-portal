@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { MenuItems } from "./MenuItems"
+import { SignInButton } from "./SignInButton"
 import './Navbar.css'
-import NavbarItems from './NavbarItems'
-import SignInButton from './SignInButton'
 
-export default class Navbar extends Component {
+class Navbar extends Component {
     state = { clicked: false }
 
     handleClick = () => {
@@ -12,24 +12,13 @@ export default class Navbar extends Component {
 
     render() {
         return(
-            <nav className="NavbarItems">                
+            <nav className="NavbarItems">
+                {/* <h1 className="navbar-logo">React<i className="fab fa-react"></i></h1> */}
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
-                {/* <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {NavbarItems.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <a className={item.cName} href={item.url}>
-                                    {item.title}
-                                </a>
-                            </li>
-                        )
-                    })}
-                </ul> */}
-                
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {NavbarItems.map((item, index) => {
+                    {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
                                 <a className={item.cName} href={item.url}>
@@ -39,10 +28,10 @@ export default class Navbar extends Component {
                         )
                     })}
                 </ul>
-
-                {/* <SignInButton>Sign In</SignInButton> */}
+                <SignInButton>Sign Up</SignInButton>
             </nav>
         )
     }
 }
 
+export default Navbar
