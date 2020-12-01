@@ -5,10 +5,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
-
-
-
-
 class SearchNav extends Component {
     constructor(props) {
         super(props);
