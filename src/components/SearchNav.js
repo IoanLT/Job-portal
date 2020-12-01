@@ -12,11 +12,11 @@ class SearchNav extends Component {
         this.state = {
             searchUserInput: '',
             locationUserInput: '',
+
             categoryUserChoice: '',
             categories: [],
             jobTypeCheckBoxFullChecked: false,
             jobTypeCheckBoxPartChecked: false
-
 
         }
     }
@@ -54,7 +54,7 @@ class SearchNav extends Component {
 
 
     getJobsFromApiAndPassArrayToParentFunc = () => {
-        Axios.get('https://remotive.io/api/remote-jobs?&search=' + this.state.searchUserInput)
+        Axios.get(`https://remotive.io/api/remote-jobs?limit=5&search=${this.state.searchUserInput}`)
             .then(response => response.data.jobs)
             .then(jobs => this.filterByLocation(jobs))
             .then(jobs => this.filterByCategory(jobs))
@@ -64,6 +64,7 @@ class SearchNav extends Component {
                 //here SearchNav is calling the JobsList's 
                 //function with the joblist array returned from the api and filtered
                 this.props.functionToCallForFilteredJobs(jobs);
+                
             })
     }
 
@@ -96,8 +97,14 @@ class SearchNav extends Component {
             .then(categoriesFromApi => this.setState({ categories: categoriesFromApi }))
     }
 
+
+
     render() {
-        return (<div>
+       
+
+        return (
+        
+        <div>
             <input className="joblist--input" type="text" placeholder="e.g Front-end development" onChange={this.getSearchUserInputOnChange}></input>
             <input className="joblist--input" type="text" placeholder="e.g USA" onChange={this.getLocationUserInputOnChange}></input>
 
