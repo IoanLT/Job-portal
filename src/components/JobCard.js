@@ -41,7 +41,7 @@ render(){
             
             <div className='btn-container'>
                 <div onClick={this.favorite} className={!this.state.isFavorite ? 'not-favorite':'favorite'}></div>
-                <a href={this.props.url} target='_blank'><button>Apply</button></a>
+                <a href={this.props.url} target='_blank' rel="noreferrer"><button>Apply</button></a>
             </div>
             
             {
@@ -66,7 +66,7 @@ render(){
                          </div> 
                       </div>
                       <div className='heart-apply-container'>
-                           <a href={this.props.url} target='_blank'><button>Apply</button></a> 
+                           <a href={this.props.url} target='_blank' rel="noreferrer"><button>Apply</button></a> 
                            <div onClick={this.favorite} className={!this.state.isFavorite ? 'not-favorite':'favorite'}></div>
                       </div>
                            
@@ -79,7 +79,7 @@ render(){
                         <p>{this.props.description}</p>
                         <p>Job type: {this.props.type}</p>
                         <p>Salary: {this.props.salary===''? 'N/A': this.props.salary}</p>
-                        <a href='https://www.numbeo.com/cost-of-living/' target='_blank'><p>Location: {this.props.location}</p></a> 
+                        <a href='https://www.numbeo.com/cost-of-living/' target='_blank' rel="noreferrer"><p>Location: {this.props.location}</p></a> 
                         
                      </div>
                     
@@ -93,4 +93,3 @@ render(){
 }
     
 export default JobCard;
-

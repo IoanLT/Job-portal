@@ -12,7 +12,6 @@ class SearchNav extends Component {
         this.state = {
             searchUserInput: '',
             locationUserInput: '',
-
             categoryUserChoice: '',
             categories: [],
             jobTypeCheckBoxFullChecked: false,
@@ -105,8 +104,10 @@ class SearchNav extends Component {
         return (
         
         <div>
-            <input className="joblist--input" type="text" placeholder="e.g Front-end development" onChange={this.getSearchUserInputOnChange}></input>
-            <input className="joblist--input" type="text" placeholder="e.g USA" onChange={this.getLocationUserInputOnChange}></input>
+            <input className="joblist--input" type="text" placeholder="e.g Front-end development" onChange={this.getSearchUserInputOnChange} onKeyPress={(ev) => {
+                if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}}}></input>
+            <input className="joblist--input" type="text" placeholder="e.g USA" onChange={this.getLocationUserInputOnChange} onKeyPress={(ev) => {
+                if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}}}></input>
 
             <Button variant="success" onClick={this.getJobsFromApiAndPassArrayToParentFunc}>Search</Button>
 
