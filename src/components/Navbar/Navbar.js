@@ -11,9 +11,9 @@ class Navbar extends Component {
     }
 
     render() {
-        return(
+        return(            
             <nav className="NavbarItems">
-                {/* <h1 className="navbar-logo">React<i className="fab fa-react"></i></h1> */}
+               
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
@@ -27,9 +27,10 @@ class Navbar extends Component {
                             </li>
                         )
                     })}
-                </ul>
+                </ul>                    
                 <SignInButton>Sign Up</SignInButton>
-            </nav>
+            </nav>  
+            
         )
     }
 }

@@ -6,7 +6,7 @@ const NavbarItems = [
     },
     {
         title: 'Dashboard',
-        url: 'C:\Users\ioant\OneDrive\desktop\Wild Code School\React\Job Portal\job-portal\src\components\Dashboard.js',
+        url: '#',
         cName: 'nav-links'
     },
     {
