@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Navbar from './components/Navbar/Navbar'
 import SocialMediaLinks from './components/SocialMediaLinks';
 import Dashboard from './components/Dashboard';
 import SearchNav from './components/SearchNav';
@@ -48,6 +49,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="landing--page--container">
+                <Navbar />
                 <h1>Welcome to Chuks job portal!</h1>
 
                 {/* Parent App passes the function to SearchNav child: 
@@ -57,13 +59,14 @@ class App extends React.Component {
                         this.getFilteredJobsListFromSearchNav
                     }
                 />
+                <SocialMediaLinks />
                 <Dashboard
                     jobsArray={this.state.jobsArray}
                     jobStatus={this.state.jobStatus}
                     savedJobsArray={this.state.savedJobsArray}
                     pushJobInSavedJobs={this.pushJobInSavedJobs}
                 />
-                <SocialMediaLinks />
+                
             </div>
         );
     }
