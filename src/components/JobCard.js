@@ -7,7 +7,6 @@ let logoImage =
 class JobCard extends Component {
     state = {
         showDetails: false,
-        isFavorite: false,
     };
 
     showModal = () => {
@@ -18,9 +17,8 @@ class JobCard extends Component {
         this.setState({ showDetails: false });
     };
 
-    favorite = (e) => {
-        this.setState({ isFavorite: !this.state.isFavorite });
-        this.props.pushJobInSavedJobs(e.target.id);
+    favorite = () => {
+        this.props.toggleJobInSavedJobs();
     };
 
     render() {
@@ -53,10 +51,9 @@ class JobCard extends Component {
 
                 <div className="btn-container">
                     <div
-                        id={this.props.id}
                         onClick={this.favorite}
                         className={
-                            !this.state.isFavorite ? 'not-favorite' : 'favorite'
+                            !this.props.isFavorite ? 'not-favorite' : 'favorite'
                         }
                     ></div>
                     <a href={this.props.url} target="_blank">
@@ -98,7 +95,7 @@ class JobCard extends Component {
                                 <div
                                     onClick={this.favorite}
                                     className={
-                                        !this.state.isFavorite
+                                        !this.props.isFavorite
                                             ? 'not-favorite'
                                             : 'favorite'
                                     }

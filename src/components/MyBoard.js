@@ -6,8 +6,6 @@ import SavedJobs from './SavedJobs';
 import './MyBoard.css';
 import JobList from './JobList';
 
-const savedJobs = ['job1', 'job2', 'job3', 'job4'];
-
 export default class MyBoard extends Component {
     render() {
         return (
@@ -15,7 +13,12 @@ export default class MyBoard extends Component {
                 <JobsStatistic />
                 <MyCalendar />
                 <MyCvs />
-                <SavedJobs savedJobsArray={this.props.savedJobsArray} />
+                <JobList
+                    jobsArray={this.props.savedJobsArray}
+                    jobStatus={this.props.jobStatus}
+                    toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
+                    savedJobsIdArray={this.props.savedJobsIdArray}
+                />
             </div>
         );
     }

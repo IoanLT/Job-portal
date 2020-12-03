@@ -55,11 +55,15 @@ class JobList extends React.Component {
                                         jobObject.description
                                     )}
                                     key={jobObject.id}
-                                    id={jobObject.id}
                                     url={jobObject.url}
-                                    pushJobInSavedJobs={
-                                        this.props.pushJobInSavedJobs
-                                    }
+                                    toggleJobInSavedJobs={() => {
+                                        this.props.toggleJobInSavedJobs(
+                                            jobObject.id
+                                        );
+                                    }}
+                                    isFavorite={this.props.savedJobsIdArray.includes(
+                                        jobObject.id
+                                    )}
                                 />
                             );
                         })}
