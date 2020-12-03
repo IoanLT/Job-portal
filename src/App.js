@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Navbar/Navbar';
 import SocialMediaLinks from './components/SocialMediaLinks';
 import Dashboard from './components/Dashboard';
 import SearchNav from './components/SearchNav';
@@ -23,9 +23,15 @@ class App extends React.Component {
         });
     };
 
-    pushJobInSavedJobs = (jobId) => {
+    toggleJobInSavedJobs = (jobId) => {
         let newSavedJobsIdArray = this.state.savedJobsIdArray;
-        newSavedJobsIdArray.push(jobId);
+        const jobIdIndex = newSavedJobsIdArray.indexOf(jobId);
+
+        if (jobIdIndex > 0) {
+            newSavedJobsIdArray.splice(jobIdIndex, 1);
+        } else {
+            newSavedJobsIdArray.push(jobId);
+        }
         this.setState({
             savedJobsIdArray: newSavedJobsIdArray,
         });
@@ -64,9 +70,8 @@ class App extends React.Component {
                     jobsArray={this.state.jobsArray}
                     jobStatus={this.state.jobStatus}
                     savedJobsArray={this.state.savedJobsArray}
-                    pushJobInSavedJobs={this.pushJobInSavedJobs}
+                    toggleJobInSavedJobs={this.toggleJobInSavedJobs}
                 />
-                
             </div>
         );
     }

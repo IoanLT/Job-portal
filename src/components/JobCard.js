@@ -18,9 +18,9 @@ class JobCard extends Component {
         this.setState({ showDetails: false });
     };
 
-    favorite = (e) => {
+    favorite = () => {
         this.setState({ isFavorite: !this.state.isFavorite });
-        this.props.pushJobInSavedJobs(e.target.id);
+        this.props.toggleJobInSavedJobs();
     };
 
     render() {
@@ -53,7 +53,6 @@ class JobCard extends Component {
 
                 <div className="btn-container">
                     <div
-                        id={this.props.id}
                         onClick={this.favorite}
                         className={
                             !this.state.isFavorite ? 'not-favorite' : 'favorite'
