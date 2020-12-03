@@ -59,7 +59,7 @@ class JobCard extends Component {
                             !this.state.isFavorite ? 'not-favorite' : 'favorite'
                         }
                     ></div>
-                    <a href={this.props.url} target="_blank">
+                    <a href={this.props.url} target="_blank" rel="noreferrer">
                         <button>Apply</button>
                     </a>
                 </div>
@@ -73,7 +73,7 @@ class JobCard extends Component {
                         <div className="fixed-title">
                             <div className="logo-details">
                                 <img
-                                    className="job-logo"
+                                    className="job-logo2"
                                     src={
                                         this.props.logo === undefined
                                             ? logoImage
@@ -92,7 +92,7 @@ class JobCard extends Component {
                                 </div>
                             </div>
                             <div className="heart-apply-container">
-                                <a href={this.props.url} target="_blank">
+                                <a href={this.props.url} target="_blank" rel="noreferrer">
                                     <button>Apply</button>
                                 </a>
                                 <div
@@ -110,7 +110,7 @@ class JobCard extends Component {
                             <p>{this.props.description}</p>
                             <p>Job type: {this.props.type}</p>
                             <p>
-                                Salary:{' '}
+                                Salary:
                                 {this.props.salary === ''
                                     ? 'N/A'
                                     : this.props.salary}

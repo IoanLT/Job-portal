@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import JobCard from './JobCard';
 import './JobList.css';
 
+
 //function to remove html from job description
 const removeHtml = (text) => {
     let countPar = 0;

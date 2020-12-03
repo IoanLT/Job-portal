@@ -2,18 +2,23 @@
 .list-container {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: -100px;
+    
 }
 
 .scrollList {
     border: 1px solid black;
     width: 700px;
     height: 700px;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: white;
     border: 0.0625rem solid #d4d2d0;
     border-radius: 0.5rem;
     background-color: #fff;
     padding-top: 5px;
+   
 }
 
 .result-number-hide {
@@ -22,4 +27,115 @@
 
 .result-number-show {
     display: block;
+    color: black;
+    font-size: 0.7rem;
+    padding-bottom: 5px;
 }
+
+  /* Designing for scroll-bar */ 
+  ::-webkit-scrollbar { 
+    width: 6px; 
+} 
+
+/* Track */ 
+::-webkit-scrollbar-track { 
+    background: gainsboro; 
+    border-radius: 5px; 
+} 
+
+/* Handle */ 
+::-webkit-scrollbar-thumb { 
+    background: black; 
+    border-radius: 5px; 
+} 
+
+/* Handle on hover */ 
+::-webkit-scrollbar-thumb:hover { 
+    background: #555; 
+} 
+
+
+ @media (min-width: 1281px){
+    .list-container {
+       margin-left: -50px;
+    }
+    .scrollList {
+        width: 600px;
+    
+    }
+
+    .job-description {
+        width: 650px;
+    }
+  
+}  
+
+
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .scrollList {
+        width: 400px;
+        padding-top: 10px ;
+      
+    }
+    .list-container {
+        width: 400px;
+        margin-left: -50px;
+    }
+    
+    
+  } 
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+      
+    .list-container {
+        width: 400px;
+        
+    }
+    .scrollList {
+      width: 550px;
+    }
+
+    .job-description {
+      width: 450px;
+
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    
+    /* CSS */
+    
+  }

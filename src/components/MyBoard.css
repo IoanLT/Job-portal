@@ -1,6 +1,10 @@
 .my-board-container {
-    width: 40%;
-    border: 3px solid gray;
+    width: 30%;
+    background-color: white;
+    border: 0.0625rem solid #d4d2d0;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    margin-top: 19px;
 }
 
 .my-board-container h1 {
@@ -17,4 +21,12 @@
 .my-board-container img {
     height: 300px;
     width: 300px;
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+     .my-board-container {
+         margin-left: -90px;
+         
+     }
+
 }
