@@ -16,10 +16,14 @@ class SearchNav extends Component {
             categoryUserChoice: '',
             categories: [],
             jobTypeCheckBoxFullChecked: false,
-            jobTypeCheckBoxPartChecked: false
+            jobTypeCheckBoxPartChecked: false,
+            salarySpecifiedChecked: false,
+            loading: false
 
         }
     }
+
+  
 
     componentDidMount() {
         this.getCategories();
@@ -52,13 +56,29 @@ class SearchNav extends Component {
         }
     }
 
+    filterByIfSalaryIsSpecified = (jobs) => {
+        if (this.state.salarySpecifiedChecked === false) {
+            return jobs;
+        }
+        else {
+            return jobs.filter(job => job.salary !== '');
+        }
+    }
+
 
     getJobsFromApiAndPassArrayToParentFunc = () => {
-        Axios.get(`https://remotive.io/api/remote-jobs?limit=5&search=${this.state.searchUserInput}`)
+        let searchParamStr = '';
+        if (this.state.searchUserInput !== ''){
+            searchParamStr = `search=${this.state.searchUserInput}`;
+        }
+
+        
+        Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)
             .then(response => response.data.jobs)
             .then(jobs => this.filterByLocation(jobs))
             .then(jobs => this.filterByCategory(jobs))
             .then(jobs => this.filterByJobType(jobs))
+            .then(jobs => this.filterByIfSalaryIsSpecified(jobs))
 
             .then(jobs => {
                 //here SearchNav is calling the JobsList's 
@@ -88,6 +108,11 @@ class SearchNav extends Component {
         this.setState({ jobTypeCheckBoxPartChecked: !this.state.jobTypeCheckBoxPartChecked })
     }
 
+    getCheckedIfSalaryIsSpecified = (ev) => {
+        this.setState({ salarySpecifiedChecked: !this.state.salarySpecifiedChecked})
+
+    }
+
 
 
 
@@ -100,8 +125,6 @@ class SearchNav extends Component {
 
 
     render() {
-       
-
         return (
         
         <div>
@@ -127,9 +150,11 @@ class SearchNav extends Component {
                 </div>
             </Form>
 
-
-
-
+            <Form>
+                <div key="inline-checkbox" className="mb-3">
+                    <Form.Check inline label="Salary specified" type="checkbox" id="inline-checkbox-salary" onChange={this.getCheckedIfSalaryIsSpecified} />
+                </div>
+            </Form>
         </div>);
     }
 }
