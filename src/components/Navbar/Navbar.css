@@ -51,6 +51,7 @@
     border-radius: 4px;
     transition: all 0.2s ease-out;
     margin: 1px solid rgb(54, 215, 183);
+    cursor: pointer;
 }
 
 .fa-bars {
