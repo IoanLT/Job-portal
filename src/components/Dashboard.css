@@ -13,3 +13,28 @@
     }
 
 }
+
+@media (min-width: 767px) and (max-width: 959px) {
+   .dashboard-container {
+       display: block;
+       align-items: center;
+   } 
+    
+    
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .dashboard-container {
+        display: block;
+        align-items: center;
+    } 
+     
+}
+
+@media (min-width: 320px) and (max-width: 480px){
+    .dashboard-container {
+        display: block;
+        align-items: center;
+    } 
+     
+}

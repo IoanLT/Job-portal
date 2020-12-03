@@ -1,7 +1,7 @@
 
 import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Navbar/Navbar';
 import SocialMediaLinks from './components/SocialMediaLinks';
 import Dashboard from './components/Dashboard';
 import SearchNav from './components/SearchNav';
@@ -24,9 +24,17 @@ class App extends React.Component {
         });
     };
 
-    pushJobInSavedJobs = (jobId) => {
+    toggleJobInSavedJobs = (jobId) => {
         let newSavedJobsIdArray = this.state.savedJobsIdArray;
-        newSavedJobsIdArray.push(jobId);
+        const jobIdIndex = newSavedJobsIdArray.indexOf(jobId);
+
+        console.log(jobIdIndex);
+
+        if (jobIdIndex >= 0) {
+            newSavedJobsIdArray.splice(jobIdIndex, 1);
+        } else {
+            newSavedJobsIdArray.push(jobId);
+        }
         this.setState({
             savedJobsIdArray: newSavedJobsIdArray,
         });
@@ -34,10 +42,16 @@ class App extends React.Component {
     };
 
     getSavedJobsArray = () => {
-        let newSavedJobsArray = [];
-        this.state.savedJobsIdArray.forEach((id) => {
+        let newSavedJobsArray = this.state.savedJobsArray.filter((job) => {
+            return this.state.savedJobsIdArray.includes(job.id);
+        });
+        let newSavedJobsIdArray = this.state.savedJobsIdArray.filter((id) => {
+            return !this.state.savedJobsArray.some((job) => job.id === id);
+        });
+
+        newSavedJobsIdArray.forEach((id) => {
             this.state.jobsArray.forEach((job) => {
-                if (job.id == id) {
+                if (job.id === id) {
                     newSavedJobsArray.push(job);
                 }
             });
@@ -64,11 +78,10 @@ class App extends React.Component {
                     jobsArray={this.state.jobsArray}
                     jobStatus={this.state.jobStatus}
                     savedJobsArray={this.state.savedJobsArray}
-                    pushJobInSavedJobs={this.pushJobInSavedJobs}
+                    toggleJobInSavedJobs={this.toggleJobInSavedJobs}
+                    savedJobsIdArray={this.state.savedJobsIdArray}
                 />
-                <SocialMediaLinks />
-               
-                
+                <SocialMediaLinks/>
             </div>
         );
     }
