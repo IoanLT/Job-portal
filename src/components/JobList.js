@@ -61,6 +61,9 @@ class JobList extends React.Component {
                                             jobObject.id
                                         );
                                     }}
+                                    isFavorite={this.props.savedJobsIdArray.includes(
+                                        jobObject.id
+                                    )}
                                 />
                             );
                         })}

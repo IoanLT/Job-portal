@@ -17,8 +17,8 @@ export default class MyBoard extends Component {
                     jobsArray={this.props.savedJobsArray}
                     jobStatus={this.props.jobStatus}
                     toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
+                    savedJobsIdArray={this.props.savedJobsIdArray}
                 />
-                {/* <SavedJobs savedJobsArray={this.props.savedJobsArray} /> */}
             </div>
         );
     }

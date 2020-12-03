@@ -27,7 +27,9 @@ class App extends React.Component {
         let newSavedJobsIdArray = this.state.savedJobsIdArray;
         const jobIdIndex = newSavedJobsIdArray.indexOf(jobId);
 
-        if (jobIdIndex > 0) {
+        console.log(jobIdIndex);
+
+        if (jobIdIndex >= 0) {
             newSavedJobsIdArray.splice(jobIdIndex, 1);
         } else {
             newSavedJobsIdArray.push(jobId);
@@ -39,8 +41,14 @@ class App extends React.Component {
     };
 
     getSavedJobsArray = () => {
-        let newSavedJobsArray = [];
-        this.state.savedJobsIdArray.forEach((id) => {
+        let newSavedJobsArray = this.state.savedJobsArray.filter((job) => {
+            return this.state.savedJobsIdArray.includes(job.id);
+        });
+        let newSavedJobsIdArray = this.state.savedJobsIdArray.filter((id) => {
+            return !this.state.savedJobsArray.some((job) => job.id === id);
+        });
+
+        newSavedJobsIdArray.forEach((id) => {
             this.state.jobsArray.forEach((job) => {
                 if (job.id == id) {
                     newSavedJobsArray.push(job);
@@ -71,6 +79,7 @@ class App extends React.Component {
                     jobStatus={this.state.jobStatus}
                     savedJobsArray={this.state.savedJobsArray}
                     toggleJobInSavedJobs={this.toggleJobInSavedJobs}
+                    savedJobsIdArray={this.state.savedJobsIdArray}
                 />
             </div>
         );

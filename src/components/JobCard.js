@@ -7,7 +7,6 @@ let logoImage =
 class JobCard extends Component {
     state = {
         showDetails: false,
-        isFavorite: false,
     };
 
     showModal = () => {
@@ -19,7 +18,6 @@ class JobCard extends Component {
     };
 
     favorite = () => {
-        this.setState({ isFavorite: !this.state.isFavorite });
         this.props.toggleJobInSavedJobs();
     };
 
@@ -55,7 +53,7 @@ class JobCard extends Component {
                     <div
                         onClick={this.favorite}
                         className={
-                            !this.state.isFavorite ? 'not-favorite' : 'favorite'
+                            !this.props.isFavorite ? 'not-favorite' : 'favorite'
                         }
                     ></div>
                     <a href={this.props.url} target="_blank">
@@ -97,7 +95,7 @@ class JobCard extends Component {
                                 <div
                                     onClick={this.favorite}
                                     className={
-                                        !this.state.isFavorite
+                                        !this.props.isFavorite
                                             ? 'not-favorite'
                                             : 'favorite'
                                     }
