@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MenuItems } from "./MenuItems"
-import { SignInButton } from "./SignInButton"
+import { SignUpButton } from "./SignUpButton"
 // import styled from 'styled-components';
 import { Link } from 'react-scroll';
 import './Navbar.css'
@@ -19,6 +19,7 @@ class Navbar extends Component {
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
+
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
@@ -39,7 +40,7 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>                    
-                <SignInButton>Sign Up</SignInButton>
+                <SignUpButton>Sign Up</SignUpButton>
             </nav>  
             
         )
