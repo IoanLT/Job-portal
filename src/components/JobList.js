@@ -22,7 +22,7 @@ const removeHtml = (text) => {
 class JobList extends React.Component {
     render(props) {
         return (
-            <div>
+          
                 <div className="list-container">
                     <p
                         className={
@@ -69,7 +69,7 @@ class JobList extends React.Component {
                         })}
                     </div>
                 </div>
-            </div>
+            
         );
     }
 }

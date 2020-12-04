@@ -1,6 +1,10 @@
 .my-board-container {
-    width: 40%;
-    border: 3px solid gray;
+    width: 30%;
+    background-color: white;
+    border: 0.0625rem solid #d4d2d0;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    margin-top: 19px;
 }
 
 .my-board-container h1 {
@@ -18,3 +22,48 @@
     height: 300px;
     width: 300px;
 }
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+     .my-board-container {
+         margin-left: -90px;
+         width: 40%;
+         
+     }
+
+}
+
+@media (min-width: 960px) and (max-width: 1024px) {
+    .my-board-container {
+        width: 40%;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 959px) {
+    .my-board-container {
+       width: 50%;
+       margin-left: 25%;
+       
+    } 
+     
+     
+ }
+
+ @media (min-width: 481px) and (max-width: 767px){
+    .my-board-container {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+        
+     } 
+
+     
+ }
+
+ @media (min-width: 320px) and (max-width: 480px){
+    .my-board-container {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        
+     } 
+ }

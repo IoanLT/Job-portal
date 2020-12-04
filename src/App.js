@@ -1,3 +1,4 @@
+
 import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
@@ -50,7 +51,7 @@ class App extends React.Component {
 
         newSavedJobsIdArray.forEach((id) => {
             this.state.jobsArray.forEach((job) => {
-                if (job.id == id) {
+                if (job.id === id) {
                     newSavedJobsArray.push(job);
                 }
             });
@@ -73,14 +74,14 @@ class App extends React.Component {
                         this.getFilteredJobsListFromSearchNav
                     }
                 />
-                <SocialMediaLinks />
-                <Dashboard
+                 <Dashboard
                     jobsArray={this.state.jobsArray}
                     jobStatus={this.state.jobStatus}
                     savedJobsArray={this.state.savedJobsArray}
                     toggleJobInSavedJobs={this.toggleJobInSavedJobs}
                     savedJobsIdArray={this.state.savedJobsIdArray}
                 />
+                <SocialMediaLinks/>
             </div>
         );
     }
