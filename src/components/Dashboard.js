@@ -6,7 +6,7 @@ import './Dashboard.css';
 export default class Dashboard extends Component {
     render() {
         return (
-            <div className="dashboard-container">
+            <div className="dashboard-container" id="dashboard">
                 <JobList
                     jobsArray={this.props.jobsArray}
                     jobStatus={this.props.jobStatus}
