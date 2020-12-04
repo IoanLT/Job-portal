@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
-
+import { Link } from 'react-scroll';
+import './Navbar/Navbar.css' 
 
 class SearchNav extends Component {
     constructor(props) {
@@ -20,9 +20,7 @@ class SearchNav extends Component {
             loading: false
 
         }
-    }
-
-  
+    }  
 
     componentDidMount() {
         this.getCategories();
@@ -109,11 +107,7 @@ class SearchNav extends Component {
 
     getCheckedIfSalaryIsSpecified = (ev) => {
         this.setState({ salarySpecifiedChecked: !this.state.salarySpecifiedChecked})
-
     }
-
-
-
 
     getCategories = () => {
         Axios.get('https://remotive.io/api/remote-jobs/categories')
@@ -127,12 +121,44 @@ class SearchNav extends Component {
         return (
 
             <div>
-               <input className="joblist--input" type="text" placeholder="e.g Front-end development" onChange={this.getSearchUserInputOnChange} onKeyPress={(ev) => {
-    if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}}}></input>
-<input className="joblist--input" type="text" placeholder="e.g USA" onChange={this.getLocationUserInputOnChange} onKeyPress={(ev) => {
-    if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}}}></input>
+                <input 
+                    className="joblist--input" 
+                    type="text" 
+                    placeholder="e.g Front-end development" 
+                    onChange={this.getSearchUserInputOnChange} 
+                    onKeyPress={(ev) => {
+                        if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}
+                    }}>
+                </input>
 
-                <Button variant="success" onClick={this.getJobsFromApiAndPassArrayToParentFunc}>Search</Button>
+                <input 
+                    className="joblist--input" 
+                    type="text" 
+                    placeholder="e.g USA" 
+                    onChange={this.getLocationUserInputOnChange} 
+                    onKeyPress={(ev) => {
+                        if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}}}>
+                </input>
+
+                {/* <Button 
+                    variant="success" 
+                    onClick={this.getJobsFromApiAndPassArrayToParentFunc}>
+                        Search
+                </Button> */}
+
+                <Link 
+                    onClick={this.getJobsFromApiAndPassArrayToParentFunc}
+                    delay={3000}
+                    activeClass="active" 
+                    to="dashboard" 
+                    spy={true} 
+                    smooth={true}
+                    offset={-80} 
+                    duration={1000}                    
+                    className="nav-links"                    
+                >
+                    Search
+                </Link>
 
                 <Dropdown onSelect={this.getCategoryUserChoice}>
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic" >
