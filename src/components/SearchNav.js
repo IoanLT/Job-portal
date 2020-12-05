@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import Form from 'react-bootstrap/Form';
 
 
@@ -132,7 +132,7 @@ class SearchNav extends Component {
 <input className="joblist--input" type="text" placeholder="e.g USA" onChange={this.getLocationUserInputOnChange} onKeyPress={(ev) => {
     if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}}}></input>
 
-                <Button variant="success" onClick={this.getJobsFromApiAndPassArrayToParentFunc}>Search</Button>
+                <Button variant="contained" color="default" onClick={this.getJobsFromApiAndPassArrayToParentFunc}>Search</Button>
 
                 <Dropdown onSelect={this.getCategoryUserChoice}>
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic" >
@@ -150,12 +150,7 @@ class SearchNav extends Component {
                         <Form.Check inline label="Part time" type="checkbox" id="inline-checkbox-part" onChange={this.getCheckedPartTime} />
                     </div>
                 </Form>
-{/* 
-                <form className="range-field">
-                    <input type="range" min="0" max="100" />
-                </form>
 
- */}
 
             <Form>
                 <div key="inline-checkbox" className="mb-3">
