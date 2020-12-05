@@ -1,10 +1,10 @@
-
 import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 // import SocialMediaLinks from './components/SocialMediaLinks';
 import Dashboard from './components/Dashboard';
 import SearchNav from './components/SearchNav';
+import { ToggleOff } from '@material-ui/icons';
 
 class App extends React.Component {
     constructor(props) {
@@ -12,12 +12,16 @@ class App extends React.Component {
         this.state = {
             jobsArray: [],
             jobStatus: false,
-            savedJobsIdArray: [],
             savedJobsArray: [],
         };
     }
 
     getFilteredJobsListFromSearchNav = (filteredJobsArray) => {
+        const savedJobsIdArray = this.state.savedJobsArray.map((job) => job.id);
+
+        filteredJobsArray.forEach((job) => {
+            job['isFavorite'] = savedJobsIdArray.includes(job.id);
+        });
         this.setState({
             jobsArray: filteredJobsArray,
             jobStatus: true,
@@ -25,37 +29,20 @@ class App extends React.Component {
     };
 
     toggleJobInSavedJobs = (jobId) => {
-        let newSavedJobsIdArray = this.state.savedJobsIdArray;
-        const jobIdIndex = newSavedJobsIdArray.indexOf(jobId);
-
-        console.log(jobIdIndex);
-
-        if (jobIdIndex >= 0) {
-            newSavedJobsIdArray.splice(jobIdIndex, 1);
+        let newSavedJobsArray = this.state.savedJobsArray;
+        const jobIndex = this.state.savedJobsArray.findIndex(
+            (job) => job.id === jobId
+        );
+        const toggleJob = this.state.jobsArray.find((job) => job.id === jobId);
+        if (jobIndex >= 0) {
+            if (toggleJob) {
+                toggleJob.isFavorite = false;
+            }
+            newSavedJobsArray.splice(jobIndex, 1);
         } else {
-            newSavedJobsIdArray.push(jobId);
+            toggleJob.isFavorite = true;
+            newSavedJobsArray.push(toggleJob);
         }
-        this.setState({
-            savedJobsIdArray: newSavedJobsIdArray,
-        });
-        this.getSavedJobsArray();
-    };
-
-    getSavedJobsArray = () => {
-        let newSavedJobsArray = this.state.savedJobsArray.filter((job) => {
-            return this.state.savedJobsIdArray.includes(job.id);
-        });
-        let newSavedJobsIdArray = this.state.savedJobsIdArray.filter((id) => {
-            return !this.state.savedJobsArray.some((job) => job.id === id);
-        });
-
-        newSavedJobsIdArray.forEach((id) => {
-            this.state.jobsArray.forEach((job) => {
-                if (job.id === id) {
-                    newSavedJobsArray.push(job);
-                }
-            });
-        });
         this.setState({
             savedJobsArray: newSavedJobsArray,
         });
@@ -76,18 +63,14 @@ class App extends React.Component {
                         }
                     />
                 </div>
-                    {/* <SocialMediaLinks /> */}
-                    <Dashboard                     
-                        jobsArray={this.state.jobsArray}
-                        jobStatus={this.state.jobStatus}
-                        savedJobsArray={this.state.savedJobsArray}
-                        toggleJobInSavedJobs={this.toggleJobInSavedJobs}
-                        savedJobsIdArray={this.state.savedJobsIdArray}
-                    />
-                
-                
+                {/* <SocialMediaLinks /> */}
+                <Dashboard
+                    jobsArray={this.state.jobsArray}
+                    jobStatus={this.state.jobStatus}
+                    savedJobsArray={this.state.savedJobsArray}
+                    toggleJobInSavedJobs={this.toggleJobInSavedJobs}
+                />
             </>
-            
         );
     }
 }

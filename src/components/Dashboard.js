@@ -11,14 +11,12 @@ export default class Dashboard extends Component {
                     jobsArray={this.props.jobsArray}
                     jobStatus={this.props.jobStatus}
                     toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
-                    savedJobsIdArray={this.props.savedJobsIdArray}
                 />
                 {this.props.jobStatus && (
                     <MyBoard
                         savedJobsArray={this.props.savedJobsArray}
                         jobStatus={this.props.jobStatus}
                         toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
-                        savedJobsIdArray={this.props.savedJobsIdArray}
                     />
                 )}
             </div>

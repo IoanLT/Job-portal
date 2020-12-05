@@ -22,54 +22,41 @@ const removeHtml = (text) => {
 class JobList extends React.Component {
     render(props) {
         return (
-          
-                <div className="list-container">
-                    <p
-                        className={
-                            this.props.jobStatus
-                                ? 'result-number-show'
-                                : 'result-number-hide'
-                        }
-                    >
-                        results:{this.props.jobsArray.length}
-                    </p>
-                    <div className={this.props.jobStatus ? 'scrollList' : ''}>
-                        {this.props.jobsArray.map((jobObject) => {
-                            return (
-                                <JobCard
-                                    logo={jobObject.company_logo_url}
-                                    title={jobObject.title}
-                                    salary={jobObject.salary}
-                                    type={jobObject.job_type
-                                        .split('_')
-                                        .join(' ')}
-                                    location={
-                                        jobObject.candidate_required_location
-                                    }
-                                    company={jobObject.company_name}
-                                    date={jobObject.publication_date.slice(
-                                        0,
-                                        10
-                                    )}
-                                    description={removeHtml(
-                                        jobObject.description
-                                    )}
-                                    key={jobObject.id}
-                                    url={jobObject.url}
-                                    toggleJobInSavedJobs={() => {
-                                        this.props.toggleJobInSavedJobs(
-                                            jobObject.id
-                                        );
-                                    }}
-                                    isFavorite={this.props.savedJobsIdArray.includes(
+            <div className="list-container">
+                <p
+                    className={
+                        this.props.jobStatus
+                            ? 'result-number-show'
+                            : 'result-number-hide'
+                    }
+                >
+                    results:{this.props.jobsArray.length}
+                </p>
+                <div className={this.props.jobStatus ? 'scrollList' : ''}>
+                    {this.props.jobsArray.map((jobObject) => {
+                        return (
+                            <JobCard
+                                logo={jobObject.company_logo_url}
+                                title={jobObject.title}
+                                salary={jobObject.salary}
+                                type={jobObject.job_type.split('_').join(' ')}
+                                location={jobObject.candidate_required_location}
+                                company={jobObject.company_name}
+                                date={jobObject.publication_date.slice(0, 10)}
+                                description={removeHtml(jobObject.description)}
+                                key={jobObject.id}
+                                url={jobObject.url}
+                                toggleJobInSavedJobs={() => {
+                                    this.props.toggleJobInSavedJobs(
                                         jobObject.id
-                                    )}
-                                />
-                            );
-                        })}
-                    </div>
+                                    );
+                                }}
+                                isFavorite={jobObject.isFavorite}
+                            />
+                        );
+                    })}
                 </div>
-            
+            </div>
         );
     }
 }
