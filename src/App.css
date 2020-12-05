@@ -13,7 +13,7 @@
    Landing page styles
    ============= */
 .landing--page--container {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(./assets/Desktop-bg.jpg);
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(./assets/Desktop-bg.jpg); */
   /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,7 +27,7 @@
   margin: auto; 
   padding-bottom: 50px;
   text-align: center;
-  color: #fff; 
+  color: rgb(9, 9, 9); 
 }
 
 h1 {
