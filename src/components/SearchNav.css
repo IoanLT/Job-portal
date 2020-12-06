@@ -1,13 +1,13 @@
 .search-button {
-    background-color:rgb(141, 158, 173);
+    background-color:rgb(85, 87, 86);
     color:  rgb(255, 255, 255);
     border-radius: 4px;
     margin: 1px solid rgb(54, 215, 183);
-    padding: 4px 10px 4px 10px;
+    padding: 8px 10px 10px 10px;
 }
 
 .search-button:hover {
-    background-color:rgb(18, 31, 43);
+    background-color:rgb(63, 177, 106);
     color:  rgb(255, 255, 255);
     border-radius: 4px;
     transition: all 0.2s ease-out;
