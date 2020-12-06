@@ -20,7 +20,7 @@ class Navbar extends Component {
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
 
-                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+                {/* <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
@@ -31,7 +31,7 @@ class Navbar extends Component {
                                     smooth={true}
                                     offset={-80} 
                                     duration={1000}
-                                    className={item.cName}
+                                    className={item.cName}                                    
                                 >
                                     {item.title}
                                 </Link>
@@ -39,7 +39,42 @@ class Navbar extends Component {
                             
                         )
                     })}
-                </ul>                    
+                </ul>                     */}
+            {
+                this.state.clicked 
+                ?   <ul className='nav-menu active'>
+                        {MenuItems.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <a className={item.cName} href={item.url}>
+                                        {item.title}
+                                    </a>
+                                </li>
+                                
+                            )
+                        })}
+                    </ul>      
+                :   <ul className={'nav-menu'}>
+                        {MenuItems.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <Link 
+                                        activeClass="active" 
+                                        to={item.id} 
+                                        spy={true} 
+                                        smooth={true}
+                                        offset={-80} 
+                                        duration={1000}
+                                        className={item.cName}                                    
+                                    >
+                                        {item.title}
+                                    </Link>
+                                </li>
+                            
+                        )
+                    })}
+                </ul>  
+            }                  
                 <SignUpButton>Sign Up</SignUpButton>
             </nav>  
             

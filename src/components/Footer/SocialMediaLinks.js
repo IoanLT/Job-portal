@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './SocialMediaLinks.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
