@@ -89,7 +89,11 @@ class JobCard extends Component {
                                 </div>
                             </div>
                             <div className="heart-apply-container">
-                                <a href={this.props.url} target="_blank" rel="noreferrer">
+                                <a
+                                    href={this.props.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
                                     <button>Apply</button>
                                 </a>
                                 <div
