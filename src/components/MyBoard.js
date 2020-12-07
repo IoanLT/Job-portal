@@ -10,15 +10,14 @@ export default class MyBoard extends Component {
     render() {
         return (
             <div className="my-board-container">
-                <JobsStatistic />
-                <MyCalendar />
-                <MyCvs />
                 <JobList
                     jobsArray={this.props.savedJobsArray}
                     jobStatus={this.props.jobStatus}
                     toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
-                    savedJobsIdArray={this.props.savedJobsIdArray}
                 />
+                <JobsStatistic />
+                <MyCalendar />
+                <MyCvs />
             </div>
         );
     }

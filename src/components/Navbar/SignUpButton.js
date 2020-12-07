@@ -1,5 +1,5 @@
 import React from 'react'
-import './SignInButton.css'
+import './SignUpButton.css'
 
 const STYLES = [
     'btn--primary',
@@ -11,7 +11,7 @@ const SIZES = [
     'btn--large'
 ]
 
-export const SignInButton = ({
+export const SignUpButton = ({
     children,
     type,
     onClick,

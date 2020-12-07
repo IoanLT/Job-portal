@@ -6,19 +6,17 @@ import './Dashboard.css';
 export default class Dashboard extends Component {
     render() {
         return (
-            <div className="dashboard-container">
+            <div className="dashboard-container" id="dashboard">
                 <JobList
                     jobsArray={this.props.jobsArray}
                     jobStatus={this.props.jobStatus}
                     toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
-                    savedJobsIdArray={this.props.savedJobsIdArray}
                 />
                 {this.props.jobStatus && (
                     <MyBoard
                         savedJobsArray={this.props.savedJobsArray}
                         jobStatus={this.props.jobStatus}
                         toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
-                        savedJobsIdArray={this.props.savedJobsIdArray}
                     />
                 )}
             </div>

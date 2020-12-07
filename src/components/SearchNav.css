@@ -1,0 +1,32 @@
+.filters-fileds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputs-fileds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.search-button {
+  background-color: rgb(85, 87, 86);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  margin: 1px solid rgb(54, 215, 183);
+  padding: 8px 10px 10px 10px;
+}
+
+.search-button:hover {
+  background-color: rgb(63, 177, 106);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+  margin: 1px solid rgb(54, 215, 183);
+  cursor: pointer;
+}
+
+.categories-select {
+  margin-right: 30px !important;
+}

@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { Link } from 'react-scroll';
+import './Navbar/Navbar.css';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import './SearchNav.css';
+import TextField from '@material-ui/core/TextField';
+import FormGroup from '@material-ui/core/FormGroup';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import countries from './Countries'
+
+
+
+
+
 
 
 
@@ -22,8 +36,6 @@ class SearchNav extends Component {
         }
     }
 
-  
-
     componentDidMount() {
         this.getCategories();
     }
@@ -34,7 +46,7 @@ class SearchNav extends Component {
     }
 
     filterByCategory = (jobs) => {
-        if (this.state.categoryUserChoice === "-") {
+        if (this.state.categoryUserChoice === "Categories") {
             return jobs;
         }
         return jobs.filter(job => job.category.includes(this.state.categoryUserChoice));
@@ -67,11 +79,11 @@ class SearchNav extends Component {
 
     getJobsFromApiAndPassArrayToParentFunc = () => {
         let searchParamStr = '';
-        if (this.state.searchUserInput !== ''){
+        if (this.state.searchUserInput !== '') {
             searchParamStr = `search=${this.state.searchUserInput}`;
         }
 
-        
+
         Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)
             .then(response => response.data.jobs)
             .then(jobs => this.filterByLocation(jobs))
@@ -97,8 +109,15 @@ class SearchNav extends Component {
         this.setState({ locationUserInput: ev.target.value })
     }
 
+    getLocationUserInputOnAutoComplete = (ev, selectedValueFromAutocomplete) => {
+        if(selectedValueFromAutocomplete !== null){        
+            this.setState({ locationUserInput: selectedValueFromAutocomplete.label })
+        }
+    }
+
     getCategoryUserChoice = (ev) => {
-        this.setState({ categoryUserChoice: ev })
+        console.log(ev.target.value);
+        this.setState({ categoryUserChoice: ev.target.value })
     }
 
     getCheckedFullTime = (ev) => {
@@ -110,17 +129,21 @@ class SearchNav extends Component {
     }
 
     getCheckedIfSalaryIsSpecified = (ev) => {
-        this.setState({ salarySpecifiedChecked: !this.state.salarySpecifiedChecked})
-
+        this.setState({ salarySpecifiedChecked: !this.state.salarySpecifiedChecked })
     }
-
-
-
 
     getCategories = () => {
         Axios.get('https://remotive.io/api/remote-jobs/categories')
             .then(response => response.data.jobs)
             .then(categoriesFromApi => this.setState({ categories: categoriesFromApi }))
+    }
+
+    countryToFlag = (isoCode) => {
+        return typeof String.fromCodePoint !== 'undefined'
+            ? isoCode
+                .toUpperCase()
+                .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397))
+            : isoCode;
     }
 
 
@@ -129,42 +152,143 @@ class SearchNav extends Component {
         return (
 
             <div>
-               <input className="joblist--input" type="text" placeholder="e.g Front-end development" onChange={this.getSearchUserInputOnChange} onKeyPress={(ev) => {
-    if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}}}></input>
-<input className="joblist--input" type="text" placeholder="e.g USA" onChange={this.getLocationUserInputOnChange} onKeyPress={(ev) => {
-    if (ev.key === "Enter") {this.getJobsFromApiAndPassArrayToParentFunc()}}}></input>
+                <FormGroup className="inputs-fileds" row>
 
-                <Button variant="success" onClick={this.getJobsFromApiAndPassArrayToParentFunc}>Search</Button>
 
-                <Dropdown onSelect={this.getCategoryUserChoice}>
-                    <Dropdown.Toggle variant="secondary" id="dropdown-basic" >
-                        {this.state.categoryUserChoice === "" || this.state.categoryUserChoice === "-" ? "Categories" : this.state.categoryUserChoice}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item eventKey="-">-</Dropdown.Item>
-                        {this.state.categories.map((category, i) => <Dropdown.Item eventKey={category.name} key={i}>{category.name}</Dropdown.Item>)}
-                    </Dropdown.Menu>
-                </Dropdown>
 
-                <Form>
-                    <div key="inline-checkbox" className="mb-3">
-                        <Form.Check inline label="Full time" type="checkbox" id="inline-checkbox-full" onChange={this.getCheckedFullTime} />
-                        <Form.Check inline label="Part time" type="checkbox" id="inline-checkbox-part" onChange={this.getCheckedPartTime} />
-                    </div>
-                </Form>
-{/* 
-                <form className="range-field">
-                    <input type="range" min="0" max="100" />
-                </form>
+                    <TextField
+                        id="search-keyword"
+                        style={{ width: 300 }}
 
- */}
+                        label="Search by keyword"
+                        variant="outlined"
+                        onChange={this.getSearchUserInputOnChange}
+                        onKeyPress={(ev) => {
+                            if (ev.key === "Enter") { this.getJobsFromApiAndPassArrayToParentFunc() }
+                        }} />
 
-            <Form>
-                <div key="inline-checkbox" className="mb-3">
-                    <Form.Check inline label="Salary specified" type="checkbox" id="inline-checkbox-salary" onChange={this.getCheckedIfSalaryIsSpecified} />
-                </div>
-            </Form>
-        </div>);
+
+                    <Autocomplete
+                        id="search-location"
+                        style={{ width: 300 }}
+                        options={countries}
+
+                        autoHighlight
+                        getOptionLabel={(option) => option.label}
+                        onChange={this.getLocationUserInputOnAutoComplete}
+                        renderOption={(option) => (
+                            <React.Fragment>
+                                <span>{this.countryToFlag(option.code)}</span>&nbsp;
+                                {option.label} ({option.code})
+                            </React.Fragment>
+                        )}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="Candidate location"
+                                variant="outlined"
+                                inputProps={{
+                                    ...params.inputProps,
+                                    autoComplete: 'new-password', // disable autocomplete and autofill
+                                }}
+                                onChange={this.getLocationUserInputOnChange}
+                                onKeyPress={(ev) => {
+                                    if (ev.key === "Enter") { this.getJobsFromApiAndPassArrayToParentFunc() }
+                                }}
+                            />
+                        )}
+                    />
+
+
+
+
+
+                </FormGroup>
+
+
+
+
+                <FormGroup className="filters-fileds" row>
+
+
+
+
+                    <FormControl className="categories-select">
+
+                        <Select
+                            labelId="demo-simple-select-filled-label"
+                            id="demo-simple-select-filled"
+                            value={this.state.categoryUserChoice === "" || this.state.categoryUserChoice === "Categories" ? "Categories" : this.state.categoryUserChoice}
+                            onChange={this.getCategoryUserChoice}
+                        >
+                            <MenuItem value="Categories">All categories</MenuItem>
+                            {this.state.categories.map((category, i) => <MenuItem value={category.name} key={i}>{category.name}</MenuItem>)}
+
+                        </Select>
+                    </FormControl>
+
+
+
+
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={this.state.jobTypeCheckBoxFullChecked}
+                                onChange={this.getCheckedFullTime}
+                                name="checkedFull"
+                                color="primary"
+                            />
+                        }
+                        label="Full time"
+                    />
+
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={this.state.jobTypeCheckBoxPartChecked}
+                                onChange={this.getCheckedPartTime}
+                                name="checkedPart"
+                                color="primary"
+                            />
+                        }
+                        label="Part time"
+                    />
+
+
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={this.state.salarySpecifiedChecked}
+                                onChange={this.getCheckedIfSalaryIsSpecified}
+                                name="checkedSalary"
+                                color="primary"
+                            />
+                        }
+                        label="Salary specified"
+                    />
+                </FormGroup>
+
+                <FormGroup >
+
+                    <Link
+                        onClick={this.getJobsFromApiAndPassArrayToParentFunc}
+                        delay={3000}
+                        activeClass="active"
+                        to="dashboard"
+                        spy={true}
+                        smooth={true}
+                        offset={-80}
+                        duration={1000}
+                        className="search-button"
+                    >
+                        Search
+                </Link>
+
+                </FormGroup>
+
+
+
+            </div>);
     }
 }
 
