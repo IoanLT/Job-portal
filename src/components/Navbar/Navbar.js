@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MenuItems } from "./MenuItems"
 import { SignUpButton } from "./SignUpButton"
 import { Link } from 'react-scroll';
-import {useHistory} from 'react-router-dom';
+// import Dashboard from '../Dashboard'
 // import { Link } from 'react-router-dom';
 import './Navbar.css'
 
@@ -14,11 +14,11 @@ class Navbar extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
-    handleLink = (e) => {
-        // e.preventDefault();
-        // console.log('​The link was clicked.');
+    // handleLink = () => {
+    //     e.preventDefault();
+    //     console.log('​The link was clicked.');
         
-    }
+    // }
 
     render() {
         return(            
@@ -36,9 +36,9 @@ class Navbar extends Component {
                                     
                                 <li key={index}>
                                     <Link 
-                                        onClick={this.handleLink}
+                                        onClick={this.handleClick}
                                         activeClass="active" 
-                                        to={item.id} 
+                                        to={item.path} 
                                         spy={true} 
                                         smooth={true}
                                         offset={-80} 
@@ -46,10 +46,7 @@ class Navbar extends Component {
                                         className={item.cName}                                    
                                     >
                                         {item.title}
-                                    </Link>
-                                    {/* <a href={item.id} className={item.cName}>
-                                        {item.title}
-                                    </a> */}
+                                    </Link>                                    
                                 </li>                                                        
                                 
                             )

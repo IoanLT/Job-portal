@@ -4,7 +4,7 @@ export const MenuItems = [
     {
         title: 'Home',
         id: 'home',
-        path: '../',
+        path: '/',
         cName: 'nav-links'
     },
     {
