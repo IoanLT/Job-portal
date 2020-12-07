@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-scroll';
 import './Navbar/Navbar.css';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -11,6 +10,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import './SearchNav.css';
 import TextField from '@material-ui/core/TextField';
 import FormGroup from '@material-ui/core/FormGroup';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import countries from './Countries'
+
 
 
 
@@ -105,6 +107,12 @@ class SearchNav extends Component {
         this.setState({ locationUserInput: ev.target.value })
     }
 
+    getLocationUserInputOnAutoComplete = (ev, selectedValueFromAutocomplete) => {
+        if(selectedValueFromAutocomplete !== null){        
+            this.setState({ locationUserInput: selectedValueFromAutocomplete.label })
+        }
+    }
+
     getCategoryUserChoice = (ev) => {
         console.log(ev.target.value);
         this.setState({ categoryUserChoice: ev.target.value })
@@ -128,38 +136,69 @@ class SearchNav extends Component {
             .then(categoriesFromApi => this.setState({ categories: categoriesFromApi }))
     }
 
+    countryToFlag = (isoCode) => {
+        return typeof String.fromCodePoint !== 'undefined'
+            ? isoCode
+                .toUpperCase()
+                .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397))
+            : isoCode;
+    }
+
 
 
     render() {
         return (
 
             <div>
-                <FormGroup>
+                <FormGroup className="inputs-fileds" row>
 
 
 
-                    <form noValidate autoComplete="off">
-                        <TextField
-                            id="search-keyword"
-                            label="Search by keyword"
-                            variant="outlined"
-                            onChange={this.getSearchUserInputOnChange}
-                            onKeyPress={(ev) => {
-                                if (ev.key === "Enter") { this.getJobsFromApiAndPassArrayToParentFunc() }
-                            }} />
+                    <TextField
+                        id="search-keyword"
+                        style={{ width: 300 }}
 
-                        <TextField
-                            id="search-location"
-                            label="Candidate location"
-                            variant="outlined"
-                            onChange={this.getLocationUserInputOnChange}
-                            onKeyPress={(ev) => {
-                                if (ev.key === "Enter") { this.getJobsFromApiAndPassArrayToParentFunc() }
-                            }} />
-                            
-                    </form>
+                        label="Search by keyword"
+                        variant="outlined"
+                        onChange={this.getSearchUserInputOnChange}
+                        onKeyPress={(ev) => {
+                            if (ev.key === "Enter") { this.getJobsFromApiAndPassArrayToParentFunc() }
+                        }} />
 
-                    
+
+                    <Autocomplete
+                        id="search-location"
+                        style={{ width: 300 }}
+                        options={countries}
+
+                        autoHighlight
+                        getOptionLabel={(option) => option.label}
+                        onChange={this.getLocationUserInputOnAutoComplete}
+                        renderOption={(option) => (
+                            <React.Fragment>
+                                <span>{this.countryToFlag(option.code)}</span>&nbsp;
+                                {option.label} ({option.code})
+                            </React.Fragment>
+                        )}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="Candidate location"
+                                variant="outlined"
+                                inputProps={{
+                                    ...params.inputProps,
+                                    autoComplete: 'new-password', // disable autocomplete and autofill
+                                }}
+                                onChange={this.getLocationUserInputOnChange}
+                                onKeyPress={(ev) => {
+                                    if (ev.key === "Enter") { this.getJobsFromApiAndPassArrayToParentFunc() }
+                                }}
+                            />
+                        )}
+                    />
+
+
+
 
 
                 </FormGroup>
@@ -167,13 +206,13 @@ class SearchNav extends Component {
 
 
 
-                <FormGroup row>
+                <FormGroup className="filters-fileds" row>
 
 
-                  
+
 
                     <FormControl className="categories-select">
-                       
+
                         <Select
                             labelId="demo-simple-select-filled-label"
                             id="demo-simple-select-filled"
@@ -244,6 +283,8 @@ class SearchNav extends Component {
                 </Link>
 
                 </FormGroup>
+
+
 
             </div>);
     }
