@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import { MenuItems } from "./MenuItems"
 import { SignUpButton } from "./SignUpButton"
-// import styled from 'styled-components';
 import { Link } from 'react-scroll';
+import {useHistory} from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Navbar.css'
+
 
 class Navbar extends Component {
     state = { clicked: false }
 
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked })
+    }
+
+    handleLink = (e) => {
+        // e.preventDefault();
+        // console.log('​The link was clicked.');
+        
     }
 
     render() {
@@ -20,36 +28,29 @@ class Navbar extends Component {
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
 
-                {/* <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {MenuItems.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <Link 
-                                    activeClass="active" 
-                                    to={item.id} 
-                                    spy={true} 
-                                    smooth={true}
-                                    offset={-80} 
-                                    duration={1000}
-                                    className={item.cName}                                    
-                                >
-                                    {item.title}
-                                </Link>
-                            </li>
-                            
-                        )
-                    })}
-                </ul>                     */}
             {
                 this.state.clicked 
                 ?   <ul className='nav-menu active'>
                         {MenuItems.map((item, index) => {
-                            return (
+                            return (           
+                                    
                                 <li key={index}>
-                                    <a className={item.cName} href={item.url}>
+                                    <Link 
+                                        onClick={this.handleLink}
+                                        activeClass="active" 
+                                        to={item.id} 
+                                        spy={true} 
+                                        smooth={true}
+                                        offset={-80} 
+                                        duration={1000}
+                                        className={item.cName}                                    
+                                    >
                                         {item.title}
-                                    </a>
-                                </li>
+                                    </Link>
+                                    {/* <a href={item.id} className={item.cName}>
+                                        {item.title}
+                                    </a> */}
+                                </li>                                                        
                                 
                             )
                         })}
