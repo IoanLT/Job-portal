@@ -97,6 +97,8 @@ class SearchNav extends Component {
                 this.props.functionToCallForFilteredJobs(jobs);
 
             })
+            
+
     }
 
     getSearchUserInputOnChange = (ev) => {
