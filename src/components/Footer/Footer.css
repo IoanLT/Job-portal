@@ -9,43 +9,56 @@
  
     /* Primary Colour */
     /* --dark-violet: hsl(256, 26%, 20%);  */   
-    --electric-blue: #fff;
+    --text-colour: #fff;
 
     /* Secundary Colour */
     --smoky-black: #0B0C10;
-    --dark-grey: #1F2833;
+    --background-colour: #1F2833;
 
 } 
-             
-/* body { 
-    font-family: 'Karla', sans-serif; 
-    font-size: 16px;  
-    font-weight: 400, 700;     
-} */
 
+hr {
+    width: 80%;
+    border: 0;
+    height: 2px;   
+    background-image: linear-gradient(to right, rgb(54, 167, 44), rgb(172, 31, 31),rgb(49, 39, 139))
+    /* background-image: linear-gradient(to right, #22f0b2, rgb(191, 85, 236), rgb(110, 94, 254)) */
+}
 
 footer {
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   /* justify-content: center; */
    align-items: center;
-   background-color: var(--dark-grey);
+   background-color: var(--background-colour);
    width: 100vw;
-   /* height: 100%; */   
+   height: 100vh; 
+   /* margin-top: 80px;   */
+}
+
+.made-with-love {
+    color: #fff;
+    margin: 20px 0;
+    margin-top: 40px;
+}
+
+.heart {    
+    color: red;    
 }
 
 .footer-top {
    text-align: center;
    width: 90%;
-   border-bottom: 2px solid var(--electric-blue);
+   border-bottom: 2px solid var(--text-colour);
    padding: 30px;
 }
 
 .footer-content {    
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;    
-    margin-bottom: 50px;
+    justify-content: center;
+    /* height: 100%;     */
+    /* margin: 50px 0; */
 }
 
 .footer-content ul {
@@ -56,18 +69,18 @@ footer {
 }
 
 .footer-content ul li {
-   color: var(--electric-blue);
+   color: var(--text-colour);
    font-size: .9rem;
    font-weight: 700;
    letter-spacing: 1px;
-   text-transform: uppercase;
+   /* text-transform: uppercase; */
    padding: 6px;
 }
 
 .ftr-col li:first-child {
    margin: 20px;
    margin-top: 30px;
-   color: var(--electric-blue);
+   color: var(--text-colour);
    font-size: 1.1rem;
    text-decoration: underline;
 }
@@ -86,6 +99,21 @@ footer {
    list-style: none;
    align-items: center;  
 }
+
+
+@media (max-width: 768px) {
+    footer {      
+      justify-content: center;
+    }
+  }
+  
+  /* Mobile design */
+  @media (max-width: 480px) {
+    footer {
+        margin-top: 50px;
+        height: 100%;       
+    }  
+  }
 
 /* .social-media li {
     margin: 0 15px;

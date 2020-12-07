@@ -99,7 +99,10 @@
     flex-wrap: wrap;   
   }
 
-  .social--media--account h4,
+  .social--media--account h4 {
+    margin: 10px;
+    color: #fff;
+  }
   .social--media--account button {
     margin: 10px;
   } 

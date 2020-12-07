@@ -1,7 +1,12 @@
+* {
+    --background-colour: #1F2833;
+}
+
 .NavbarItems {
     /* background: linear-gradient(90deg, rgb(110, 94, 254) 0%, rgba(73,63,252,1) 100%); */
     /* background: linear-gradient(90deg, #22A7F0 0%, rgb(191, 85, 236) 100%); */
-    background:#22A7F0;
+    /* background:#22A7F0; */
+    background:var(--background-colour);
     height: 80px;
     width: 100vw;
     top: 0;
@@ -46,8 +51,8 @@
 }
 
 .nav-links:hover {
-    background-color:rgb(18, 31, 43);
-    color:  rgb(54, 215, 183);
+    background:rgb(191, 85, 236);
+    color: #fff;
     border-radius: 4px;
     transition: all 0.2s ease-out;
     margin: 1px solid rgb(54, 215, 183);

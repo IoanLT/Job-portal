@@ -7,31 +7,39 @@ export default function Footer() {
     return (
         <div>
             <footer id="footer">
-                <SocialMediaLinks />
+                <SocialMediaLinks /> 
+
+                <hr/>
+
+                <div>
+                    <h2 className="made-with-love">
+                        Made with <span className="heart">♥</span> by:
+                    </h2>                    
+                </div>              
 
                 <div className="footer-content">
                     <ul className="ftr-col company">
-                        <li>Our Company</li>
-                        <li>How we work</li>                 
-                        <li>Reviews</li>
+                        <li>Roxana Florea</li>
+                        <li>Github Account</li>                 
+                        <li>#</li>
                     </ul>           
 
                     <ul className="ftr-col contact">
-                        <li>Contact</li>                
-                        <li>Support</li>
-                        <li>Live chat</li>                            
+                        <li>Viktoria Kulinkovich</li>                
+                        <li>Github Account</li>
+                        <li>#</li>                            
                     </ul>
 
                     <ul className="ftr-col others">
-                        <li>Terms of use</li>                
-                        <li>Payment options</li>
-                        <li>Licenses</li>                            
+                        <li>Aya Berdyeva</li>                
+                        <li>Github Account</li>
+                        <li>#</li>                            
                     </ul>
 
                     <ul className="ftr-col help">
-                        <li>Help me</li>
-                        <li>FAQ</li>                
-                        <li>Privacy policy</li>                
+                        <li>Ioan Tranole</li>
+                        <li>Github Account</li>                
+                        <li>#</li>                
                     </ul>
                 </div>
             </footer>
