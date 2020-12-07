@@ -14,6 +14,8 @@ class App extends React.Component {
             jobStatus: false,
             savedJobsIdArray: [],
             savedJobsArray: [],
+            totalResults: 0,
+            currentPage: 1
         };
     }
 
