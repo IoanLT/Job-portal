@@ -6,6 +6,7 @@ import { faLinkedin, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-
 export default function SocialMediaLinks() {
     return (
         <div className="social-media">
+            <h2 className="follow--social">Follow us on:</h2>
             <ul id="social-media-links">                  
                 <li>
                     <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">

@@ -3,6 +3,11 @@
     margin: 40px auto;
    
   }
+
+.follow--social {
+  margin: 20px 0;
+  color: #fff;
+}
   
   #social-media-links {
     display: flex;
@@ -71,23 +76,19 @@
   
   #social-media-links li:nth-of-type(1):before,
   #social-media-links li:nth-of-type(1):after {
-    background: rgb(54, 215, 183);
+    background:#22f0b2;
   }
   
   #social-media-links li:nth-of-type(2):before,
   #social-media-links li:nth-of-type(2):after {
-    background: rgb(191, 85, 236);
+    background:rgb(191, 85, 236);;
   }
   
   #social-media-links li:nth-of-type(3):before,
   #social-media-links li:nth-of-type(3):after {
-    background: #22A7F0;
+    background: rgb(110, 94, 254);
   }
   
-  #social-media-links li:nth-of-type(4):before,
-  #social-media-links li:nth-of-type(4):after {
-    background: rgb(247, 202, 24);
-  }
 
 
   .social--media--account {

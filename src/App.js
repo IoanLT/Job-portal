@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 // import SocialMediaLinks from './components/SocialMediaLinks';
 import Dashboard from './components/Dashboard';
 import SearchNav from './components/SearchNav';
+import Footer from './components/Footer/Footer';
 import { ToggleOff } from '@material-ui/icons';
 
 class App extends React.Component {
@@ -63,13 +64,15 @@ class App extends React.Component {
                         }
                     />
                 </div>
-                {/* <SocialMediaLinks /> */}
+                
                 <Dashboard
                     jobsArray={this.state.jobsArray}
                     jobStatus={this.state.jobStatus}
                     savedJobsArray={this.state.savedJobsArray}
                     toggleJobInSavedJobs={this.toggleJobInSavedJobs}
                 />
+
+                <Footer />
             </>
         );
     }

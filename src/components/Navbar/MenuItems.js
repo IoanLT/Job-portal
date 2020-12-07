@@ -15,7 +15,7 @@ export const MenuItems = [
     },
     {
         title: 'Contact Us',
-        id: '#',
+        id: 'footer',
         path: '../Footer',
         cName: 'nav-links'
     },

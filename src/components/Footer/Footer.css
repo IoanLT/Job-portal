@@ -1,0 +1,124 @@
+/* =============
+   Global styles
+   ============= */
+
+* {   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+ 
+    /* Primary Colour */
+    /* --dark-violet: hsl(256, 26%, 20%);  */   
+    --electric-blue: #fff;
+
+    /* Secundary Colour */
+    --smoky-black: #0B0C10;
+    --dark-grey: #1F2833;
+
+} 
+             
+/* body { 
+    font-family: 'Karla', sans-serif; 
+    font-size: 16px;  
+    font-weight: 400, 700;     
+} */
+
+
+footer {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--dark-grey);
+   width: 100vw;
+   /* height: 100%; */   
+}
+
+.footer-top {
+   text-align: center;
+   width: 90%;
+   border-bottom: 2px solid var(--electric-blue);
+   padding: 30px;
+}
+
+.footer-content {    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+    margin-bottom: 50px;
+}
+
+.footer-content ul {
+   list-style: none;
+   text-align: center;
+   margin: 20px;  
+   width: 250px; 
+}
+
+.footer-content ul li {
+   color: var(--electric-blue);
+   font-size: .9rem;
+   font-weight: 700;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   padding: 6px;
+}
+
+.ftr-col li:first-child {
+   margin: 20px;
+   margin-top: 30px;
+   color: var(--electric-blue);
+   font-size: 1.1rem;
+   text-decoration: underline;
+}
+
+
+
+/* =============
+   Components
+   ============= */
+
+
+.social-media {   
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   list-style: none;
+   align-items: center;  
+}
+
+/* .social-media li {
+    margin: 0 15px;
+}
+
+.social-media a {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   color: var(--very-light-gray);
+   height: 30px;
+   width: 30px;   
+   text-decoration: none;   
+   transform: scale(1.2);
+   padding: 18px;
+   margin: 2px;
+}  */
+
+/* .btn {
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--dark-violet);
+    color: var(--dark-violet);
+    font-size: 1rem;
+    font-weight: 400;    
+    width: 150px;
+    padding: 8px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+ }
+ 
+ .btn:hover {
+    background-color: var(--dark-violet);
+    color: var(--very-light-gray);
+ } */

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { MenuItems } from "./MenuItems"
 import { SignUpButton } from "./SignUpButton"
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
+import { Link, animateScroll as scroll } from 'react-scroll';
 // import Dashboard from '../Dashboard'
 // import { Link } from 'react-router-dom';
 import './Navbar.css'
@@ -14,10 +15,8 @@ class Navbar extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
-    // handleLink = () => {
-    //     e.preventDefault();
-    //     console.log('​The link was clicked.');
-        
+    // handleLink = (index) => {
+    //     scroll.scrollTo(MenuItems[index].path)
     // }
 
     render() {
@@ -36,7 +35,8 @@ class Navbar extends Component {
                                     
                                 <li key={index}>
                                     <Link 
-                                        onClick={this.handleClick}
+                                        // onClick={() =>this.handleLink}
+                                        // onClick={this.handleLink}
                                         activeClass="active" 
                                         to={item.path} 
                                         spy={true} 
