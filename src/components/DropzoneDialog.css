@@ -1,0 +1,13 @@
+.upload-cv-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.upload-cv-row{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
