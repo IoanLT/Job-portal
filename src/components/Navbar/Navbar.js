@@ -15,9 +15,9 @@ class Navbar extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
-    // handleLink = (index) => {
-    //     scroll.scrollTo(MenuItems[index].path)
-    // }
+    handleLink = (index) => {
+        scroll.scrollTo(MenuItems[index].path)
+    }
 
     render() {
         return(            
@@ -35,10 +35,10 @@ class Navbar extends Component {
                                     
                                 <li key={index}>
                                     <Link 
-                                        // onClick={() =>this.handleLink}
+                                        onClick={() => this.handleLink(index)}
                                         // onClick={this.handleLink}
                                         activeClass="active" 
-                                        to={item.path} 
+                                        to={item.id} 
                                         spy={true} 
                                         smooth={true}
                                         offset={-80} 
