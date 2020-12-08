@@ -57,15 +57,21 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 30px;
     /* height: 100%;     */
     /* margin: 50px 0; */
 }
 
 .footer-content ul {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
    list-style: none;
-   text-align: center;
-   margin: 20px;  
-   width: 250px; 
+   /* text-align: center; */
+   margin: 10px;    
+   width: 250px;
+   height: 250px; 
 }
 
 .footer-content ul li {
@@ -77,12 +83,19 @@ footer {
    padding: 6px;
 }
 
-.ftr-col li:first-child {
-   margin: 20px;
-   margin-top: 30px;
-   color: var(--text-colour);
-   font-size: 1.1rem;
-   text-decoration: underline;
+.ftr-col {
+   border: 1px solid rgb(191, 85, 236);   
+   border-radius: 15px;
+}
+
+.ftr-col li img {
+   /* margin: 20px; */
+   /* margin-top: 30px; */
+   /* color: var(--text-colour); */
+   /* font-size: 1.1rem; */
+   /* text-decoration: underline; */
+   width: 150px;
+   padding: 10px;
 }
 
 
@@ -102,51 +115,21 @@ footer {
 
 
 @media (max-width: 768px) {
-    footer {      
+   footer {      
       justify-content: center;
-    }
+   }
   }
   
   /* Mobile design */
-  @media (max-width: 480px) {
-    footer {
-        margin-top: 50px;
-        height: 100%;       
-    }  
-  }
+@media (max-width: 480px) {
+   footer {
+      margin-top: 50px;
+      height: 100%;       
+   }  
 
-/* .social-media li {
-    margin: 0 15px;
+   #footer > div.footer-content > ul:nth-child(4){
+      margin-bottom: 50px;
+   }
 }
 
-.social-media a {
-   display: inline-flex;
-   justify-content: center;
-   align-items: center;
-   color: var(--very-light-gray);
-   height: 30px;
-   width: 30px;   
-   text-decoration: none;   
-   transform: scale(1.2);
-   padding: 18px;
-   margin: 2px;
-}  */
 
-/* .btn {
-    text-transform: uppercase;
-    background: transparent;
-    border: 1px solid var(--dark-violet);
-    color: var(--dark-violet);
-    font-size: 1rem;
-    font-weight: 400;    
-    width: 150px;
-    padding: 8px;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 5px;
- }
- 
- .btn:hover {
-    background-color: var(--dark-violet);
-    color: var(--very-light-gray);
- } */
