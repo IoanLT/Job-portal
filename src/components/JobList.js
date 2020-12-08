@@ -1,9 +1,6 @@
 import React from 'react';
 import JobCard from './JobCard';
 import './JobList.css';
-import PaginationList from 'react-pagination-list';
-import ReactPaginate from 'react-paginate';
-import axios from 'axios';
 import Pagination from '@material-ui/lab/Pagination';
 
 //function to remove html from job description
@@ -27,7 +24,6 @@ class JobList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // offset: 0,
             perPage: 5,
             currentPage: props.currentPage,
         };
@@ -36,11 +32,9 @@ class JobList extends React.Component {
 
     handlePageClick = (event, value) => {
         const selectedPage = value;
-        // const offset = (selectedPage - 1) * this.state.perPage;
 
         this.setState({
             currentPage: selectedPage,
-            // offset: offset,
         });
 
         this.props.setCurrentPage(selectedPage);
