@@ -272,7 +272,7 @@ class SearchNav extends Component {
 
                     <Link
                         onClick={this.getJobsFromApiAndPassArrayToParentFunc}
-                        delay={3000}
+                        delay={2000}
                         activeClass="active"
                         to="dashboard"
                         spy={true}

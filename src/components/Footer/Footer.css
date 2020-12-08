@@ -1,0 +1,135 @@
+/* =============
+   Global styles
+   ============= */
+
+* {   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+ 
+    /* Primary Colour */
+    /* --dark-violet: hsl(256, 26%, 20%);  */   
+    --text-colour: #fff;
+
+    /* Secundary Colour */
+    --smoky-black: #0B0C10;
+    --background-colour: #1F2833;
+
+} 
+
+hr {
+    width: 80%;
+    border: 0;
+    height: 2px;   
+    background-image: linear-gradient(to right, rgb(54, 167, 44), rgb(172, 31, 31),rgb(49, 39, 139))
+    /* background-image: linear-gradient(to right, #22f0b2, rgb(191, 85, 236), rgb(110, 94, 254)) */
+}
+
+footer {
+   display: flex;
+   flex-direction: column;
+   /* justify-content: center; */
+   align-items: center;
+   background-color: var(--background-colour);
+   width: 100vw;
+   height: 100vh; 
+   /* margin-top: 80px;   */
+}
+
+.made-with-love {
+    color: #fff;
+    margin: 20px 0;
+    margin-top: 40px;
+}
+
+.heart {    
+    color: red;    
+}
+
+.footer-top {
+   text-align: center;
+   width: 90%;
+   border-bottom: 2px solid var(--text-colour);
+   padding: 30px;
+}
+
+.footer-content {    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    /* height: 100%;     */
+    /* margin: 50px 0; */
+}
+
+.footer-content ul {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   list-style: none;
+   /* text-align: center; */
+   margin: 10px;    
+   width: 250px;
+   height: 250px; 
+}
+
+.footer-content ul li {
+   color: var(--text-colour);
+   font-size: .9rem;
+   font-weight: 700;
+   letter-spacing: 1px;
+   /* text-transform: uppercase; */
+   padding: 6px;
+}
+
+.ftr-col {
+   border: 1px solid rgb(191, 85, 236);   
+   border-radius: 15px;
+}
+
+.ftr-col li img {
+   /* margin: 20px; */
+   /* margin-top: 30px; */
+   /* color: var(--text-colour); */
+   /* font-size: 1.1rem; */
+   /* text-decoration: underline; */
+   width: 150px;
+   padding: 10px;
+}
+
+
+
+/* =============
+   Components
+   ============= */
+
+
+.social-media {   
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   list-style: none;
+   align-items: center;  
+}
+
+
+@media (max-width: 768px) {
+   footer {      
+      justify-content: center;
+   }
+  }
+  
+  /* Mobile design */
+@media (max-width: 480px) {
+   footer {
+      margin-top: 50px;
+      height: 100%;       
+   }  
+
+   #footer > div.footer-content > ul:nth-child(4){
+      margin-bottom: 50px;
+   }
+}
+
+
