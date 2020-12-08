@@ -14,6 +14,8 @@ export default class MyBoard extends Component {
                     jobsArray={this.props.savedJobsArray}
                     jobStatus={this.props.jobStatus}
                     toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
+                    currentPage={this.props.currentPage}
+                    setCurrentPage={this.props.setCurrentPage}
                 />
                 <JobsStatistic />
                 <MyCalendar />
