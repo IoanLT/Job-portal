@@ -11,7 +11,7 @@
   }
 
 .search-button {
-  background-color: rgb(85, 87, 86);
+  background-color: #1F2833;
   color: rgb(255, 255, 255);
   border-radius: 4px;
   margin: 1px solid rgb(54, 215, 183);
@@ -19,7 +19,7 @@
 }
 
 .search-button:hover {
-  background-color: #3fb16a;
+  background-color: rgb(191, 85, 236);
   color: rgb(255, 255, 255);
   border-radius: 4px;
   transition: all 0.2s ease-out;

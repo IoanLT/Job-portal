@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MyBoard from './MyBoard';
 import JobList from './JobList';
+import MyCvs from './MyCvs';
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -46,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
-        
+
     },
 }));
 
@@ -66,9 +68,9 @@ export default function Dashboard(props) {
                     onChange={handleChange}
                     aria-label="simple tabs example"
                     variant="fullWidth"
-                    TabIndicatorProps={{ style: { background: "#3fb16a" } }}
-                    
-                    >
+                    TabIndicatorProps={{ style: { background: "#bf55ec" } }}
+
+                >
                     <Tab label="Browse all" {...a11yProps(0)} />
                     <Tab label="Saved" {...a11yProps(1)} />
                     <Tab label="My CVs" {...a11yProps(2)} />
@@ -89,8 +91,8 @@ export default function Dashboard(props) {
                 />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                CV
-      </TabPanel>
+                <MyCvs />
+            </TabPanel>
         </div>
     );
 }
