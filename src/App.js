@@ -17,6 +17,7 @@ class App extends React.Component {
             totalResults: 0,
             currentPage: 1,
         };
+        this.dashboardRef = React.createRef();
     }
 
     getFilteredJobsListFromSearchNav = (filteredJobsArray) => {
@@ -25,6 +26,7 @@ class App extends React.Component {
         filteredJobsArray.forEach((job) => {
             job['isFavorite'] = savedJobsIdArray.includes(job.id);
         });
+        this.dashboardRef.current.resetSearchedJobList();
         this.setState({
             jobsArray: filteredJobsArray,
             jobStatus: true,
@@ -73,6 +75,7 @@ class App extends React.Component {
                     jobStatus={this.state.jobStatus}
                     savedJobsArray={this.state.savedJobsArray}
                     toggleJobInSavedJobs={this.toggleJobInSavedJobs}
+                    ref={this.dashboardRef}
                 />
 
                 <Footer />

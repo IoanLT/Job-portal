@@ -9,6 +9,8 @@ import Box from '@material-ui/core/Box';
 import MyBoard from './MyBoard';
 import JobList from './JobList';
 import MyCvs from './MyCvs';
+import { forwardRef, useImperativeHandle } from 'react';
+import shortid from 'shortid';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -50,15 +52,23 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Dashboard(props) {
+const Dashboard = forwardRef((props, ref) => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const [currentSearchedPage, setCurrentSearchedPage] = React.useState(1);
     const [currentSavedPage, setCurrentSavedPage] = React.useState(1);
+    const [searchId, setSearchId] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    useImperativeHandle(ref, () => ({
+        resetSearchedJobList() {
+            setCurrentSearchedPage(1);
+            setSearchId(shortid.generate());
+        },
+    }));
 
     return (
         <div className={classes.root} id="dashboard">
@@ -77,6 +87,7 @@ export default function Dashboard(props) {
             </AppBar>
             <TabPanel value={value} index={0}>
                 <JobList
+                    key={searchId}
                     jobsArray={props.jobsArray}
                     jobStatus={props.jobStatus}
                     toggleJobInSavedJobs={props.toggleJobInSavedJobs}
@@ -98,4 +109,6 @@ export default function Dashboard(props) {
             </TabPanel>
         </div>
     );
-}
+});
+
+export default Dashboard;
