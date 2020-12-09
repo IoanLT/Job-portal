@@ -26,6 +26,7 @@ class JobList extends React.Component {
         this.state = {
             perPage: 5,
             currentPage: props.currentPage,
+            
         };
         this.handlePageClick = this.handlePageClick.bind(this);
     }
@@ -60,7 +61,8 @@ class JobList extends React.Component {
                     results:{this.props.jobsArray.length}
                 </p>
                 <div>
-                    {slice.map((jobObject) => (
+                    {  
+                         slice.map((jobObject) => (
                         <JobCard
                             logo={jobObject.company_logo_url}
                             title={jobObject.title}
@@ -77,7 +79,8 @@ class JobList extends React.Component {
                             }}
                             isFavorite={jobObject.isFavorite}
                         />
-                    ))}
+                    ))
+                    }
                     {this.props.jobStatus && (
                         <Pagination
                             count={pageCount}
