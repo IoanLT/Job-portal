@@ -45,32 +45,31 @@ export default class CVuploader extends Component {
         return (
             <div>
                 <div className="upload-cv-button">
-                <Button
-                    variant="outlined"
-                    onClick={this.handleOpen.bind(this)}
-                    startIcon={<CloudUploadIcon />}>
-                    Upload cv
+                    <Button
+                        variant="outlined"
+                        onClick={this.handleOpen.bind(this)}
+                        startIcon={<CloudUploadIcon />}>
+                        Upload cv
                 </Button>
 
                 </div>
 
                 <div upload-cv-row>
-                <DropzoneDialog
-                    open={this.state.open}
-                    onSave={this.handleSave.bind(this)}
-                    acceptedFiles={['image/*', '.pdf', '.doc']}
-                    showPreviews={true}
-                    maxFileSize={5000000}
-                    onClose={this.handleClose.bind(this)}
-                />
+                    <DropzoneDialog
+                        open={this.state.open}
+                        onSave={this.handleSave.bind(this)}
+                        acceptedFiles={['image/*', '.pdf', '.doc']}
+                        showPreviews={true}
+                        maxFileSize={5000000}
+                        onClose={this.handleClose.bind(this)}
+                    />
                 </div>
                 {
-
                     this.state.savedFiles.map(file =>
-                        <div>
-                            <img src="https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg" alt="" width="50px" height="50px"></img>
-                            <p>{file.name}</p>
-                        </div>
+                <div>
+                    <img src="https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg" alt="" width="50px" height="50px"></img>
+                    <p>{file.name}</p>
+                </div>
                     )}
             </div>
         );

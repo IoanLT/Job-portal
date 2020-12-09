@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import JobsStatistic from './JobsStatistic';
 import MyCalendar from './MyCalendar';
-import MyCvs from './MyCvs';
-import SavedJobs from './SavedJobs';
 import './MyBoard.css';
 import JobList from './JobList';
 
@@ -19,7 +17,6 @@ export default class MyBoard extends Component {
                 />
                 <JobsStatistic />
                 <MyCalendar />
-                <MyCvs />
             </div>
         );
     }
