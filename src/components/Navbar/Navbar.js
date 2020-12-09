@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { MenuItems } from './MenuItems';
 import { SignUpButton } from './SignUpButton';
-// import { Link } from 'react-scroll';
 import { Link, animateScroll as scroll } from 'react-scroll';
-// import Dashboard from '../Dashboard'
-// import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { withAuth0 } from '@auth0/auth0-react';
 
@@ -26,12 +23,16 @@ class Navbar extends Component {
 
     handleMobileLink = (index, action) => {
         scroll.scrollTo(MenuItems[index].path);
-        this.handleAction(action);
+        this.handleAction(action); 
+        this.setState({ clicked: !this.state.clicked });       
     };
+
 
     handleDesktopLink = (action) => {
         this.handleAction(action);
     };
+
+    
 
     render() {
         const { isAuthenticated } = this.props.auth0;
@@ -64,7 +65,7 @@ class Navbar extends Component {
                                                     item.action
                                                 )
                                             }
-                                            // onClick={this.handleLink}
+                                            // onClick={this.handleClick}
                                             activeClass="active"
                                             to={item.id}
                                             spy={true}
