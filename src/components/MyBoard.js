@@ -18,7 +18,7 @@ export default class MyBoard extends Component {
                     setCurrentPage={this.props.setCurrentPage}
                 />
                
-                <MyCalendar />
+                <MyCalendar jobsArray={this.props.savedJobsArray}/>
              
             </div>
         );

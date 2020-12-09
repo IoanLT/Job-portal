@@ -31,7 +31,7 @@ class SearchNav extends Component {
             jobTypeCheckBoxFullChecked: false,
             jobTypeCheckBoxPartChecked: false,
             salarySpecifiedChecked: false,
-            loading: false
+        
 
         }
     }
@@ -95,7 +95,7 @@ class SearchNav extends Component {
                 //here SearchNav is calling the JobsList's 
                 //function with the joblist array returned from the api and filtered
                 this.props.functionToCallForFilteredJobs(jobs);
-
+               
             })
             
 
