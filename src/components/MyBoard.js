@@ -15,9 +15,9 @@ export default class MyBoard extends Component {
                     jobStatus={this.props.jobStatus}
                     toggleJobInSavedJobs={this.props.toggleJobInSavedJobs}
                 />
-                <JobsStatistic />
+               
                 <MyCalendar />
-                <MyCvs />
+             
             </div>
         );
     }

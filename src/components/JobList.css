@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: -100px;
-    
+    /* margin-left: -150px;
+     */
 }
 
 .scrollList {
@@ -56,11 +56,12 @@
 
  @media (min-width: 1281px){
     .list-container {
-       margin-left: -50px;
+       text-align: center;
+       margin-left: 30%;
     }
     .scrollList {
         width: 600px;
-    
+        justify-content: center;
     }
 
   
@@ -72,6 +73,7 @@
     .scrollList {
         width: 500px;
         padding-top: 10px ;
+       
       
     }
     .list-container {

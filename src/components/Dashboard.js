@@ -61,7 +61,7 @@ export default function Dashboard(props) {
     };
 
     return (
-        <div className={classes.root} id="dashboard">
+        <div id="dashboard">
             <AppBar position="static"
                 color="default">
                 <Tabs value={value}
