@@ -10,7 +10,6 @@ import MyBoard from './MyBoard';
 import JobList from './JobList';
 import MyCvs from './MyCvs';
 
-
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -48,28 +47,28 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
-
     },
 }));
 
 export default function Dashboard(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const [currentSearchedPage, setCurrentSearchedPage] = React.useState(1);
+    const [currentSavedPage, setCurrentSavedPage] = React.useState(1);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
     return (
-        <div id="dashboard">
-            <AppBar position="static"
-                color="default">
-                <Tabs value={value}
+        <div className={classes.root} id="dashboard">
+            <AppBar position="static" color="default">
+                <Tabs
+                    value={value}
                     onChange={handleChange}
                     aria-label="simple tabs example"
                     variant="fullWidth"
-                    TabIndicatorProps={{ style: { background: "#bf55ec" } }}
-
+                    TabIndicatorProps={{ style: { background: '#bf55ec' } }}
                 >
                     <Tab label="Browse all" {...a11yProps(0)} />
                     <Tab label="Saved" {...a11yProps(1)} />
@@ -81,6 +80,8 @@ export default function Dashboard(props) {
                     jobsArray={props.jobsArray}
                     jobStatus={props.jobStatus}
                     toggleJobInSavedJobs={props.toggleJobInSavedJobs}
+                    currentPage={currentSearchedPage}
+                    setCurrentPage={setCurrentSearchedPage}
                 />
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -88,6 +89,8 @@ export default function Dashboard(props) {
                     savedJobsArray={props.savedJobsArray}
                     jobStatus={props.jobStatus}
                     toggleJobInSavedJobs={props.toggleJobInSavedJobs}
+                    currentPage={currentSavedPage}
+                    setCurrentPage={setCurrentSavedPage}
                 />
             </TabPanel>
             <TabPanel value={value} index={2}>

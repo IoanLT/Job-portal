@@ -4,8 +4,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    /* margin-left: -150px;
-     */
+    margin-left: -100px;
 }
 
 .scrollList {
@@ -17,7 +16,6 @@
     border-radius: 0.5rem;
     background-color: #fff;
     padding-top: 5px;
-   
 }
 
 .result-number-hide {
@@ -29,128 +27,99 @@
     color: black;
     font-size: 0.7rem;
     padding-bottom: 5px;
+    margin-left: 20%;
 }
 
-  /* Designing for scroll-bar */ 
-  ::-webkit-scrollbar { 
-    width: 6px; 
-} 
+/* Designing for scroll-bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
 
-/* Track */ 
-::-webkit-scrollbar-track { 
-    background: gainsboro; 
-    border-radius: 5px; 
-} 
+/* Track */
+::-webkit-scrollbar-track {
+    background: gainsboro;
+    border-radius: 5px;
+}
 
-/* Handle */ 
-::-webkit-scrollbar-thumb { 
-    background: black; 
-    border-radius: 5px; 
-} 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 5px;
+}
 
-/* Handle on hover */ 
-::-webkit-scrollbar-thumb:hover { 
-    background: #555; 
-} 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
-
- @media (min-width: 1281px){
+@media (min-width: 1281px) {
     .list-container {
-       text-align: center;
-       margin-left: 30%;
+        margin-left: -50px;
     }
     .scrollList {
         width: 600px;
-        justify-content: center;
     }
+}
 
-  
-}  
-
-
-  
-  @media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1025px) and (max-width: 1280px) {
     .scrollList {
         width: 500px;
-        padding-top: 10px ;
-       
-      
+        padding-top: 10px;
     }
     .list-container {
         width: auto;
         margin-left: -5px;
     }
-    
-    
-  } 
-  
-  /* 
+}
+
+/* 
     ##Device = Tablets, Ipads (portrait)
     ##Screen = B/w 768px to 1024px
   */
-  
-  @media (min-width: 960px) and (max-width: 1024px) {
-      
+
+@media (min-width: 960px) and (max-width: 1024px) {
     .list-container {
         /* width: 350px; */
         margin-left: 0px;
     }
     .scrollList {
-      width: 450px;
-      
+        width: 450px;
     }
+}
 
-
-  }
-  
-  
-  @media (min-width: 767px) and (max-width: 959px) and (orientation: landscape) {
+@media (min-width: 767px) and (max-width: 959px) and (orientation: landscape) {
     .list-container {
-      margin-left: 5%;
-      margin-right: 5%;
-      margin-top: -40px; 
-    
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: -40px;
     }
     .scrollList {
-      width: 100%;
-      
-    } 
-    
-  }
-  
+        width: 100%;
+    }
+}
 
-  
-  @media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 767px) {
     .list-container {
-      margin-left: 5%;
-      margin-right: 5%;
-      margin-top: -50px; 
-    
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: -50px;
     }
     .scrollList {
-      width: 100%;
-      
-    }  
-    
-  }
-  
-  @media (min-width: 320px) and (max-width: 480px) {
-    
+        width: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
     .list-container {
-      margin-left: 5%;
-      margin-right: 1%;
-      margin-top: -50px; 
-    
+        margin-left: 5%;
+        margin-right: 1%;
+        margin-top: -50px;
     }
     .scrollList {
-      width: 100%;
-      
-    }  
-    
-  } 
+        width: 100%;
+    }
+}
 
-  ul{
-  position: relative;
-  
-   
-  }
+ul {
+    position: relative;
+}
