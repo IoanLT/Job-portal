@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Dashboard from './components/Dashboard';
 import SearchNav from './components/SearchNav';
 import Footer from './components/Footer/Footer';
-import { ToggleOff } from '@material-ui/icons';
+import { withAuth0 } from '@auth0/auth0-react';
 
 class App extends React.Component {
     constructor(props) {
@@ -14,7 +14,8 @@ class App extends React.Component {
             jobsArray: [],
             jobStatus: false,
             savedJobsArray: [],
-           
+            totalResults: 0,
+            currentPage: 1,
         };
     }
 
@@ -51,12 +52,13 @@ class App extends React.Component {
     };
 
     render() {
+        const { user, isAuthenticated } = this.props.auth0;
+        const name = isAuthenticated ? user.name : 'Unknown Chuck';
         return (
             <>
                 <div className="landing--page--container" id="home">
                     <Navbar />
-                    <h1>Welcome to Chuks job portal!</h1>
-
+                    <h1>Hi {name}. Welcome to Chucks job portal!</h1>
                     {/* Parent App passes the function to SearchNav child: 
                 "hey SearchNav" call api and filter and give me the result by calling this function */}
                     <SearchNav
@@ -65,7 +67,7 @@ class App extends React.Component {
                         }
                     />
                 </div>
-                
+
                 <Dashboard
                     jobsArray={this.state.jobsArray}
                     jobStatus={this.state.jobStatus}
@@ -79,4 +81,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default withAuth0(App);
