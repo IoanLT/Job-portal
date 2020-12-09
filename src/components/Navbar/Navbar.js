@@ -25,7 +25,7 @@ class Navbar extends Component {
     };
 
     handleMobileLink = (index, action) => {
-        scroll.scrollTo(MenuItems[index].path);
+        // scroll.scrollTo(MenuItems[index].path);
         this.handleAction(action);
     };
 
