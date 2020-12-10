@@ -60,7 +60,10 @@ class JobList extends React.Component {
                     results:{this.props.jobsArray.length}
                 </p>
                 <div>
-                    {slice.map((jobObject) => (
+                    { this.props.jobsArray.length === 0 && this.props.jobStatus 
+                    ? <p>No jobs found</p>
+                      :  
+                        slice.map((jobObject) => (
                         <JobCard
                             logo={jobObject.company_logo_url}
                             title={jobObject.title}
@@ -78,14 +81,18 @@ class JobList extends React.Component {
                             isFavorite={jobObject.isFavorite}
                         />
                     ))}
-                    {this.props.jobStatus && (
+                    {this.props.jobStatus && this.props.jobsArray.length !== 0 
+                    ? (
                         <Pagination
                             count={pageCount}
                             variant="outlined"
                             onChange={this.handlePageClick}
                             defaultPage={currentPage}
                         />
-                    )}
+                    ) : <p></p>
+
+                    
+                    }
                 </div>
             </div>
             // <div className="list-container">
