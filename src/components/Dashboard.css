@@ -6,35 +6,35 @@
     width: 100%;
 }
 
+.sign-in-alert {
+    color: rgb(191, 85, 236);
+    text-align: center;
+}
+
 @media (min-width: 1025px) and (max-width: 1280px) {
     /* .dashboard-container {
         margin-top: 10%;
         
     } */
-
 }
 
 @media (min-width: 767px) and (max-width: 959px) {
-   .dashboard-container {
-       display: block;
-       align-items: center;
-   } 
-    
-    
+    .dashboard-container {
+        display: block;
+        align-items: center;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
     .dashboard-container {
         display: block;
         align-items: center;
-    } 
-     
+    }
 }
 
-@media (min-width: 320px) and (max-width: 480px){
+@media (min-width: 320px) and (max-width: 480px) {
     .dashboard-container {
         display: block;
         align-items: center;
-    } 
-     
+    }
 }
