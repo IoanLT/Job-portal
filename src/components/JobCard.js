@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './JobCard.css';
+import { withAuth0 } from '@auth0/auth0-react';
 
 let logoImage =
     'https://media.istockphoto.com/vectors/building-icon-vector-id873392526?b=1&k=6&m=873392526&s=612x612&w=0&h=5j7gUgw6j25xi0wgMQnX9FkyWd4nDpdzaOe-wlBW2J8=';
@@ -22,6 +23,7 @@ class JobCard extends Component {
     };
 
     render() {
+        const { isAuthenticated } = this.props.auth0;
         return (
             <div className="job-container">
                 <div className="logo-container">
@@ -49,17 +51,25 @@ class JobCard extends Component {
                     <p className="job-date">{this.props.date}</p>
                 </div>
 
-                <div className="btn-container">
-                    <div
-                        onClick={this.favorite}
-                        className={
-                            !this.props.isFavorite ? 'not-favorite' : 'favorite'
-                        }
-                    ></div>
-                    <a href={this.props.url} target="_blank" rel="noreferrer">
-                        <button>Apply</button>
-                    </a>
-                </div>
+                {isAuthenticated && (
+                    <div className="btn-container">
+                        <div
+                            onClick={this.favorite}
+                            className={
+                                !this.props.isFavorite
+                                    ? 'not-favorite'
+                                    : 'favorite'
+                            }
+                        ></div>
+                        <a
+                            href={this.props.url}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <button>Apply</button>
+                        </a>
+                    </div>
+                )}
 
                 {this.state.showDetails && (
                     <div className="job-description">
@@ -130,4 +140,4 @@ class JobCard extends Component {
     }
 }
 
-export default JobCard;
+export default withAuth0(JobCard);

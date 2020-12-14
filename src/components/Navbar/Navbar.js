@@ -13,9 +13,9 @@ class Navbar extends Component {
     };
 
     handleAction = (action) => {
-        const { loginWithRedirect, logout } = this.props.auth0;
+        const { loginWithPopup, logout } = this.props.auth0;
         if (action === 'SIGN_IN') {
-            loginWithRedirect();
+            loginWithPopup();
         } else if (action === 'SIGN_OUT') {
             logout({ returnTo: window.location.origin });
         }
@@ -23,16 +23,13 @@ class Navbar extends Component {
 
     handleMobileLink = (index, action) => {
         scroll.scrollTo(MenuItems[index].path);
-        this.handleAction(action); 
-        this.setState({ clicked: !this.state.clicked });       
+        this.handleAction(action);
+        this.setState({ clicked: !this.state.clicked });
     };
-
 
     handleDesktopLink = (action) => {
         this.handleAction(action);
     };
-
-    
 
     render() {
         const { isAuthenticated } = this.props.auth0;

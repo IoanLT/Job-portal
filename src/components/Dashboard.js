@@ -11,6 +11,8 @@ import JobList from './JobList';
 import MyCvs from './MyCvs';
 import { forwardRef, useImperativeHandle } from 'react';
 import shortid from 'shortid';
+import { useAuth0 } from '@auth0/auth0-react';
+import './Dashboard.css';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -58,6 +60,7 @@ const Dashboard = forwardRef((props, ref) => {
     const [currentSearchedPage, setCurrentSearchedPage] = React.useState(1);
     const [currentSavedPage, setCurrentSavedPage] = React.useState(1);
     const [searchId, setSearchId] = React.useState(0);
+    const { isAuthenticated } = useAuth0();
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -96,16 +99,24 @@ const Dashboard = forwardRef((props, ref) => {
                 />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <MyBoard
-                    savedJobsArray={props.savedJobsArray}
-                    jobStatus={props.jobStatus}
-                    toggleJobInSavedJobs={props.toggleJobInSavedJobs}
-                    currentPage={currentSavedPage}
-                    setCurrentPage={setCurrentSavedPage}
-                />
+                {isAuthenticated ? (
+                    <MyBoard
+                        savedJobsArray={props.savedJobsArray}
+                        jobStatus={props.jobStatus}
+                        toggleJobInSavedJobs={props.toggleJobInSavedJobs}
+                        currentPage={currentSavedPage}
+                        setCurrentPage={setCurrentSavedPage}
+                    />
+                ) : (
+                    <h1 className="sign-in-alert">Please sign in</h1>
+                )}
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <MyCvs />
+                {isAuthenticated ? (
+                    <MyCvs />
+                ) : (
+                    <h1 className="sign-in-alert">Please sign in</h1>
+                )}
             </TabPanel>
         </div>
     );
