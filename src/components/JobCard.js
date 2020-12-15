@@ -51,8 +51,8 @@ class JobCard extends Component {
                     <p className="job-date">{this.props.date}</p>
                 </div>
 
-                {isAuthenticated && (
-                    <div className="btn-container">
+                <div className="btn-container">
+                    {isAuthenticated && (
                         <div
                             onClick={this.favorite}
                             className={
@@ -61,15 +61,11 @@ class JobCard extends Component {
                                     : 'favorite'
                             }
                         ></div>
-                        <a
-                            href={this.props.url}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <button>Apply</button>
-                        </a>
-                    </div>
-                )}
+                    )}
+                    <a href={this.props.url} target="_blank" rel="noreferrer">
+                        <button>Apply</button>
+                    </a>
+                </div>
 
                 {this.state.showDetails && (
                     <div className="job-description">

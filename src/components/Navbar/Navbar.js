@@ -13,9 +13,9 @@ class Navbar extends Component {
     };
 
     handleAction = (action) => {
-        const { loginWithPopup, logout } = this.props.auth0;
+        const { loginWithRedirect, logout } = this.props.auth0;
         if (action === 'SIGN_IN') {
-            loginWithPopup();
+            loginWithRedirect();
         } else if (action === 'SIGN_OUT') {
             logout({ returnTo: window.location.origin });
         }
