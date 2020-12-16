@@ -23,16 +23,13 @@ class Navbar extends Component {
 
     handleMobileLink = (index, action) => {
         scroll.scrollTo(MenuItems[index].path);
-        this.handleAction(action); 
-        this.setState({ clicked: !this.state.clicked });       
+        this.handleAction(action);
+        this.setState({ clicked: !this.state.clicked });
     };
-
 
     handleDesktopLink = (action) => {
         this.handleAction(action);
     };
-
-    
 
     render() {
         const { isAuthenticated } = this.props.auth0;

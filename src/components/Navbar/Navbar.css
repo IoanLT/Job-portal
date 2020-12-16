@@ -55,7 +55,7 @@
     color: #fff;
     border-radius: 4px;
     transition: all 0.2s ease-out;
-    margin: 1px solid rgb(54, 215, 183);
+    margin: 1px solid rgb(191, 85, 236);
     cursor: pointer;
 }
 
@@ -111,7 +111,7 @@
     }
 
     .nav-links:hover {
-        background-color: rgb(54, 215, 183);
+        background-color: rgb(191, 85, 236);
         border-radius: 0;
     }
 
@@ -144,7 +144,7 @@
         margin: 2rem auto;
         border-radius: 4px;
         width: 80%;
-        background: rgb(54, 215, 183);
+        background: rgb(191, 85, 236);
         text-decoration: none;
         color: #fff;
         font-size: 1.5rem;
@@ -152,7 +152,7 @@
 
     .nav-links-mobile:hover {
         background: #fff;
-        color: rgb(54, 215, 183);
+        color: rgb(191, 85, 236);
         transition: 250ms;
     }
 
