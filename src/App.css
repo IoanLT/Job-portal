@@ -12,8 +12,10 @@
    Landing page styles
    ============= */
 .landing--page--container {
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(./assets/Desktop-bg.jpg); */
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(./assets/background-image4.jpg);
     /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+    /* background: #f4f4f4;         */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;
@@ -26,7 +28,8 @@
     margin: auto;
     padding-bottom: 0px;
     text-align: center;
-    color: rgb(9, 9, 9);
+    color: #fff;
+    /* color: rgb(9, 9, 9); */
 }
 
 h1 {
@@ -35,6 +38,19 @@ h1 {
 
 .joblist--input {
     margin: 100px 0;
+}
+
+.brush-pattern {
+    background: url('./assets/brush-thick.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    background-color: transparent;
+    height: 70px;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
 }
 
 /* Default styling starts here */

@@ -60,7 +60,8 @@ class App extends React.Component {
             <>
                 <div className="landing--page--container" id="home">
                     <Navbar />
-                    <h1>Hi {name}. Welcome to Chucks job portal!</h1>
+                    <h1>Welcome to Chucks job portal!</h1>
+                    <h2>Hi {name}!</h2>
                     {/* Parent App passes the function to SearchNav child: 
                 "hey SearchNav" call api and filter and give me the result by calling this function */}
                     <SearchNav
@@ -68,8 +69,12 @@ class App extends React.Component {
                             this.getFilteredJobsListFromSearchNav
                         }
                     />
-                </div>
 
+                    <div className="brush-pattern" />
+                        
+                    
+                </div>
+                
                 <Dashboard
                     jobsArray={this.state.jobsArray}
                     jobStatus={this.state.jobStatus}

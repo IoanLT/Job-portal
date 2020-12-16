@@ -2,12 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* color: #fff; */
 }
 
 .inputs-fileds {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* color: #fff; */
   }
 
 .search-button {
@@ -28,5 +30,6 @@
 }
 
 .categories-select {
+  /* color: #fff; */
   margin-right: 30px !important;
 }
