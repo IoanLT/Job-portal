@@ -70,7 +70,7 @@ class App extends React.Component {
                         }
                     />
 
-                    <div className="brush-pattern" />
+                    {/* <div className="brush-pattern" /> */}
                         
                     
                 </div>
