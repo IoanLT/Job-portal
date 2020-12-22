@@ -22,7 +22,6 @@ class JobCard extends Component {
         this.props.toggleJobInSavedJobs();
     };
 
-   
     render() {
         const { isAuthenticated } = this.props.auth0;
         return (
@@ -96,24 +95,13 @@ class JobCard extends Component {
                                 </div>
                             </div>
                             <div className="heart-apply-container">
-                    
-                    <FormGroup >
-                          <Link
-                                onClick={()=>window.open(this.props.url,'_blank')}
-                                delay={2000}
-                                activeClass="active"
-                                to="dashboard"
-                                spy={true}  
-                                smooth={true}
-                                offset={-80}
-                                duration={1000}
-                                className="search-button"
-                            >
-                         Apply
-                        </Link>
-                    </FormGroup>
-
-
+                                <a
+                                    href={this.props.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <button>Apply</button>
+                                </a>
                                 <div
                                     onClick={this.favorite}
                                     className={
