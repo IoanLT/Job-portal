@@ -116,7 +116,7 @@ class JobList extends React.Component {
                 </div>
                 <div className={this.props.jobStatus && this.props.jobsArray.length !== 0 ? 'map': 'no-map'}>
                     <GoogleMapReact
-                    bootstrapURLKeys={{ key: 'AIzaSyBtEhCs2uqJ9L2RjQYogkRAighXKfL9mYo'}}
+                    bootstrapURLKeys={{ key: process.env.REACT_APP_KEY}}
                     defaultCenter={this.state.center}
                     defaultZoom={this.state.zoom}
                     >
