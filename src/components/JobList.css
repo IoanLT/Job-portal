@@ -123,3 +123,19 @@
 ul {
     position: relative;
 }
+
+
+.map {
+    width: 500px;
+    height: 500px;
+    margin-top: 20px;
+    
+}
+.no-map {
+    display: none
+}
+
+.job-results {
+    display: flex;
+    justify-content: space-around;
+}
