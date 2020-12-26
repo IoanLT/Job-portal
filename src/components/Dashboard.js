@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MyBoard from './MyBoard';
 import JobList from './JobList';
-import MyCvs from './MyCvs';
+import CoverLetterBuilder from './CoverLetterBuilder';
 import { forwardRef, useImperativeHandle } from 'react';
 import shortid from 'shortid';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -85,7 +85,7 @@ const Dashboard = forwardRef((props, ref) => {
                 >
                     <Tab label="Browse all" {...a11yProps(0)} />
                     <Tab label="Saved" {...a11yProps(1)} />
-                    <Tab label="My CVs" {...a11yProps(2)} />
+                    <Tab label="Cover letter" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
@@ -113,7 +113,7 @@ const Dashboard = forwardRef((props, ref) => {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 {isAuthenticated ? (
-                    <MyCvs />
+                    <CoverLetterBuilder savedJobsArray={props.savedJobsArray}/>
                 ) : (
                     <h1 className="sign-in-alert">Please sign in</h1>
                 )}
