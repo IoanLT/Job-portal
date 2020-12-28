@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import FormGroup from '@material-ui/core/FormGroup';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import countries from './Countries'
+import LoadingSpinner from './LoadingSpinner';
 
 
 
@@ -31,7 +32,7 @@ class SearchNav extends Component {
             jobTypeCheckBoxFullChecked: false,
             jobTypeCheckBoxPartChecked: false,
             salarySpecifiedChecked: false,
-        
+            loading: false
 
         }
     }
@@ -82,10 +83,15 @@ class SearchNav extends Component {
         if (this.state.searchUserInput !== '') {
             searchParamStr = `search=${this.state.searchUserInput}`;
         }
-
-
-        Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)
-            .then(response => response.data.jobs)
+        
+        this.setState({ loading: true }, () => {
+            
+            Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)            
+            .then(response => response.data.jobs)            
+            // .then(response => this.setState({
+            //     loading: false,
+            //     categories: response.data.jobs
+            // }))
             .then(jobs => this.filterByLocation(jobs))
             .then(jobs => this.filterByCategory(jobs))
             .then(jobs => this.filterByJobType(jobs))
@@ -94,9 +100,10 @@ class SearchNav extends Component {
             .then(jobs => {
                 //here SearchNav is calling the JobsList's 
                 //function with the joblist array returned from the api and filtered
-                this.props.functionToCallForFilteredJobs(jobs);
-               
+                this.props.functionToCallForFilteredJobs(jobs);               
             })
+        })
+        
             
 
     }
@@ -270,7 +277,7 @@ class SearchNav extends Component {
 
                 <FormGroup >
 
-                    <Link
+                    {/* <Link
                         onClick={this.getJobsFromApiAndPassArrayToParentFunc}
                         delay={2000}
                         activeClass="active"
@@ -282,11 +289,29 @@ class SearchNav extends Component {
                         className="search-button"
                     >
                         Search
-                </Link>
+                    </Link>  */}
+
+                    {
+                        this.state.loading 
+                            ? (<LoadingSpinner />) 
+                            : (<Link
+                                onClick={this.getJobsFromApiAndPassArrayToParentFunc}
+                                delay={2000}
+                                activeClass="active"
+                                to="dashboard"
+                                spy={true}
+                                smooth={true}
+                                offset={-80}
+                                duration={1000}
+                                className="search-button"
+                            >
+                                Search
+                            </Link>) 
+                    }
 
                 </FormGroup>
 
-
+                
 
             </div>);
     }
