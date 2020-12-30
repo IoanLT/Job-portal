@@ -16,11 +16,6 @@ import LoadingSpinner from './LoadingSpinner';
 
 
 
-
-
-
-
-
 class SearchNav extends Component {
     constructor(props) {
         super(props);
@@ -83,28 +78,25 @@ class SearchNav extends Component {
         if (this.state.searchUserInput !== '') {
             searchParamStr = `search=${this.state.searchUserInput}`;
         }
-        
-        this.setState({ loading: true }, () => {
-            
-            Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)            
-            .then(response => response.data.jobs)            
-            // .then(response => this.setState({
-            //     loading: false,
-            //     categories: response.data.jobs
-            // }))
-            .then(jobs => this.filterByLocation(jobs))
-            .then(jobs => this.filterByCategory(jobs))
-            .then(jobs => this.filterByJobType(jobs))
-            .then(jobs => this.filterByIfSalaryIsSpecified(jobs))
 
-            .then(jobs => {
-                //here SearchNav is calling the JobsList's 
-                //function with the joblist array returned from the api and filtered
-                this.props.functionToCallForFilteredJobs(jobs);               
-            })
-        })
-        
-            
+        // Setting the state of loading to true when this method is called onClick        
+        this.setState({ loading: true }, () => {
+            Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)            
+                .then(response => response.data.jobs)            
+                .then(jobs => this.filterByLocation(jobs))
+                .then(jobs => this.filterByCategory(jobs))
+                .then(jobs => this.filterByJobType(jobs))
+                .then(jobs => this.filterByIfSalaryIsSpecified(jobs))
+
+                .then(jobs => {
+                    //here SearchNav is calling the JobsList's 
+                    //function with the joblist array returned from the api and filtered
+                    this.props.functionToCallForFilteredJobs(jobs); 
+                    
+                    // After the API has been called, the state of loading is set to false
+                    this.setState({loading: false})           
+            })        
+        })             
 
     }
 
@@ -161,8 +153,6 @@ class SearchNav extends Component {
             <div>
                 <FormGroup className="inputs-fileds" row>
 
-
-
                     <TextField
                         id="search-keyword"
                         style={{ width: 300 }}
@@ -207,18 +197,10 @@ class SearchNav extends Component {
                     />
 
 
-
-
-
                 </FormGroup>
 
 
-
-
                 <FormGroup className="filters-fileds" row>
-
-
-
 
                     <FormControl className="categories-select">
 
@@ -233,8 +215,6 @@ class SearchNav extends Component {
 
                         </Select>
                     </FormControl>
-
-
 
 
                     <FormControlLabel
@@ -295,8 +275,8 @@ class SearchNav extends Component {
                         this.state.loading 
                             ? (<LoadingSpinner />) 
                             : (<Link
-                                onClick={this.getJobsFromApiAndPassArrayToParentFunc}
-                                delay={2000}
+                                onClick={this.getJobsFromApiAndPassArrayToParentFunc}                                
+                                delay={1500}
                                 activeClass="active"
                                 to="dashboard"
                                 spy={true}
@@ -313,7 +293,7 @@ class SearchNav extends Component {
 
                 
 
-            </div>);
+            </div>)
     }
 }
 
