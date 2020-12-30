@@ -71,15 +71,16 @@ footer {
    /* align-items: center; */
    list-style: none;
    text-align: left;
+   padding: 0 0 0 40px;
    margin: 10px 50px;    
    /* margin: 10px;     */
-   width: 200px;
+   width: 250px;
    height: 250px; 
 }
 
 .footer-content ul li {
    color: var(--text-colour);
-   font-size: 1rem;
+   font-size: 1.1rem;
    font-weight: 400;
    letter-spacing: 1px;
    /* text-transform: uppercase; */
@@ -88,7 +89,7 @@ footer {
 
 .footer-content ul li:first-child {
    color: var(--text-colour);
-   font-size: 1.2rem;
+   font-size: 1.3rem;
    font-weight: 700;
    letter-spacing: 1px;
    /* text-transform: uppercase; */
