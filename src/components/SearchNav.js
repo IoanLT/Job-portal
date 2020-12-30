@@ -289,9 +289,7 @@ class SearchNav extends Component {
                             </Link>) 
                     }
 
-                </FormGroup>
-
-                
+                </FormGroup>                
 
             </div>)
     }
