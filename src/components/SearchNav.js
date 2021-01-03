@@ -12,11 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import FormGroup from '@material-ui/core/FormGroup';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import countries from './Countries'
-
-
-
-
-
+import LoadingSpinner from './LoadingSpinner';
 
 
 
@@ -31,7 +27,7 @@ class SearchNav extends Component {
             jobTypeCheckBoxFullChecked: false,
             jobTypeCheckBoxPartChecked: false,
             salarySpecifiedChecked: false,
-        
+            loading: false
 
         }
     }
@@ -83,21 +79,24 @@ class SearchNav extends Component {
             searchParamStr = `search=${this.state.searchUserInput}`;
         }
 
+        // Setting the state of loading to true when this method is called onClick        
+        this.setState({ loading: true }, () => {
+            Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)            
+                .then(response => response.data.jobs)            
+                .then(jobs => this.filterByLocation(jobs))
+                .then(jobs => this.filterByCategory(jobs))
+                .then(jobs => this.filterByJobType(jobs))
+                .then(jobs => this.filterByIfSalaryIsSpecified(jobs))
 
-        Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)
-            .then(response => response.data.jobs)
-            .then(jobs => this.filterByLocation(jobs))
-            .then(jobs => this.filterByCategory(jobs))
-            .then(jobs => this.filterByJobType(jobs))
-            .then(jobs => this.filterByIfSalaryIsSpecified(jobs))
-
-            .then(jobs => {
-                //here SearchNav is calling the JobsList's 
-                //function with the joblist array returned from the api and filtered
-                this.props.functionToCallForFilteredJobs(jobs);
-               
-            })
-            
+                .then(jobs => {
+                    //here SearchNav is calling the JobsList's 
+                    //function with the joblist array returned from the api and filtered
+                    this.props.functionToCallForFilteredJobs(jobs); 
+                    
+                    // After the API has been called, the state of loading is set to false
+                    this.setState({loading: false})           
+            })        
+        })             
 
     }
 
@@ -154,8 +153,6 @@ class SearchNav extends Component {
             <div>
                 <FormGroup className="inputs-fileds" row>
 
-
-
                     <TextField
                         id="search-keyword"
                         style={{ width: 300 }}
@@ -200,18 +197,10 @@ class SearchNav extends Component {
                     />
 
 
-
-
-
                 </FormGroup>
 
 
-
-
                 <FormGroup className="filters-fileds" row>
-
-
-
 
                     <FormControl className="categories-select">
 
@@ -226,8 +215,6 @@ class SearchNav extends Component {
 
                         </Select>
                     </FormControl>
-
-
 
 
                     <FormControlLabel
@@ -270,7 +257,7 @@ class SearchNav extends Component {
 
                 <FormGroup >
 
-                    <Link
+                    {/* <Link
                         onClick={this.getJobsFromApiAndPassArrayToParentFunc}
                         delay={2000}
                         activeClass="active"
@@ -282,13 +269,29 @@ class SearchNav extends Component {
                         className="search-button"
                     >
                         Search
-                </Link>
+                    </Link>  */}
 
-                </FormGroup>
+                    {
+                        this.state.loading 
+                            ? (<LoadingSpinner />) 
+                            : (<Link
+                                onClick={this.getJobsFromApiAndPassArrayToParentFunc}                                
+                                delay={1500}
+                                activeClass="active"
+                                to="dashboard"
+                                spy={true}
+                                smooth={true}
+                                offset={-80}
+                                duration={1000}
+                                className="search-button"
+                            >
+                                Search
+                            </Link>) 
+                    }
 
+                </FormGroup>                
 
-
-            </div>);
+            </div>)
     }
 }
 

@@ -1,5 +1,11 @@
 * {
-    --background-colour: #1f2833;
+    /* Primary Colour */
+    /* --dark-violet: hsl(256, 26%, 20%);  */   
+    --text-colour: #fff;
+
+    /* Secundary Colour */
+    --secundary-colour: rgb(191, 85, 236);
+    --background-colour: #1F2833;
 }
 
 .NavbarItems {
@@ -44,23 +50,23 @@
 }
 
 .nav-links {
-    color: white;
+    color: var(--text-colour);
     text-decoration: none;
     padding: 0.5rem 1rem;
     margin: 0;
 }
 
 .nav-links:hover {
-    background: rgb(191, 85, 236);
-    color: #fff;
+    background: var(--secundary-colour);
+    color: var(--text-colour);
     border-radius: 4px;
     transition: all 0.2s ease-out;
-    margin: 1px solid rgb(191, 85, 236);
+    margin: 1px solid var(--secundary-colour);
     cursor: pointer;
 }
 
 .fa-bars {
-    color: #fff;
+    color: var(--text-colour);
 }
 
 .nav-links-mobile {
@@ -94,6 +100,7 @@
     }
 
     .nav-menu.active {
+        font-size: 1.5rem;
         margin: 0;
         padding: 0;
         background: #000;
@@ -111,7 +118,7 @@
     }
 
     .nav-links:hover {
-        background-color: rgb(191, 85, 236);
+        background-color: var(--secundary-colour);
         border-radius: 0;
     }
 
@@ -133,7 +140,7 @@
     }
 
     .fa-times {
-        color: #fff;
+        color: var(--text-colour);
         font-size: 2rem;
     }
 
@@ -144,15 +151,15 @@
         margin: 2rem auto;
         border-radius: 4px;
         width: 80%;
-        background: rgb(191, 85, 236);
+        background: var(--secundary-colour);
         text-decoration: none;
-        color: #fff;
+        color: var(--text-colour);
         font-size: 1.5rem;
     }
 
     .nav-links-mobile:hover {
-        background: #fff;
-        color: rgb(191, 85, 236);
+        background: var(--text-colour);
+        color: var(--secundary-colour);
         transition: 250ms;
     }
 

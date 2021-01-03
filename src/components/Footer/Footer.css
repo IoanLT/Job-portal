@@ -12,7 +12,7 @@
     --text-colour: #fff;
 
     /* Secundary Colour */
-    --smoky-black: #0B0C10;
+    --secundary-colour: rgb(191, 85, 236);
     --background-colour: #1F2833;
 
 } 
@@ -32,11 +32,11 @@ footer {
    align-items: center;
    background-color: var(--background-colour);
    width: 100vw;
-   height: 100vh; 
+   height: 100%; 
    /* margin-top: 80px;   */
 }
 
-.made-with-love {
+/* .made-with-love {
     color: #fff;
     margin: 20px 0;
     margin-top: 40px;
@@ -44,7 +44,7 @@ footer {
 
 .heart {    
     color: red;    
-}
+} */
 
 .footer-top {
    text-align: center;
@@ -63,40 +63,56 @@ footer {
 }
 
 .footer-content ul {
+   
    display: flex;
    flex-direction: column;
    justify-content: center;
-   align-items: center;
+   flex-wrap: wrap;
+   /* align-items: center; */
    list-style: none;
-   /* text-align: center; */
-   margin: 10px;    
-   width: 250px;
+   text-align: left;
+   margin: 10px 50px;    
+   /* margin: 10px;     */
+   width: 200px;
    height: 250px; 
 }
 
 .footer-content ul li {
    color: var(--text-colour);
-   font-size: .9rem;
-   font-weight: 700;
+   font-size: 1rem;
+   font-weight: 400;
    letter-spacing: 1px;
    /* text-transform: uppercase; */
    padding: 6px;
 }
 
-.ftr-col {
-   border: 1px solid rgb(191, 85, 236);   
-   border-radius: 15px;
+.footer-content ul li:first-child {
+   color: var(--text-colour);
+   font-size: 1.2rem;
+   font-weight: 700;
+   letter-spacing: 1px;
+   /* text-transform: uppercase; */
+   padding: 6px;
+   margin-bottom: 10px;
 }
 
-.ftr-col li img {
-   /* margin: 20px; */
-   /* margin-top: 30px; */
-   /* color: var(--text-colour); */
-   /* font-size: 1.1rem; */
-   /* text-decoration: underline; */
-   width: 150px;
-   padding: 10px;
+.footer-content ul li a {
+   text-align: left;
+   text-decoration: none;
+   color: var(--text-colour);   
 }
+
+.footer-content ul li a:hover {
+   color: var(--secundary-colour);
+   text-decoration: underline;
+   /* transform: scale(1.1); */
+}
+
+.copyright--container {
+   margin: 55px 0;
+   color: var(--text-colour);
+}
+
 
 
 
