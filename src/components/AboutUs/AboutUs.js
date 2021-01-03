@@ -1,19 +1,22 @@
 import React from 'react';
 import './AboutUs.css';
 
+
+
 export default function AboutUs() {
     return (        
-        <div className="aboutUs--section">
+        <div id="aboutUs" className="aboutUs--section">
             <section className="aboutUs--description">
                 <div className="aboutUs--heading--mission">
                     <h2 className="aboutUs--heading">Our mission</h2>                    
                 </div>
                 <div className="aboutUs--idea">
-                    <p>We decided to work on a project that was challenging, fun and meaningful.</p>
-                    <p>The idea came about roughly a week after the initial assignment was given to us.</p>
-                </div>
-                
-                {/* <img src="/images/icons/love-heart-hands.svg" alt="" /> */}
+                    <p>Our mission was to work on a project that is challenging, fun and meaningful.</p>
+                    <p>It took us roughly a week to come up with this idea, and felt motivated from the beginning.</p>
+                    <p>The challenging part was having to filter the job selection and 
+                        narrow the search to meet the users needs while providing a good user experience overall. </p>
+                </div>  
+                <div className="brush-pattern" />              
             </section>
 
             <section className="aboutUs--team">

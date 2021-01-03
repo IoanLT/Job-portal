@@ -9,7 +9,8 @@ class Navbar extends Component {
     state = { clicked: false };
 
     handleClick = () => {
-        this.setState({ clicked: !this.state.clicked });
+        const prevClicked = !this.state.clicked
+        this.setState({ clicked: prevClicked });
     };
 
     handleAction = (action) => {

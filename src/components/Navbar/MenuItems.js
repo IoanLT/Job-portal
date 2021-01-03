@@ -12,6 +12,12 @@ export const MenuItems = [
         cName: 'nav-links',
     },
     {
+        title: 'About us',
+        id: 'aboutUs',
+        // path: '../Dashboard',
+        cName: 'nav-links',
+    },
+    {
         title: 'Contact Us',
         id: 'footer',
         // path: '../Footer',

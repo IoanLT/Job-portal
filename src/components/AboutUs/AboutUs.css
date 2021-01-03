@@ -19,13 +19,21 @@
     width: 100vw;
     border-top: 2px solid var(--background-colour);
     text-align: center;
-    margin: 0 auto;
-    padding: 0 20px;
+    /* margin: 0 auto; */
+    /* padding: 0 20px; */
 }
 
 /* The two children of .aboutUs--section */
-.aboutUs--description, 
-.aboutUs--team {
+.aboutUs--description {
+    position: relative;
+    background: var(--background-colour);
+    color: var(--text-colour);
+    /* text-align: left; */
+    /* max-width: 700px; */
+    width: 100%;
+    /* padding: 50px 10px; */
+    padding: 100px 20%;
+    padding-bottom: 150px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -36,7 +44,7 @@
     align-self: center;
     border-top: 4px solid var(--secundary-colour);
     width: 136px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .aboutUs--heading {
@@ -48,8 +56,32 @@
 .aboutUs--idea p {
     font-size: 1.2rem;
     font-weight: 400;
+    line-height: 2;
 }
 
+.brush-pattern {
+    background: url('../../assets/brush-thick.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 3;
+    /* background-color: transparent; */
+    height: 100px;    
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+
+/* Team section styling */
+.aboutUs--team {    
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .aboutUs--heading--team {
     position: relative;
