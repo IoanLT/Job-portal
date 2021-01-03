@@ -11,12 +11,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import CVuploader from './DropzoneDialog';
+import JobPortalContext from '../JobPortalContext';
+import { Link } from 'react-scroll';
+
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,11 +51,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CoverLetterBuilder({ savedJobsArray }) {
 
+
+
   const classes = useStyles();
   const [coverLetterBody, setCoverLetterBody] = React.useState('');
   const [copied, setCopied] = React.useState(false);
   const [selectedJob, setSelectedJob] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const context = React.useContext(JobPortalContext);
 
 
 
@@ -75,6 +79,9 @@ export default function CoverLetterBuilder({ savedJobsArray }) {
   defaultCoverLetterBody += "\n";
   defaultCoverLetterBody += "\n";
   defaultCoverLetterBody += "Sincerely,";
+  defaultCoverLetterBody += "\n";
+  defaultCoverLetterBody += "\n";
+  defaultCoverLetterBody += context.userName;
 
 
   const handleClose = (event, reason) => {
@@ -123,6 +130,7 @@ export default function CoverLetterBuilder({ savedJobsArray }) {
 
 
   return (
+
     <div>
       <div >
         <form className={classes.root} noValidate autoComplete="off">
@@ -154,24 +162,23 @@ export default function CoverLetterBuilder({ savedJobsArray }) {
             />
             <CopyToClipboard text={coverLetterBody}
               onCopy={handleClickCopy}>
-              <Button variant="contained" color="primary">Copy to clipboard</Button>
+              <Button className="button-copy-to-clipboard" variant="contained">Copy to clipboard</Button>
+           
             </CopyToClipboard>
             {copied ? <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
               <Alert onClose={handleClose} severity="success">
                 Cover letter copied to clipboard!
-        </Alert>
+              </Alert>
             </Snackbar> : null}
             <div className={classes.root_alert}>
-
-
-
             </div>
-
           </div>
         </form>
       </div>
+           
       <CVuploader />
     </div>
+
   )
 }
 

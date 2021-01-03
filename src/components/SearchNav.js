@@ -285,7 +285,7 @@ class SearchNav extends Component {
                                 duration={1000}
                                 className="search-button"
                             >
-                                Search
+                                SEARCH
                             </Link>) 
                     }
 

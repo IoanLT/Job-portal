@@ -184,6 +184,25 @@
     cursor: pointer;
   }
 
+  .apply-button{
+    background-color: #1F2833;
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  /* margin: 1px solid rgb(54, 215, 183); */
+  padding: 8px 10px 10px 10px;
+  margin-top: 40px;
+  align-self: center;
+}
+
+.apply-button:hover {
+  background-color: rgb(191, 85, 236);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+  margin: 1px solid rgb(54, 215, 183);
+  cursor: pointer;
+}
+
   @media (min-width: 1281px) {
     .job-description {
         width: 700px;
