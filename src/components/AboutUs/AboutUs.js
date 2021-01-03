@@ -1,7 +1,34 @@
 import React from 'react';
 import './AboutUs.css';
+// import roxana from '../../assets/roxana.jpeg';
 
 
+const ourTeam = [
+    {
+        name: 'Roxana Florea',
+        avatar: '../../assets/roxana.jpeg',
+        position: 'Tech Lead',
+        description: "please write down some of the things you're passionate about, etc" 
+    },
+    {
+        name: 'Viktoria Kulinkovich',
+        avatar: '../../assets/roxana.jpeg', 
+        position: 'Chief Executive Officer',
+        description: "please write down some of the things you're passionate about, etc" 
+    },
+    {
+        name: 'Aya Berdyeva',
+        avatar: '../../assets/aya.jpg', 
+        position: 'Principal Engineer',
+        description: "please write down some of the things you're passionate about, etc" 
+    },
+    {
+        name: 'Ioan Tranole',
+        avatar: '../../assets/ioan.jpg', 
+        position: 'Principal Engineer',
+        description: "please write down some of the things you're passionate about, etc" 
+    }
+]
 
 export default function AboutUs() {
     return (        
@@ -24,6 +51,19 @@ export default function AboutUs() {
                     <h2 className="aboutUs--heading">The Team</h2>
                     <span className="aboutUs--heart">💗</span>
                     <span className="aboutUs--hands">🤲🏼</span>
+                </div>
+                <div className="aboutUs--team--members">
+                    {
+                        ourTeam.map(member => (                            
+                            <div className="aboutUs--member--card" key={member.name}> 
+                                {console.log(member.avatar)}
+                                <img src={member.avatar} alt={member.name} />                                
+                                <h4>{member.name}</h4>
+                                <h5>{member.position}</h5>
+                                <p>{member.description}</p>
+                            </div>
+                        ))
+                    }
                 </div>
             </section>
                 
