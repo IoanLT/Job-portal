@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import SearchNav from './components/SearchNav';
 import Footer from './components/Footer/Footer';
 import { withAuth0 } from '@auth0/auth0-react';
+import JobPortalContext from './JobPortalContext';
 
 class App extends React.Component {
     constructor(props) {
@@ -57,7 +58,9 @@ class App extends React.Component {
         const { user, isAuthenticated } = this.props.auth0;
         const name = isAuthenticated ? user.name : 'Unknown Chuck';
         return (
-            <>
+            <JobPortalContext.Provider 
+            value={{userName: name}}
+            >
                 <div className="landing--page--container" id="home">
                     <Navbar />
                     <h1>Welcome to Chucks job portal!</h1>
@@ -84,7 +87,7 @@ class App extends React.Component {
                 />
 
                 <Footer />
-            </>
+            </JobPortalContext.Provider>
         );
     }
 }

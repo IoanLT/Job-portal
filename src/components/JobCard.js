@@ -63,7 +63,7 @@ class JobCard extends Component {
                         ></div>
                     )}
                     <a href={this.props.url} target="_blank" rel="noreferrer">
-                        <button>Apply</button>
+                        <button className="apply-button">APPLY</button>
                     </a>
                 </div>
 
