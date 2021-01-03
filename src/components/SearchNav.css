@@ -2,20 +2,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* color: #fff; */
 }
 
 .inputs-fileds {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
+    /* color: #fff; */
   }
 
 .search-button {
   background-color: #1F2833;
   color: rgb(255, 255, 255);
   border-radius: 4px;
-  margin: 1px solid rgb(54, 215, 183);
+  /* margin: 1px solid rgb(54, 215, 183); */
   padding: 8px 10px 10px 10px;
+  margin-top: 40px;
+  width: 200px;
+  align-self: center;
 }
 
 .search-button:hover {
@@ -28,5 +34,6 @@
 }
 
 .categories-select {
-  margin-right: 30px !important;
+  /* color: #fff; */
+  margin-right: 30px !important;  
 }
