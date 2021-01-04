@@ -5,7 +5,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import GoogleMapReact from 'google-map-react';
 import coordinates from './Coordinates';
 
-const link = 'https://assets.stickpng.com/images/5888925dbc2fc2ef3a1860ad.png'
+const link = 'https://assets.stickpng.com/images/5888920ebc2fc2ef3a1860a9.png'
 const AnyReactComponent = ({ icon }) => <img width='12px' src={icon}/>;
 
 //function to remove html from job description
