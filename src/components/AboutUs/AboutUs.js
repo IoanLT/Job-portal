@@ -28,7 +28,7 @@ const ourTeam = [
         name: 'Ioan Tranole',
         avatar: ioan, 
         position: 'UI designer',
-        description: "please write down some of the things you're passionate about, etc" 
+        description: "Ioan comes from an environmental background and his passions are hiking, rock climbing and surfing." 
     }
 ]
 

@@ -121,6 +121,7 @@
     /* height: 400px; */
     width: 300px;
     padding: 50px 40px;
+    /* overflow: hidden; */
 }
 
 .aboutUs--member--image {
@@ -128,8 +129,32 @@
     max-height: 217px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
+    transition: 0.5s ease-in-out all;   
 }
+
+.aboutUs--member--image:hover {     
+    transform: translateY(-3px) scale(1.1);
+}
+
+.aboutUs--member--card h4 {
+    margin-bottom: 10px;
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+
+.aboutUs--member--card h5 {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.aboutUs--member--card p {
+    /* opacity: 0.6; */
+    color: #777;
+}
+
+
 
 
 
