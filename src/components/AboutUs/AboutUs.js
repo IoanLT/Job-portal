@@ -18,7 +18,7 @@ const ourTeam = [
         avatar: vic,
         position: 'Chief Executive Officer',
         description:
-            'Victoria comes from math background, her passions are travelling, extreme entertainment and volleyball',
+            'Victoria comes from math background, her passions are travelling, extreme sports and volleyball',
     },
     {
         name: 'Aya Berdyeva',
