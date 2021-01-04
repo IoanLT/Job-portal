@@ -64,12 +64,13 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    /* background-size: content; */
     z-index: 3;
     /* background-color: transparent; */
     height: 100px;    
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
 }
 
@@ -119,7 +120,15 @@
     text-align: left;
     /* height: 400px; */
     width: 300px;
-    padding: 0 40px;
+    padding: 50px 40px;
+}
+
+.aboutUs--member--image {
+    width: 100%;
+    max-height: 217px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 

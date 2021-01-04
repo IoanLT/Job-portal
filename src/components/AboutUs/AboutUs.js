@@ -1,31 +1,33 @@
 import React from 'react';
 import './AboutUs.css';
-// import roxana from '../../assets/roxana.jpeg';
+import roxana from '../../assets/roxana.jpeg';
+import aya2 from '../../assets/aya2.jpg';
+import ioan from '../../assets/ioan.jpg';
 
 
 const ourTeam = [
     {
         name: 'Roxana Florea',
-        avatar: '../../assets/roxana.jpeg',
+        avatar: roxana,
         position: 'Tech Lead',
         description: "please write down some of the things you're passionate about, etc" 
     },
     {
         name: 'Viktoria Kulinkovich',
-        avatar: '../../assets/roxana.jpeg', 
+        avatar: roxana, 
         position: 'Chief Executive Officer',
         description: "please write down some of the things you're passionate about, etc" 
     },
     {
         name: 'Aya Berdyeva',
-        avatar: '../../assets/aya.jpg', 
+        avatar: aya2, 
         position: 'Principal Engineer',
         description: "please write down some of the things you're passionate about, etc" 
     },
     {
         name: 'Ioan Tranole',
-        avatar: '../../assets/ioan.jpg', 
-        position: 'Principal Engineer',
+        avatar: ioan, 
+        position: 'UI designer',
         description: "please write down some of the things you're passionate about, etc" 
     }
 ]
@@ -55,9 +57,8 @@ export default function AboutUs() {
                 <div className="aboutUs--team--members">
                     {
                         ourTeam.map(member => (                            
-                            <div className="aboutUs--member--card" key={member.name}> 
-                                {console.log(member.avatar)}
-                                <img src={member.avatar} alt={member.name} />                                
+                            <div className="aboutUs--member--card" key={member.name}>                                 
+                                <img className="aboutUs--member--image" src={member.avatar} alt={member.name} />                                
                                 <h4>{member.name}</h4>
                                 <h5>{member.position}</h5>
                                 <p>{member.description}</p>
