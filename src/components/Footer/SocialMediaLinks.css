@@ -1,6 +1,7 @@
 .social-media {
     width: 450px;
-    margin: 20px auto;
+    /* margin: 20px auto; */
+    margin: 50px auto;
    
   }
 
@@ -102,6 +103,7 @@
   .social--media--account h4 {
     margin: 10px;
     color: #fff;
+    font-size: 18px;
   }
   .social--media--account button {
     margin: 10px;
@@ -120,7 +122,7 @@
   position: relative;
   height: 40px;
   /* width: 150px; */
-  font-size: 0.9rem;
+  font-size: 18px;
   padding: 0 20px;
   cursor: pointer;
   outline: none;

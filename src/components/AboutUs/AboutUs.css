@@ -1,0 +1,145 @@
+* {   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+ 
+    /* Primary Colour */
+    /* --dark-violet: hsl(256, 26%, 20%);  */   
+    --text-colour: #fff;
+
+    /* Secundary Colour */
+    --secundary-colour: rgb(191, 85, 236);
+    --background-colour: #1F2833;
+
+} 
+
+/* Div containing the whole AboutUs section */
+.aboutUs--section {
+    /* height: 100vh; */
+    width: 100vw;
+    border-top: 2px solid var(--background-colour);
+    text-align: center;
+    /* margin: 0 auto; */
+    /* padding: 0 20px; */
+}
+
+/* The two children of .aboutUs--section */
+.aboutUs--description {
+    position: relative;
+    background: var(--background-colour);
+    color: var(--text-colour);
+    /* text-align: left; */
+    /* max-width: 700px; */
+    width: 100%;
+    /* padding: 50px 10px; */
+    padding: 100px 25%;
+    padding-bottom: 150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.aboutUs--heading--mission {
+    align-self: center;
+    border-top: 4px solid var(--secundary-colour);
+    width: 136px;
+    /* margin-top: 50px; */
+}
+
+.aboutUs--heading {
+    width: 100%;
+    padding-top: 10px;
+    font-size: 1.5rem;
+}
+
+.aboutUs--idea p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2;
+}
+
+.brush-pattern {
+    background: url('../../assets/brush-thick.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background-size: content; */
+    z-index: 3;
+    /* background-color: transparent; */
+    height: 100px;    
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+
+
+/* Team section styling */
+.aboutUs--team {    
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.aboutUs--heading--team {
+    position: relative;
+    align-self: center;
+    border-top: 4px solid var(--secundary-colour);
+    width: 110px;
+    margin-top: 50px;
+}
+
+.aboutUs--heart, 
+.aboutUs--hands {
+    position: absolute;
+    top: 38px;
+    left: 30%;
+    display: block;
+    font-size: 2rem;
+    z-index: 2;
+}
+
+.aboutUs--hands {
+    top: 50px;
+    left: 30%;
+    z-index: 1;
+}
+
+.aboutUs--team--members {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 100px 0;
+}
+
+.aboutUs--member--card {
+    text-align: left;
+    /* height: 400px; */
+    width: 300px;
+    padding: 50px 40px;
+}
+
+.aboutUs--member--image {
+    width: 100%;
+    max-height: 217px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
