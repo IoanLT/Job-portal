@@ -162,7 +162,7 @@ export default function CoverLetterBuilder({ savedJobsArray }) {
             />
             <CopyToClipboard text={coverLetterBody}
               onCopy={handleClickCopy}>
-              <Button className="button-copy-to-clipboard" variant="contained">Copy to clipboard</Button>
+              <button className="button-copy-to-clipboard" variant="contained">Copy to clipboard</button>
            
             </CopyToClipboard>
             {copied ? <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

@@ -10,7 +10,7 @@ const ourTeam = [
         name: 'Roxana Florea',
         avatar: roxana,
         position: 'Tech Lead',
-        description: "please write down some of the things you're passionate about, etc" 
+        description: "Roxana comes from an aviation background, her passions are coding and travelling." 
     },
     {
         name: 'Viktoria Kulinkovich',

@@ -4,8 +4,9 @@ import './JobList.css';
 import Pagination from '@material-ui/lab/Pagination';
 import GoogleMapReact from 'google-map-react';
 import coordinates from './Coordinates';
+import marker from '../assets/marker.png';
 
-const link = 'https://assets.stickpng.com/images/5888920ebc2fc2ef3a1860a9.png'
+
 const AnyReactComponent = ({ icon }) => <img width='12px' src={icon}/>;
 
 //function to remove html from job description
@@ -126,7 +127,7 @@ class JobList extends React.Component {
                 <AnyReactComponent
                 lat={country.latlng[0]}
                 lng={country.latlng[1]}
-                icon={link}
+                icon={marker}
             />
             
             )
