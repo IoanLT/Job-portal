@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 // import SocialMediaLinks from './components/SocialMediaLinks';
 import Dashboard from './components/Dashboard';
-import SearchNav from './components/SearchNav';
+import SearchNav from './components/search-nav';
 import Footer from './components/Footer/Footer';
 import { withAuth0 } from '@auth0/auth0-react';
 import AboutUs from './components/AboutUs/AboutUs';

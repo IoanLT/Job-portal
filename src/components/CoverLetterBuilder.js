@@ -23,8 +23,8 @@ function Alert(props) {
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '75ch',
+      margin: theme.spacing(6),
+      width: '80%',
     },
   },
 
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
   formControl: {
     margin: theme.spacing(1),
-    minWidth: '75ch',
+    minWidth: '80%',
   },
 
   selectEmpty: {
