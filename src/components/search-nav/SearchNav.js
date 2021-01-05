@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-scroll';
-import './Navbar/Navbar.css';
+import '../Navbar/Navbar.css';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -11,8 +11,8 @@ import './SearchNav.css';
 import TextField from '@material-ui/core/TextField';
 import FormGroup from '@material-ui/core/FormGroup';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import countries from './Countries'
-import LoadingSpinner from './LoadingSpinner';
+import countries from '../Countries'
+import LoadingSpinner from '../LoadingSpinner';
 
 
 
