@@ -24,7 +24,7 @@ const ourTeam = [
         name: 'Aya Berdyeva',
         avatar: aya2,
         position: 'Principal Engineer',
-        description: "Aya comes from design background and her passions are coding, exploring and trainig with her dog Misha." 
+        description: "Aya comes from design background and her passions are coding, exploring and training with her dog Misha." 
     },
     {
         name: 'Ioan Tranole',
