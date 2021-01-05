@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import JobsStatistic from './JobsStatistic';
 import MyCalendar from './MyCalendar';
 import './MyBoard.css';
 import JobList from './JobList';
@@ -15,9 +14,8 @@ export default class MyBoard extends Component {
                     currentPage={this.props.currentPage}
                     setCurrentPage={this.props.setCurrentPage}
                 />
-               
-                <MyCalendar jobsArray={this.props.savedJobsArray}/>
-             
+
+                <MyCalendar jobsArray={this.props.savedJobsArray} />
             </div>
         );
     }
