@@ -38,7 +38,7 @@ class JobCard extends Component {
                     />
                 </div>
 
-                <div>
+                <div className="job-description-wrapper">
                     <h2 className="job-title">
                         {this.props.title} {this.props.type}
                     </h2>
@@ -124,7 +124,7 @@ class JobCard extends Component {
                             </p>
                             <a
                                 href="https://www.numbeo.com/cost-of-living/"
-                                target="_blank"
+                                target="_blank" rel="noreferrer"
                             >
                                 <p>Location: {this.props.location}</p>
                             </a>

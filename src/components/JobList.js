@@ -7,7 +7,7 @@ import coordinates from './Coordinates';
 import marker from '../assets/marker.png';
 
 
-const AnyReactComponent = ({ icon }) => <img width='12px' src={icon}/>;
+const AnyReactComponent = ({ icon }) => <img width='12px' src={icon} alt={icon} />;
 
 //function to remove html from job description
 const removeHtml = (text) => {
@@ -71,7 +71,7 @@ class JobList extends React.Component {
         return (
             <div className='job-results'>
               
-                <div>
+                <div className="joblist-container">
                 <p
                     className={
                         this.props.jobStatus
@@ -79,13 +79,13 @@ class JobList extends React.Component {
                             : 'result-number-hide'
                     }
                 >
-                    results:{this.props.jobsArray.length}
+                    Results: {this.props.jobsArray.length}
                 </p>
                     { this.props.jobsArray.length === 0 && this.props.jobStatus 
                     ? <p>No jobs found</p>
                       :  
                         slice.map((jobObject) => (
-                        <JobCard
+                        <JobCard                            
                             logo={jobObject.company_logo_url}
                             title={jobObject.title}
                             salary={jobObject.salary}

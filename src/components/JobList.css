@@ -25,9 +25,10 @@
 .result-number-show {
     display: block;
     color: black;
-    font-size: 0.7rem;
+    font-size: 1rem;
     padding-bottom: 5px;
-    margin-left: 20%;
+    margin: 10px 0;
+    /* margin-left: 20%; */
 }
 
 /* Designing for scroll-bar */
@@ -52,12 +53,101 @@
     background: #555;
 }
 
+/* .MuiBox-root MuiBox-root-15 {
+    height: 50vh;
+} */
+
+ul {
+    position: relative;
+}
+
+.job-results {
+    display: flex;
+    justify-content: space-around;    
+    flex-wrap: wrap;
+    /* margin: 0 5%; */
+}
+
+.joblist-container {
+    /* flex: 1; */
+    width: 40%;
+    /* padding: 0 100px; */
+    /* margin-bottom: 20px; */
+}
+
+
+/* This is the pagination div. Couldn't target it in a different way */
+#simple-tabpanel-0 > div > p > div > div.joblist-container > nav > ul {
+    margin: 20px 0;
+}
+
+
+.map {
+    /* flex: 1; */
+    /* width: 500px; */
+    width: 40%;
+    height: 500px;
+    /* margin-top: 20px; */
+    margin: auto 0; 
+    /* padding: 0 100px;   */
+}
+.no-map {
+    display: none
+}
+
+
+@media screen and (max-width: 1200px) {
+    .joblist-container {
+        width: 460px;
+    }
+    
+}
+
+@media screen and (max-width: 960px) {
+    .job-results {
+        flex-direction: column;
+        align-items: center;
+    }    
+
+    .joblist-container {
+        width: 70%;
+    }
+
+    .map {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+    .joblist-container {
+        width: 90%;
+    }
+
+    .map {
+        width: 90%;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .map {        
+        height: 300px;
+    }
+  }
+
+
+/* 
 @media (min-width: 1281px) {
     .list-container {
         margin-left: -50px;
     }
     .scrollList {
         width: 600px;
+    }
+
+    .map {        
+        margin: auto 0;   
     }
 }
 
@@ -70,16 +160,16 @@
         width: auto;
         margin-left: -5px;
     }
-}
+} */
 
 /* 
     ##Device = Tablets, Ipads (portrait)
     ##Screen = B/w 768px to 1024px
   */
 
-@media (min-width: 960px) and (max-width: 1024px) {
+/* @media (min-width: 960px) and (max-width: 1024px) {
     .list-container {
-        /* width: 350px; */
+        
         margin-left: 0px;
     }
     .scrollList {
@@ -119,24 +209,6 @@
         width: 100%;
     }
 }
+ */
 
-ul {
-    position: relative;
-}
-
-
-.map {
-    width: 500px;
-    height: 500px;
-    margin-top: 20px;
-    
-}
-.no-map {
-    display: none
-}
-
-.job-results {
-    display: flex;
-    justify-content: space-around;
-}
 
