@@ -1,14 +1,40 @@
+.calendar-section { 
+    text-align: center;   
+    width: 70%;
+    margin: 0 auto;
+}
+
+.calendar-heading {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+/* Calendar div */
+#simple-tabpanel-1 > div > p > div > div.calendar-section > div > div {
+    width: 100%;
+}
+
+
+
 .react-calendar {
     box-shadow: 0 8px 6px -6px black;
+    align-self: center;
 }
 
 .calendar-container {
     display: flex;
     flex-direction: row;
+    position: relative;
+    margin-bottom: 50px;
 }
 
 .calendar-modal{
-    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: #fff;
+    width: 300px;
     border: 1px solid black;
     box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
     0 2px 2px rgba(0,0,0,0.20), 
@@ -31,4 +57,11 @@
     margin-top: -9px;
     cursor: pointer;
     
+}
+
+@media screen and (max-width: 500px) {
+    .calendar-section {            
+        width: 90%;
+        
+    }
 }

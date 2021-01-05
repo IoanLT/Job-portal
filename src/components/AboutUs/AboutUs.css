@@ -92,7 +92,7 @@
 .aboutUs--heart, 
 .aboutUs--hands {
     position: absolute;
-    top: 38px;
+    top: 50px;    
     left: 30%;
     display: block;
     font-size: 2rem;
@@ -100,7 +100,7 @@
 }
 
 .aboutUs--hands {
-    top: 50px;
+    top: 60px;
     left: 30%;
     z-index: 1;
 }

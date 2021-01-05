@@ -65,6 +65,7 @@ ul {
     display: flex;
     justify-content: space-around;    
     flex-wrap: wrap;
+    margin-bottom: 50px;
     /* margin: 0 5%; */
 }
 
@@ -76,8 +77,9 @@ ul {
 }
 
 
-/* This is the pagination div. Couldn't target it in a different way */
-#simple-tabpanel-0 > div > p > div > div.joblist-container > nav > ul {
+/* This is the pagination div on browse all and saved. Couldn't target it in a different way */
+#simple-tabpanel-0 > div > p > div > div.joblist-container > nav > ul, 
+#simple-tabpanel-1 > div > p > div > div.job-results > div.joblist-container > nav > ul {
     margin: 20px 0;
 }
 
@@ -133,6 +135,7 @@ ul {
 @media screen and (max-width: 500px) {
     .map {        
         height: 300px;
+        margin-bottom: 50px;
     }
   }
 

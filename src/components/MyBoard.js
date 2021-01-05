@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import JobsStatistic from './JobsStatistic';
+// import JobsStatistic from './JobsStatistic';
 import MyCalendar from './MyCalendar';
 import './MyBoard.css';
 import JobList from './JobList';
