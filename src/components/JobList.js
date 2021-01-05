@@ -6,9 +6,10 @@ import GoogleMapReact from 'google-map-react';
 import coordinates from './Coordinates';
 import marker from '../assets/marker.png';
 
-const AnyReactComponent = ({ icon }) => (
-    <img width="12px" src={icon} alt="icon" />
-);
+
+
+const AnyReactComponent = ({ icon }) => <img width='12px' src={icon} alt={icon} />;
+
 
 //function to remove html from job description
 const removeHtml = (text) => {
@@ -74,44 +75,43 @@ class JobList extends React.Component {
         let uniqueCountriesArray = [...uniqueCountries];
 
         return (
-            <div className="job-results">
-                <div>
-                    <p
-                        className={
-                            this.props.jobStatus
-                                ? 'result-number-show'
-                                : 'result-number-hide'
-                        }
-                    >
-                        results:{this.props.jobsArray.length}
-                    </p>
-                    {this.props.jobsArray.length === 0 &&
-                    this.props.jobStatus ? (
-                        <p>No jobs found</p>
-                    ) : (
+
+            <div className='job-results'>
+              
+                <div className="joblist-container">
+                <p
+                    className={
+                        this.props.jobStatus
+                            ? 'result-number-show'
+                            : 'result-number-hide'
+                    }
+                >
+                    Results: {this.props.jobsArray.length}
+                </p>
+                    { this.props.jobsArray.length === 0 && this.props.jobStatus 
+                    ? <p>No jobs found</p>
+                      :  
                         slice.map((jobObject) => (
-                            <JobCard
-                                logo={jobObject.company_logo_url}
-                                title={jobObject.title}
-                                salary={jobObject.salary}
-                                type={jobObject.job_type.split('_').join(' ')}
-                                location={jobObject.candidate_required_location}
-                                company={jobObject.company_name}
-                                date={jobObject.publication_date.slice(0, 10)}
-                                description={removeHtml(jobObject.description)}
-                                key={jobObject.id}
-                                url={jobObject.url}
-                                toggleJobInSavedJobs={() => {
-                                    this.props.toggleJobInSavedJobs(
-                                        jobObject.id
-                                    );
-                                }}
-                                isFavorite={jobObject.isFavorite}
-                            />
-                        ))
-                    )}
-                    {this.props.jobStatus &&
-                    this.props.jobsArray.length !== 0 ? (
+                        <JobCard                            
+                            logo={jobObject.company_logo_url}
+                            title={jobObject.title}
+                            salary={jobObject.salary}
+                            type={jobObject.job_type.split('_').join(' ')}
+                            location={jobObject.candidate_required_location}
+                            company={jobObject.company_name}
+                            date={jobObject.publication_date.slice(0, 10)}
+                            description={removeHtml(jobObject.description)}
+                            key={jobObject.id}
+                            url={jobObject.url}
+                            toggleJobInSavedJobs={() => {
+                                this.props.toggleJobInSavedJobs(jobObject.id);
+                            }}
+                            isFavorite={jobObject.isFavorite}
+                        />
+                    ))}
+                    {this.props.jobStatus && this.props.jobsArray.length !== 0 
+                    ? (
+
                         <Pagination
                             count={pageCount}
                             variant="outlined"

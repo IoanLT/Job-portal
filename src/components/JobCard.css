@@ -7,22 +7,28 @@
     border: 1px solid black;
     border-radius: 20px;
     padding: 2px;
-    margin-left: 100px;
-    margin-bottom: 5px;
+    /* margin-left: 100px; */
+    margin-bottom: 15px;
     background-color: white;
     color: black;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     text-align: left;
-    width: 500px;
-    height: 120px;
+    /* width: 500px; */
+    width: 100%;
+    /* height: 120px; */
+    max-height: 300px;
+    position: relative;
   }
-   
   
+
   
   .job-title {
-    font-size: 0.9em;
-    padding-bottom: 5px;
+    /* font-size: 0.9em; */
+    /* font-size: 1.1rem; */
+    font-size: 20px;
+    margin-bottom: 15px;
+    /* padding-bottom: 5px; */
     font-weight: 800;
   }  
   
@@ -33,10 +39,13 @@
     border: 0.0625rem solid #d4d2d0;
     border-radius: 0.5rem;
     background-color: #fff;
-    width: 500px;
+    /* width: 500px; */
+    width: 100%;
     height: 700px;
-    top: 660px;
-    left: 54%;
+    top: 0;
+    left: 0;    
+    /* top: 660px; */
+    /* left: 54%; */
     padding: 10px;
     line-height: 1.8;
     z-index: 1;
@@ -51,6 +60,10 @@
   .description-text{
     padding: 10px;
     overflow-y: scroll;
+  }
+
+  .description-text p {
+    font-size: 14px;
   }
   
   .details{
@@ -97,21 +110,40 @@
   }
   
   .job-company {
-    font-size: 15px;
-  }
+    /* font-size: 15px; */
+    font-size: 18px;
+    font-weight: 600;
+  } 
   
-  .job-logo {
-    width: 100px;
-    padding-right: 5px;
-  }
   
   .job-location {
-    font-size: 0.6em;
+    /* font-size: 0.6em; */
+    font-size: 12px;
+    color: #777;
   }
   
   .logo-container {
     display: flex;
     align-items: center;
+    padding: 0 20px;
+  }
+
+  .job-logo {
+    width: 80px;
+    /* width: 100px; */
+    /* padding-right: 5px; */
+  }
+
+  .job-description-wrapper {
+    flex-grow: 2;
+    margin: 10px 0;
+  }
+
+  .job-description-wrapper p {
+    /* font-size: 1rem; */
+    font-size: 12px;
+    font-weight: 600;
+    color: #777;
   }
   
   .job-type {
@@ -119,11 +151,15 @@
   }
   
   .job-date {
-    font-size: 10px;
+    /* font-size: 10px; */
+    font-size: 12px;
+    color: #777;
   }
   
   .seeFullJob {
-    font-size: 13px;
+    /* font-size: 13px; */
+    font-size: 1rem;
+    font-weight: 600;
   }
   
   .seeFullJob:hover {
@@ -135,8 +171,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 5px;
-    
+    padding: 5px 20px;
     
   }
 
@@ -190,18 +225,83 @@
 
   
 
-  @media (min-width: 1281px) {
+
+@media screen and (max-width: 1200px) {
+    .logo-container, 
+    .btn-container {
+      padding: 0 10px;
+    }  
+    
+    .job-logo {
+      width: 60px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+  .logo-container,
+  .btn-container {
+    padding: 0 20px;
+  }
+
+  .job-logo {
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .logo-container,
+  .btn-container {
+    padding: 0 10px;
+  }
+
+  .job-logo {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logo-container,
+  .btn-container {
+    padding: 0 10px;
+  }
+
+  .job-logo, 
+  .job-logo2 {
+    display: none;
+  }
+
+  .heart-apply-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 10px;
+    height: 100%;
+    align-items: center;
+  }
+
+  .search-button-job-card {
+    width: 100%;
+  }
+
+  .logo-details {
+    padding: 0 10px;
+  }
+
+  .job-title {
+    font-size: 18px;
+  }
+
+}
+
+
+  /* @media (min-width: 1281px) {
     .job-description {
         width: 700px;
-        top: auto;
-        margin-left: -250px;
-   
-        
+        top: auto;    
     } 
 
-    .job-container {
-      margin-left: 50px;
-      height: 150px;
+    .job-container {      
+      margin-bottom: 10px;      
     }
 
   
@@ -211,8 +311,7 @@
   @media (min-width: 1025px) and (max-width: 1280px) {
     .job-description {
         width: auto;
-        margin-left: -50px;
-        /* top: 610px; */
+        margin-left: -50px;        
         position: absolute;
         margin-top: -7%;
         margin-right: 5%;
@@ -322,4 +421,4 @@
       
     }
   }
-  
+   */

@@ -38,7 +38,7 @@ class JobCard extends Component {
                     />
                 </div>
 
-                <div>
+                <div className="job-description-wrapper">
                     <h2 className="job-title">
                         {this.props.title} {this.props.type}
                     </h2>

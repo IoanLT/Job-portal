@@ -63,7 +63,7 @@ export default function AboutUs() {
             <section className="aboutUs--team">
                 <div className="aboutUs--heading--team">
                     <h2 className="aboutUs--heading">The Team</h2>
-                    <span className="aboutUs--heart">💗</span>
+                    <span className="aboutUs--heart">❤️</span>
                     <span className="aboutUs--hands">🤲🏼</span>
                 </div>
                 <div className="aboutUs--team--members">
