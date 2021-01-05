@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MyBoard from './MyBoard';
 import JobList from './JobList';
@@ -27,7 +27,8 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography>{children}</Typography>
+                    {/* <Typography>{children}</Typography> */}
+                    {children}
                 </Box>
             )}
         </div>
@@ -113,7 +114,7 @@ const Dashboard = forwardRef((props, ref) => {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 {isAuthenticated ? (
-                    <CoverLetterBuilder savedJobsArray={props.savedJobsArray}/>
+                    <CoverLetterBuilder savedJobsArray={props.savedJobsArray} />
                 ) : (
                     <h1 className="sign-in-alert">Please sign in</h1>
                 )}

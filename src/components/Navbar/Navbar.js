@@ -36,6 +36,9 @@ class Navbar extends Component {
         const { isAuthenticated } = this.props.auth0;
         return (
             <nav className="NavbarItems">
+                <div>
+                    <img src= "https://i.ibb.co/v31vN6r/Whats-App-Image-2021-01-05-at-14-11-10.jpg" heigth="50px" alt=""></img>
+                </div>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i
                         className={

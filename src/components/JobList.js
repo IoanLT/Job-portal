@@ -7,7 +7,9 @@ import coordinates from './Coordinates';
 import marker from '../assets/marker.png';
 
 
+
 const AnyReactComponent = ({ icon }) => <img width='12px' src={icon} alt={icon} />;
+
 
 //function to remove html from job description
 const removeHtml = (text) => {
@@ -34,9 +36,9 @@ class JobList extends React.Component {
             currentPage: props.currentPage,
             center: {
                 lat: 41,
-                lng: 20
-              },
-              zoom: 2
+                lng: 20,
+            },
+            zoom: 2,
         };
         this.handlePageClick = this.handlePageClick.bind(this);
     }
@@ -60,15 +62,20 @@ class JobList extends React.Component {
         const offset = (currentPage - 1) * this.state.perPage;
         const slice = array.slice(offset, offset + this.state.perPage);
 
-//logic to get coordinates for result
+        //logic to get coordinates for result
         let arrayWithCoordinates = [];
-                 array.forEach((el)=> coordinates.forEach((el2)=> {
-                     if(el.candidate_required_location === el2.name){
-                         arrayWithCoordinates.push(el2)
-                     }
-                 }))
+        array.forEach((el) =>
+            coordinates.forEach((el2) => {
+                if (el.candidate_required_location === el2.name) {
+                    arrayWithCoordinates.push(el2);
+                }
+            })
+        );
+        let uniqueCountries = new Set(arrayWithCoordinates);
+        let uniqueCountriesArray = [...uniqueCountries];
 
         return (
+
             <div className='job-results'>
               
                 <div className="joblist-container">
@@ -104,39 +111,41 @@ class JobList extends React.Component {
                     ))}
                     {this.props.jobStatus && this.props.jobsArray.length !== 0 
                     ? (
+
                         <Pagination
                             count={pageCount}
                             variant="outlined"
                             onChange={this.handlePageClick}
                             defaultPage={currentPage}
                         />
-                    ) : <p></p>
-
-                    
-                    }
+                    ) : (
+                        <p></p>
+                    )}
                 </div>
-                <div className={this.props.jobStatus && this.props.jobsArray.length !== 0 ? 'map': 'no-map'}>
+                <div
+                    className={
+                        this.props.jobStatus &&
+                        this.props.jobsArray.length !== 0
+                            ? 'map'
+                            : 'no-map'
+                    }
+                >
                     <GoogleMapReact
-                    bootstrapURLKeys={{ key: process.env.REACT_APP_KEY}}
-                    defaultCenter={this.state.center}
-                    defaultZoom={this.state.zoom}
+                        bootstrapURLKeys={{ key: process.env.REACT_APP_KEY }}
+                        defaultCenter={this.state.center}
+                        defaultZoom={this.state.zoom}
                     >
-                 
-             {
-                arrayWithCoordinates.map(country=> 
-                <AnyReactComponent
-                lat={country.latlng[0]}
-                lng={country.latlng[1]}
-                icon={marker}
-            />
-            
-            )
-            } 
+                        {uniqueCountriesArray.map((country) => (
+                            <AnyReactComponent
+                                key={country.name}
+                                lat={country.latlng[0]}
+                                lng={country.latlng[1]}
+                                icon={marker}
+                            />
+                        ))}
                     </GoogleMapReact>
-               </div>
-
+                </div>
             </div>
-           
         );
     }
 }

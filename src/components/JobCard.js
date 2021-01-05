@@ -63,7 +63,9 @@ class JobCard extends Component {
                         ></div>
                     )}
                     <a href={this.props.url} target="_blank" rel="noreferrer">
-                        <button className='search-button-job-card'>Apply</button>
+                        <button className="search-button-job-card">
+                            Apply
+                        </button>
                     </a>
                 </div>
 
@@ -100,7 +102,9 @@ class JobCard extends Component {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    <button className='search-button-job-card'>Apply</button>
+                                    <button className="search-button-job-card">
+                                        Apply
+                                    </button>
                                 </a>
                                 <div
                                     onClick={this.favorite}
@@ -124,7 +128,8 @@ class JobCard extends Component {
                             </p>
                             <a
                                 href="https://www.numbeo.com/cost-of-living/"
-                                target="_blank" rel="noreferrer"
+                                target="_blank"
+                                rel="noreferrer"
                             >
                                 <p>Location: {this.props.location}</p>
                             </a>
