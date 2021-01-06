@@ -71,8 +71,9 @@ class App extends React.Component {
                 <JobPortalContext.Provider value={{ userName: name }}>
                     <div className="landing--page--container" id="home">
                         <Navbar />
-                        <h1>Welcome to Chucks job portal!</h1>
-                        <h2>Hi {name}!</h2>
+                        <h1>Hi {name}!</h1>
+                        <h2>Find the latest remote jobs!</h2>
+                        
                         {/* Parent App passes the function to SearchNav child: 
                 "hey SearchNav" call api and filter and give me the result by calling this function */}
                         <SearchNav

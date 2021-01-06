@@ -97,10 +97,12 @@ export default function AboutUs() {
                             <h5>{member.position}</h5>
                             <p>{member.description}</p>
                          
-                            <a href={member.linkedin}><img className="icon-link" src={linkedin} alt="Linkedin" width="26"/></a>
-                            <a href={member.github}><img className="icon-link" src={github} alt="GitHub" width="28"/></a>
-
-
+                            <a href={member.linkedin} target="_blank" rel="noreferrer">
+                                <img className="icon-link" src={linkedin} alt="Linkedin" width="26"/>
+                            </a>
+                            <a href={member.github} target="_blank" rel="noreferrer">
+                                <img className="icon-link" src={github} alt="GitHub" width="28"/>
+                            </a>
                         </div>
                     ))}
                 </div>
