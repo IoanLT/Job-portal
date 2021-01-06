@@ -48,7 +48,7 @@
     /* left: 54%; */
     padding: 10px;
     line-height: 1.8;
-    z-index: 1;
+    z-index: 999;
     
   }
   
@@ -95,9 +95,9 @@
     
   }
   
-  .heart-apply-container a {
+  /* .heart-apply-container a {
     padding-right: 10px;
-  }
+  } */
   
   .logo-details {
     display: flex;
@@ -278,6 +278,7 @@
     padding: 0 10px;
     height: 100%;
     align-items: center;
+    flex-flow: column-reverse;
   }
 
   .search-button-job-card {
