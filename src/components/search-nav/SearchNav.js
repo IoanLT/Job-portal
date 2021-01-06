@@ -11,10 +11,8 @@ import './SearchNav.css';
 import TextField from '@material-ui/core/TextField';
 import FormGroup from '@material-ui/core/FormGroup';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import countries from '../Countries'
+import countries from '../Countries';
 import LoadingSpinner from '../LoadingSpinner';
-
-
 
 class SearchNav extends Component {
     constructor(props) {
@@ -27,51 +25,56 @@ class SearchNav extends Component {
             jobTypeCheckBoxFullChecked: false,
             jobTypeCheckBoxPartChecked: false,
             salarySpecifiedChecked: false,
-            loading: false
-
-        }
+            loading: false,
+        };
     }
 
     componentDidMount() {
         this.getCategories();
     }
 
-
     filterByLocation = (jobs) => {
-        return jobs.filter(job => job.candidate_required_location.toLowerCase().includes(this.state.locationUserInput.toLowerCase()));
-    }
+        return jobs.filter((job) =>
+            job.candidate_required_location
+                .toLowerCase()
+                .includes(this.state.locationUserInput.toLowerCase())
+        );
+    };
 
     filterByCategory = (jobs) => {
-        if (this.state.categoryUserChoice === "Categories") {
+        if (this.state.categoryUserChoice === 'Categories') {
             return jobs;
         }
-        return jobs.filter(job => job.category.includes(this.state.categoryUserChoice));
-    }
+        return jobs.filter((job) =>
+            job.category.includes(this.state.categoryUserChoice)
+        );
+    };
 
     filterByJobType = (jobs) => {
-        if (this.state.jobTypeCheckBoxFullChecked === false && this.state.jobTypeCheckBoxPartChecked === false) {
+        if (
+            this.state.jobTypeCheckBoxFullChecked === false &&
+            this.state.jobTypeCheckBoxPartChecked === false
+        ) {
             return jobs;
-        }
-        else if (this.state.jobTypeCheckBoxFullChecked && this.state.jobTypeCheckBoxPartChecked) {
+        } else if (
+            this.state.jobTypeCheckBoxFullChecked &&
+            this.state.jobTypeCheckBoxPartChecked
+        ) {
             return jobs;
+        } else if (this.state.jobTypeCheckBoxFullChecked) {
+            return jobs.filter((job) => job.job_type.includes('full_time'));
+        } else {
+            return jobs.filter((job) => job.job_type.includes('part_time'));
         }
-        else if (this.state.jobTypeCheckBoxFullChecked) {
-            return jobs.filter(job => job.job_type.includes("full_time"));
-        }
-        else {
-            return jobs.filter(job => job.job_type.includes("part_time"));
-        }
-    }
+    };
 
     filterByIfSalaryIsSpecified = (jobs) => {
         if (this.state.salarySpecifiedChecked === false) {
             return jobs;
+        } else {
+            return jobs.filter((job) => job.salary !== '');
         }
-        else {
-            return jobs.filter(job => job.salary !== '');
-        }
-    }
-
+    };
 
     getJobsFromApiAndPassArrayToParentFunc = () => {
         let searchParamStr = '';
@@ -79,103 +82,114 @@ class SearchNav extends Component {
             searchParamStr = `search=${this.state.searchUserInput}`;
         }
 
-        // Setting the state of loading to true when this method is called onClick        
+        // Setting the state of loading to true when this method is called onClick
         this.setState({ loading: true }, () => {
-            Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)            
-                .then(response => response.data.jobs)            
-                .then(jobs => this.filterByLocation(jobs))
-                .then(jobs => this.filterByCategory(jobs))
-                .then(jobs => this.filterByJobType(jobs))
-                .then(jobs => this.filterByIfSalaryIsSpecified(jobs))
+            Axios.get(`https://remotive.io/api/remote-jobs?${searchParamStr}`)
+                .then((response) => response.data.jobs)
+                .then((jobs) => this.filterByLocation(jobs))
+                .then((jobs) => this.filterByCategory(jobs))
+                .then((jobs) => this.filterByJobType(jobs))
+                .then((jobs) => this.filterByIfSalaryIsSpecified(jobs))
 
-                .then(jobs => {
-                    //here SearchNav is calling the JobsList's 
+                .then((jobs) => {
+                    //here SearchNav is calling the JobsList's
                     //function with the joblist array returned from the api and filtered
-                    this.props.functionToCallForFilteredJobs(jobs); 
-                    
-                    // After the API has been called, the state of loading is set to false
-                    this.setState({loading: false})           
-            })        
-        })             
+                    this.props.functionToCallForFilteredJobs(jobs);
 
-    }
+                    // After the API has been called, the state of loading is set to false
+                    this.setState({ loading: false });
+                });
+        });
+    };
 
     getSearchUserInputOnChange = (ev) => {
-        this.setState({ searchUserInput: ev.target.value })
-    }
+        this.setState({ searchUserInput: ev.target.value });
+    };
 
     getLocationUserInputOnChange = (ev) => {
-        this.setState({ locationUserInput: ev.target.value })
-    }
+        this.setState({ locationUserInput: ev.target.value });
+    };
 
-    getLocationUserInputOnAutoComplete = (ev, selectedValueFromAutocomplete) => {
-        if(selectedValueFromAutocomplete !== null){        
-            this.setState({ locationUserInput: selectedValueFromAutocomplete.label })
+    getLocationUserInputOnAutoComplete = (
+        ev,
+        selectedValueFromAutocomplete
+    ) => {
+        if (selectedValueFromAutocomplete !== null) {
+            this.setState({
+                locationUserInput: selectedValueFromAutocomplete.label,
+            });
         }
-    }
+    };
 
     getCategoryUserChoice = (ev) => {
         console.log(ev.target.value);
-        this.setState({ categoryUserChoice: ev.target.value })
-    }
+        this.setState({ categoryUserChoice: ev.target.value });
+    };
 
     getCheckedFullTime = (ev) => {
-        this.setState({ jobTypeCheckBoxFullChecked: !this.state.jobTypeCheckBoxFullChecked })
-    }
+        this.setState({
+            jobTypeCheckBoxFullChecked: !this.state.jobTypeCheckBoxFullChecked,
+        });
+    };
 
     getCheckedPartTime = (ev) => {
-        this.setState({ jobTypeCheckBoxPartChecked: !this.state.jobTypeCheckBoxPartChecked })
-    }
+        this.setState({
+            jobTypeCheckBoxPartChecked: !this.state.jobTypeCheckBoxPartChecked,
+        });
+    };
 
     getCheckedIfSalaryIsSpecified = (ev) => {
-        this.setState({ salarySpecifiedChecked: !this.state.salarySpecifiedChecked })
-    }
+        this.setState({
+            salarySpecifiedChecked: !this.state.salarySpecifiedChecked,
+        });
+    };
 
     getCategories = () => {
         Axios.get('https://remotive.io/api/remote-jobs/categories')
-            .then(response => response.data.jobs)
-            .then(categoriesFromApi => this.setState({ categories: categoriesFromApi }))
-    }
+            .then((response) => response.data.jobs)
+            .then((categoriesFromApi) =>
+                this.setState({ categories: categoriesFromApi })
+            );
+    };
 
     countryToFlag = (isoCode) => {
         return typeof String.fromCodePoint !== 'undefined'
             ? isoCode
-                .toUpperCase()
-                .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397))
+                  .toUpperCase()
+                  .replace(/./g, (char) =>
+                      String.fromCodePoint(char.charCodeAt(0) + 127397)
+                  )
             : isoCode;
-    }
-
-
+    };
 
     render() {
         return (
-
             <div>
                 <FormGroup className="inputs-fileds" row>
-
                     <TextField
                         id="search-keyword"
                         style={{ width: 300 }}
-
                         label="Search by keyword"
                         variant="outlined"
                         onChange={this.getSearchUserInputOnChange}
                         onKeyPress={(ev) => {
-                            if (ev.key === "Enter") { this.getJobsFromApiAndPassArrayToParentFunc() }
-                        }} />
-
+                            if (ev.key === 'Enter') {
+                                this.getJobsFromApiAndPassArrayToParentFunc();
+                            }
+                        }}
+                    />
 
                     <Autocomplete
                         id="search-location"
                         style={{ width: 300 }}
                         options={countries}
-
                         autoHighlight
                         getOptionLabel={(option) => option.label}
                         onChange={this.getLocationUserInputOnAutoComplete}
                         renderOption={(option) => (
                             <React.Fragment>
-                                <span>{this.countryToFlag(option.code)}</span>&nbsp;
+                                <span>{this.countryToFlag(option.code)}</span>
+                                &nbsp;
                                 {option.label} ({option.code})
                             </React.Fragment>
                         )}
@@ -190,32 +204,38 @@ class SearchNav extends Component {
                                 }}
                                 onChange={this.getLocationUserInputOnChange}
                                 onKeyPress={(ev) => {
-                                    if (ev.key === "Enter") { this.getJobsFromApiAndPassArrayToParentFunc() }
+                                    if (ev.key === 'Enter') {
+                                        this.getJobsFromApiAndPassArrayToParentFunc();
+                                    }
                                 }}
                             />
                         )}
                     />
-
-
                 </FormGroup>
 
-
                 <FormGroup className="filters-fileds" row>
-
                     <FormControl className="categories-select">
-
                         <Select
                             labelId="demo-simple-select-filled-label"
                             id="demo-simple-select-filled"
-                            value={this.state.categoryUserChoice === "" || this.state.categoryUserChoice === "Categories" ? "Categories" : this.state.categoryUserChoice}
+                            value={
+                                this.state.categoryUserChoice === '' ||
+                                this.state.categoryUserChoice === 'Categories'
+                                    ? 'Categories'
+                                    : this.state.categoryUserChoice
+                            }
                             onChange={this.getCategoryUserChoice}
                         >
-                            <MenuItem value="Categories">All categories</MenuItem>
-                            {this.state.categories.map((category, i) => <MenuItem value={category.name} key={i}>{category.name}</MenuItem>)}
-
+                            <MenuItem value="Categories">
+                                All categories
+                            </MenuItem>
+                            {this.state.categories.map((category, i) => (
+                                <MenuItem value={category.name} key={i}>
+                                    {category.name}
+                                </MenuItem>
+                            ))}
                         </Select>
                     </FormControl>
-
 
                     <FormControlLabel
                         control={
@@ -241,7 +261,6 @@ class SearchNav extends Component {
                         label="Part time"
                     />
 
-
                     <FormControlLabel
                         control={
                             <Checkbox
@@ -255,8 +274,7 @@ class SearchNav extends Component {
                     />
                 </FormGroup>
 
-                <FormGroup >
-
+                <FormGroup>
                     {/* <Link
                         onClick={this.getJobsFromApiAndPassArrayToParentFunc}
                         delay={2000}
@@ -271,32 +289,29 @@ class SearchNav extends Component {
                         Search
                     </Link>  */}
 
-                    {
-                        this.state.loading 
-                            ? (<LoadingSpinner />) 
-                            : (<Link
-                                onClick={this.getJobsFromApiAndPassArrayToParentFunc}                                
-                                delay={1500}
-                                activeClass="active"
-                                to="dashboard"
-                                spy={true}
-                                smooth={true}
-                                offset={-80}
-                                duration={1000}
-                                className="search-button"
-                            >
-                                Search
-                            </Link>) 
-                    }
-
-                </FormGroup>                
-
-            </div>)
+                    {this.state.loading ? (
+                        <LoadingSpinner />
+                    ) : (
+                        <Link
+                            onClick={
+                                this.getJobsFromApiAndPassArrayToParentFunc
+                            }
+                            delay={1500}
+                            activeClass="active"
+                            to="dashboard"
+                            spy={true}
+                            smooth={true}
+                            offset={-80}
+                            duration={1000}
+                            className="search-button"
+                        >
+                            Search
+                        </Link>
+                    )}
+                </FormGroup>
+            </div>
+        );
     }
 }
 
 export default SearchNav;
-
-
-
-

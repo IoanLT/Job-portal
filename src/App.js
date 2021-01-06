@@ -15,6 +15,11 @@ const theme = createMuiTheme({
     typography: {
         fontFamily: 'Nunito',
     },
+    palette: {
+        primary: {
+            main: 'rgb(191, 85, 236)',
+        },
+    },
 });
 
 class App extends React.Component {
