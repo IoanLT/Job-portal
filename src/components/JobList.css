@@ -79,9 +79,12 @@ ul {
 
 /* This is the pagination div on browse all and saved. Couldn't target it in a different way */
 #simple-tabpanel-0 > div > p > div > div.joblist-container > nav > ul, 
-#simple-tabpanel-1 > div > p > div > div.job-results > div.joblist-container > nav > ul {
+#simple-tabpanel-1 > div > p > div > div.job-results > div.joblist-container > nav > ul, 
+#simple-tabpanel-0 > div > div > div.joblist-container > nav > ul, 
+#simple-tabpanel-1 > div > div > div.job-results > div.joblist-container > nav > ul {
     margin: 20px 0;
 }
+
 
 
 .map {

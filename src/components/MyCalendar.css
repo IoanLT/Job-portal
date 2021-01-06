@@ -10,11 +10,10 @@
 }
 
 /* Calendar div */
-#simple-tabpanel-1 > div > p > div > div.calendar-section > div > div {
+#simple-tabpanel-1 > div > p > div > div.calendar-section > div > div, 
+#simple-tabpanel-1 > div > div > div.calendar-section > div > div {
     width: 100%;
 }
-
-
 
 .react-calendar {
     box-shadow: 0 8px 6px -6px black;
@@ -43,20 +42,28 @@
     0 16px 16px rgba(0,0,0,0.05);;
     height: 100px;
     padding: 5px;
-    margin-left: 5px;
-   
-   
+    margin-left: 5px;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row-reverse;
 }
 
 .calendar-modal p {
     font-size: 15px;
+    padding: 0 20px;
 }
 
 .exit-sign {
-    float: right;
-    margin-top: -9px;
+    /* float: right; */
+    /* margin-top: -9px; */
+    margin: 5px;
     cursor: pointer;
-    
+    width: 30px;
+    font-size: 30px;
+    position: relative;
+    top: 0;
+    right: 0;
 }
 
 @media screen and (max-width: 500px) {

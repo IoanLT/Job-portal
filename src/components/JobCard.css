@@ -167,6 +167,7 @@
     cursor: pointer;
     color: blue;
   }
+
   .btn-container {
     display: flex;
     flex-direction: column;
@@ -188,7 +189,7 @@
     height: 40px;
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg");
     background-size: 100%;
-    
+    z-index: 2;
   }
   
   .favorite {
@@ -198,7 +199,7 @@
     background-image: url("https://toppng.com/uploads/preview/purple-heart-emoji-png-11536088505vnrwwcvtmo.png");
     background-size: 100%;
     filter: grayscale(50%) brightness(120%);
-    
+    z-index: 2;
   
   }
 
