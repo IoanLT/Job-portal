@@ -57,7 +57,7 @@ export default function CoverLetterBuilder({ savedJobsArray }) {
     defaultCoverLetterBody += '\n';
     defaultCoverLetterBody += '\n';
     defaultCoverLetterBody +=
-        'I am writing in application for the front end developer position at [company_name] as advertised in Remotive.io.';
+        'I am writing in application for the [job_position] position at [company_name] as advertised in Remotive.io.';
     defaultCoverLetterBody +=
         ' My training and experience in the field of computer programming and web design, make me the perfect candidate for the job. I know that I would be a valuable addition to the team at [company_name].';
     defaultCoverLetterBody += '\n';
