@@ -57,12 +57,12 @@ export default class CVuploader extends Component {
     render() {
         return (
             <div>
-                <div className="upload-cv-button">
-                    <Button
+                <div className="upload-cv-button-div">
+                    <Button className="upload-cv-button"
                         variant="outlined"
                         onClick={this.handleOpen.bind(this)}
                         startIcon={<CloudUploadIcon />}>
-                        Upload cv
+                        Upload CV
                 </Button>
 
                 </div>
