@@ -15,10 +15,16 @@
     text-transform: lowercase !important;
     text-transform: capitalize !important;
     padding-right: 32px !important;
-
-
-
 }
+
+.upload-cv-button:hover {
+    background-color: #1F2833 !important;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+    margin: 1px solid rgb(54, 215, 183);
+    cursor: pointer;
+  }
 
 .upload-cv-row{
     display: flex;
