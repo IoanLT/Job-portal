@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import './MyCalendar.css';
-import 'react-calendar/dist/Calendar.css';
 
 const monthNames = [
     'January',
