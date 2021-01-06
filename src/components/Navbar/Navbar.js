@@ -32,12 +32,26 @@ class Navbar extends Component {
         this.handleAction(action);
     };
 
+    handleLogo = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+
     render() {
         const { isAuthenticated } = this.props.auth0;
         return (
             <nav className="NavbarItems">
                 <div>
-                    <img src= "https://i.ibb.co/v31vN6r/Whats-App-Image-2021-01-05-at-14-11-10.jpg" heigth="50px" alt=""></img>
+                    <img 
+                        src= "https://i.ibb.co/v31vN6r/Whats-App-Image-2021-01-05-at-14-11-10.jpg" 
+                        heigth="50px" 
+                        alt="logo"
+                        onClick={this.handleLogo} 
+                    />
+
                 </div>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i
