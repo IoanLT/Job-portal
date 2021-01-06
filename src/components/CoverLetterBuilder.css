@@ -35,4 +35,8 @@
   #simple-tabpanel-2 > div {
     padding: 24px 0;
   }
+
+  #simple-tabpanel-2 > div > div > div:nth-child(1) > form > div > button {
+    margin-bottom: 24px;
+  }
 }
