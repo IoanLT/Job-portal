@@ -26,3 +26,17 @@
   margin: 1px solid rgb(54, 215, 183);
   cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+  .cover-letter-container{    
+    margin: 0;
+  }
+
+  #simple-tabpanel-2 > div {
+    padding: 24px 0;
+  }
+
+  #simple-tabpanel-2 > div > div > div:nth-child(1) > form > div > button {
+    margin-bottom: 24px;
+  }
+}
