@@ -5,6 +5,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import GoogleMapReact from 'google-map-react';
 import coordinates from './Coordinates';
 import marker from '../assets/marker.png';
+import { scroller } from "react-scroll";
 
 
 
@@ -52,6 +53,15 @@ class JobList extends React.Component {
 
         this.props.setCurrentPage(selectedPage);
     };
+    
+    scrollToSection = () => {
+        scroller.scrollTo("search-button", {
+          duration: 800,
+          delay: 0,
+          smooth: "easeInOutQuart",
+        });
+      };
+    
 
     render(props) {
         const array = this.props.jobsArray;
@@ -117,6 +127,7 @@ class JobList extends React.Component {
                             variant="outlined"
                             onChange={this.handlePageClick}
                             defaultPage={currentPage}
+                            onClick={this.scrollToSection}                                                       
                         />
                     ) : (
                         <p></p>
