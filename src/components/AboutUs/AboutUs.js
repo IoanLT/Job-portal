@@ -25,7 +25,7 @@ const ourTeam = [
         description:
             'Victoria comes from math background, her passions are travelling, extreme sports and volleyball',
         linkedin: "https://www.linkedin.com/in/viktoria-kulinkovich-280167202/",  
-        github: "https://github.com/roxana-florea",
+        github: "https://github.com/KulinkovichVA",
   
     },
     {
@@ -34,7 +34,7 @@ const ourTeam = [
         position: 'Principal Engineer',
         description: "Aya comes from design background and her passions are coding, exploring and training with her dog Misha.",
         linkedin: "https://www.linkedin.com/in/aya-berdyeva/",    
-        github: "https://github.com/roxana-florea",
+        github: "https://github.com/AyaDesigner",
 
  
     },
@@ -45,7 +45,7 @@ const ourTeam = [
         description:
             'Ioan comes from an environmental background and his passions are hiking, rock climbing and surfing.',
         linkedin: "https://www.linkedin.com/in/ioan-tranole-4a834a83/", 
-        github: "https://github.com/roxana-florea",
+        github: "https://github.com/IoanLT",
    
 
     },
@@ -97,8 +97,8 @@ export default function AboutUs() {
                             <h5>{member.position}</h5>
                             <p>{member.description}</p>
                          
-                            <a href={member.linkedin}><img className="icon-link" src={linkedin} alt="Linkedin" width="30"/></a>
-                            {/* <a href={member.github}><img className="icon-link" src={github} alt="GitHub" width="30"/></a> */}
+                            <a href={member.linkedin}><img className="icon-link" src={linkedin} alt="Linkedin" width="26"/></a>
+                            <a href={member.github}><img className="icon-link" src={github} alt="GitHub" width="28"/></a>
 
 
                         </div>
