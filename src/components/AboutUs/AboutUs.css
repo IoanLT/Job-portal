@@ -150,6 +150,9 @@
     /* opacity: 0.6; */
     color: #777;
 }
+.icon-link {
+    margin-top: 2vh;
+}
 
 /* =============
    Media queries
