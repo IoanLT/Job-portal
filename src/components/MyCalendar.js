@@ -79,7 +79,7 @@ const MyCalendar = (props) => {
                             <p>
                                 On {value.getDate()} of{' '}
                                 {monthNames[value.getMonth()]} you haven't
-                                applied for shit!
+                                applied for any jobs!
                             </p>
                         </div>
                     )
