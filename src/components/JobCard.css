@@ -90,9 +90,20 @@
    cursor: pointer;
   }
 
-  .heart-apply-container{
+  /* .heart-apply-container{
     display: flex;
     
+  } */
+
+  .heart-apply-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 10px;
+    height: 100%;
+    align-items: center;
+    flex-flow: column-reverse;
+    margin-bottom: 20px;
   }
   
   /* .heart-apply-container a {
@@ -271,16 +282,7 @@
     display: none;
   }
 
-  .heart-apply-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 0 10px;
-    height: 100%;
-    align-items: center;
-    flex-flow: column-reverse;
-  }
-
+  
   .search-button-job-card {
     width: 100%;
   }
