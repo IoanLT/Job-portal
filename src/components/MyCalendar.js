@@ -68,6 +68,7 @@ const MyCalendar = (props) => {
                             {monthNames[value.getMonth()]} you have applied for{' '}
                             {Math.floor(Math.random() * 8)} jobs
                         </p>
+                        
                     </div>
                 ) : (
                     modal && (
