@@ -103,7 +103,8 @@
         font-size: 1.2rem;
         margin: 0;
         padding: 0;
-        background: #000;
+        /* background: #000; */
+        background: var(--background-colour);
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
