@@ -44,12 +44,6 @@
     /* margin-top: 50px; */
 }
 
-.aboutUs--heading {
-    width: 100%;
-    padding-top: 10px;
-    font-size: 1.5rem;
-}
-
 .aboutUs--idea p {
     font-size: 1.2rem;
     font-weight: 400;
@@ -82,27 +76,39 @@
 }
 
 .aboutUs--heading--team {
-    position: relative;
+    /* position: relative; */
     align-self: center;
     border-top: 4px solid var(--secundary-colour);
     width: 110px;
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutUs--heading {
+    width: 100%;
+    padding-top: 10px;
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 .aboutUs--heart, 
 .aboutUs--hands {
-    position: absolute;
-    top: 50px;    
-    left: 30%;
-    display: block;
+    /* position: absolute; */
+    /* top: 50px;     */
+    /* left: 30%; */
+    /* display: block; */
     font-size: 2rem;
     z-index: 2;
 }
 
 .aboutUs--hands {
-    top: 60px;
-    left: 30%;
+    /* top: 60px; */
+    /* left: 30%; */
     z-index: 1;
+    position: relative;
+    top: -35px;
 }
 
 .aboutUs--team--members {
