@@ -24,8 +24,8 @@ $ yarn install
 - [Netlify](#check-out-our-project-on-netlify)
 
 ## Objective
-We are a group of 4 students from Wild Code School Web Development bootcamp and our task was to create a fully functional React app by using API calls, functional and class components, npm packages and many more. 
-The time allocated for this project was around 2 months.
+We are a group of 4 students from Wild Code School Web Development bootcamp and our task was to create a fully functional React app by using API calls, functional and class components, npm packages and many more.\
+The time allocated for this project was around 2 months.\
 We have chosen to create a job platform because we wanted to do something meaningful that could potentially help us and other people around us.
 
 
